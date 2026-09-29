@@ -1,0 +1,95 @@
+/* ---------- Peek carousel ---------- */
+.peek-section { background: var(--peninsula-white, #fff); overflow: hidden; }
+
+.peek {
+  --w: 58%;                 /* width of the centre slide */
+  --ease: cubic-bezier(.22, .61, .36, 1);
+  outline: none;
+}
+.peek-stage {
+  position: relative;
+  display: grid;            /* every slide sits in the same cell */
+  overflow: hidden;
+  touch-action: pan-y;      /* keep vertical scroll, we handle horizontal swipes */
+}
+
+.peek-slide {
+  grid-area: 1 / 1;
+  justify-self: center;
+  width: var(--w);
+  margin: 0;
+  transform: translateX(calc(var(--o, 0) * 100%));
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .8s var(--ease), opacity .8s var(--ease);
+}
+.peek-slide img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.peek-slide figcaption {
+  margin-top: 14px;
+  font-family: "Jost", "Futura", sans-serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4a4a4a;
+}
+
+/* left and right neighbours: faded, clickable */
+.peek-slide.is-near { opacity: .28; pointer-events: auto; cursor: pointer; }
+.peek-slide.is-near:hover { opacity: .45; }
+/* centre slide */
+.peek-slide.is-active { opacity: 1; pointer-events: auto; }
+
+/* arrows sit over the centre photo */
+.peek-controls {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--w);
+  transform: translateX(-50%);
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4.4%;
+  pointer-events: none;
+}
+.peek-btn {
+  pointer-events: auto;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .35));
+  transition: transform .25s ease, opacity .25s ease;
+  cursor: pointer;
+}
+.peek-btn:first-child:hover { transform: translateX(-5px); }
+.peek-btn:last-child:hover  { transform: translateX(5px); }
+.peek-btn:focus-visible { outline: 2px solid #fff; outline-offset: -6px; }
+
+/* iPad portrait and below */
+@media (max-width: 991.98px) {
+  .peek { --w: 72%; }
+}
+/* phones: smaller arrows, slimmer neighbours */
+@media (max-width: 575.98px) {
+  .peek { --w: 84%; }
+  .peek-btn { width: 44px; height: 44px; }
+  .peek-btn svg { width: 26px; }
+  .peek-slide figcaption { font-size: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .peek-slide, .peek-btn { transition: none; }
+}

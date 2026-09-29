@@ -1,0 +1,3942 @@
+:root {
+  --peninsula-cream: #f7f5f0;
+  --peninsula-gold: #867050;
+  --peninsula-gold-dark: #6e522f;
+  --peninsula-gold-light: #b99d6b;
+  --peninsula-charcoal: #1c1c1c;
+  --peninsula-rule: #dcd8d0;
+  --peninsula-white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Jost", sans-serif;
+  color: var(--peninsula-charcoal);
+  background: #F9F9F9;
+}
+
+.serif {
+  font-family: "EB Garamond", serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--peninsula-gold-light);
+  outline-offset: 3px;
+}
+/* brave our hotel> */
+.brave-our-hotel{
+  padding-bottom: 18px!important;
+  padding-top: 5px;
+}
+/* ---------- HERO ---------- */
+.peninsula-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.peninsula-header::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+  pointer-events: none;
+}
+
+.peninsula-header .peninsula-nav {
+  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 6;
+  transition: transform 0.3s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* hides the header when scrolling down */
+.peninsula-header.hide {
+  transform: translateY(-100%);
+}
+/* solid white bar, shown when scrolling back up */
+.peninsula-header .peninsula-nav.scrolled {
+  background-color: #fff!important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+/* kill the dark gradient behind the nav once it's solid white */
+.peninsula-header.scrolled::before {
+  display: none;
+}
+/* flip text/icons from white to dark charcoal */
+.peninsula-header.scrolled .brand a,
+.peninsula-header.scrolled .nav-link-custom,
+.peninsula-header.scrolled .hamburger-icon {
+  color: var(--peninsula-charcoal);
+}
+
+.peninsula-header.scrolled .nav-link-custom:hover {
+  color: var(--peninsula-gold);
+}
+
+/* reserve button can stay as-is, or tone down the border on white bg */
+.peninsula-header.scrolled .btn-reserve {
+  border-color: var(--peninsula-gold);
+}
+
+.test{
+  width: 100%;
+  height: 800px;
+  background-color: #867050;
+}
+
+.hero {
+  position: relative;
+  height: max(880px, 640px); /* fills the screen, like the reference */
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.1) 45%,
+    rgba(0, 0, 0, 0.5)
+  );
+  z-index: 1;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+#heroCarousel,
+#heroCarousel .carousel-inner,
+#heroCarousel .carousel-item {
+  min-height: 0;
+  height: 100%;
+}
+
+#heroCarousel .carousel-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-content {
+  margin-top: auto;
+  padding-bottom: 5rem;
+}
+
+.hero-title {
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4vw, 3.4rem);
+  line-height: 1.25;
+  color: #fff;
+  margin: 0;
+}
+
+/* caption + action bar only exist on tablet / mobile (see media query at the bottom) */
+.hero-caption {
+  display: none;
+}
+
+.mobile-actions {
+  display: none;
+}
+
+/* ---------- NAVBAR ---------- */
+.peninsula-nav {
+  padding: 0;
+}
+
+.peninsula-nav .container-fluid {
+  gap: 1rem;
+}
+
+.nav-side {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-side-right {
+  justify-content: flex-end;
+}
+
+.peninsula-nav .brand {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.peninsula-nav .brand a {
+  font-family: "EB Garamond", serif;
+  letter-spacing: 0.18em;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+
+.peninsula-nav .nav-link-custom {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.menu{
+  font-size: 15px;
+}
+
+.peninsula-nav .nav-link-custom:hover {
+  color: var(--peninsula-gold-light);
+}
+
+.language-switcher {
+  position: relative;
+}
+
+.language-toggle {
+  cursor: pointer;
+}
+
+.language-menu {
+  position: absolute;
+  top: calc(100% + 1rem);
+  right: 0;
+  z-index: 10;
+  min-width: 150px;
+  padding: 0.5rem 0;
+  background: #fff;
+  border: 1px solid var(--peninsula-rule);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.language-menu[hidden] {
+  display: none;
+}
+
+.language-menu a {
+  display: block;
+  padding: 0.65rem 1rem;
+  color: var(--peninsula-charcoal);
+  font-size: 0.85rem;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.language-menu a:hover,
+.language-menu a:focus-visible {
+  color: var(--peninsula-gold);
+  background: var(--peninsula-cream);
+}
+
+.mobile-language-menu {
+  position: static;
+  min-width: 0;
+  margin-top: -0.4rem;
+  box-shadow: none;
+}
+
+.mobile-language-menu a {
+  padding-left: 1.6rem;
+}
+
+.mobile-language-menu[hidden] {
+  display: none;
+}
+
+/* hamburger */
+.hamburger-icon {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 16px;
+  height: 11px;
+}
+
+.hamburger-icon span {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+}
+
+.hamburger-icon span:nth-child(3) {
+  width: 62%;
+}
+
+/* reserve button */
+.btn-reserve {
+  background-color: var(--peninsula-gold);
+  color: #fff;
+  border: 1px solid var(--peninsula-gold-light);
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0;
+}
+
+.btn-reserve:hover {
+  background-color: var(--peninsula-gold-dark);
+  border-color: var(--peninsula-gold-dark);
+  color: #fff;
+}
+
+/* ---------- SLIDE-OUT MENU (panel shell) ---------- */
+.peninsula-menu {
+  width: 520px;
+  max-width: 92vw;
+  background: #fff;
+  color: var(--peninsula-charcoal);
+  border: 0;
+  padding: 0;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  will-change: transform, width;
+}
+
+/* when the Our Hotels flyout is open, widen the whole panel */
+.peninsula-menu.hotels-open {
+  width: min(1400px, 96vw);
+  /* background-color: red; */
+}
+.peninsula-menu-open{
+  width: 100px;
+  padding-top: 10px!important;
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
+
+.menu-columns {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+}
+
+.menu-col {
+  height: auto;
+  min-height: 0;
+}
+
+/* ---------- COLUMN 1: main nav ---------- */
+.menu-col-main {
+  flex: 0 0 420px;
+  width: 420px;
+  min-width: 0;
+  max-width: 92vw;
+  padding: 0rem 2.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.peninsula-menu .offcanvas-header {
+  width: 100%;
+  flex: 0 0 auto;
+  padding: 0 1.2rem 3.5rem 0;
+  align-items: flex-start;
+}
+
+.menu-brand {
+  font-family: "EB Garamond", serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding-left: 42px;
+  padding-top: 35px;
+  padding-bottom: 30px;
+}
+
+.btn-close-custom {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--peninsula-gold);
+  margin-left: auto;
+  padding-top: 40px;
+}
+
+.hotels-toggle{
+  width: 100%;
+}
+
+.btn-close-custom:hover {
+  color: var(--peninsula-gold-dark);
+}
+
+.peninsula-menu .offcanvas-body {
+  padding: 0;
+  overflow-y: auto;
+}
+
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-list li + li {
+  margin-top: 1.35rem;
+}
+
+.menu-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--peninsula-charcoal);
+  font-weight: 300;
+  font-size: 20px !important;
+  line-height: 1.2;
+  transition: color 0.2s ease;
+}
+
+.menu-list a:hover,
+.menu-list a.active {
+  color: var(--peninsula-gold);
+}
+
+.menu-list a i {
+  font-size: 0.75rem;
+  color: var(--peninsula-gold);
+}
+
+.menu-footer {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--peninsula-rule);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.menu-footer a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--peninsula-charcoal);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.76rem;
+  font-weight: 400;
+}
+
+.menu-footer a:hover {
+  color: var(--peninsula-gold);
+}
+
+.menu-footer a i {
+  font-size: 0.7rem;
+  color: var(--peninsula-gold);
+}
+
+.menu-footer a span {
+  margin-right: auto;
+}
+
+.menu-footer-lang span {
+  margin-right: 0;
+}
+
+/* ---------- COLUMN 2: regions (the "Our Hotels" flyout) ---------- */
+.menu-col-regions,
+.menu-col-hotels {
+  flex: 0 0 0;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateX(-12px);
+  transition: flex-basis 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  border-left: 1px solid var(--peninsula-rule);
+}
+
+.peninsula-menu.hotels-open .menu-col-regions {
+  flex: 0 0 350px;
+  width: 350px;
+  opacity: 1;
+  transform: translateX(0);
+  padding: 0px 2rem 2.25rem 2rem;
+}
+
+.peninsula-menu.hotels-open .menu-col-hotels {
+  flex: 1 1 auto;
+  width: auto;
+  opacity: 1;
+  transform: translateX(0);
+  padding: 0rem 2.5rem;
+  overflow-y: auto;
+}
+
+.region-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.region-list li + li {
+  margin-top: 1.2rem;
+}
+
+.region-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--peninsula-charcoal);
+  font-size: 1.2rem;
+  font-weight: 300;
+  transition: color 0.2s ease;
+}
+
+.region-link i {
+  font-size: 0.7rem;
+  color: var(--peninsula-gold);
+}
+
+.region-link.active,
+.region-link:hover {
+  color: var(--peninsula-gold);
+}
+
+/* ---------- COLUMN 3: hotel cards ---------- */
+.hotel-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hotel-item a{
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.9rem 0;
+  text-decoration: none;
+}
+
+
+.hotel-thumb {
+  flex: 0 0 110px;
+  width: 110px;
+  height: 78px;
+  border-radius: 2px;
+  background-size: cover;
+  background-position: center;
+}
+.hotel-thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hotel-copy h3 {
+  /* font-family: "EB Garamond", serif; */
+  color: #1c1c1c;
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin: 0 0 0.25rem;
+}
+
+.hotel-copy p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #8a8377;
+  font-weight: 300;
+}
+
+/* backdrop tint to match the reference */
+.offcanvas-backdrop.show {
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .offcanvas,
+  .peninsula-menu,
+  .menu-col-regions,
+  .menu-col-hotels {
+    transition: none !important;
+  }
+}
+
+/* ---------- RESPONSIVE (slide-out menu) ---------- */
+@media (max-width: 991.98px) {
+  .peninsula-menu.hotels-open {
+    width: 100vw;
+  }
+
+  .menu-columns {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .menu-col-main {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+  }
+
+  .peninsula-menu.hotels-open .menu-col-regions,
+  .peninsula-menu.hotels-open .menu-col-hotels {
+    flex: 0 0 auto;
+    width: 100%;
+    border-left: 0;
+    border-top: 1px solid var(--peninsula-rule);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .menu-col-main {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .peninsula-menu .offcanvas-header {
+    padding-bottom: 2.25rem;
+  }
+
+  .menu-list li + li {
+    margin-top: 1.1rem;
+  }
+}
+
+/* ==========================================================
+   TABLET + MOBILE HEADER & HERO  (iPad mini down to small phones)
+   Everything below only applies at <= 991.98px
+   ========================================================== */
+@media (max-width: 991.98px) {
+  /* ---------- HEADER: solid white, sticky, sits above the hero ---------- */
+  .peninsula-header {
+    position: sticky;
+    top: 0;
+    left: auto;
+    width: 100%;
+  }
+
+  /* no dark gradient behind a white bar */
+  .peninsula-header::before {
+    display: none;
+  }
+
+  /* was position: fixed + transparent; now a normal white bar */
+  .peninsula-header .peninsula-nav {
+    position: relative;
+    background-color: #fff;
+  }
+
+  .peninsula-nav .container-fluid {
+    padding: 0.85rem 1.5rem !important; /* beats py-3 px-4 */
+  }
+
+  /* icon-only hamburger, gold, comfortable tap target */
+  .peninsula-nav .menu {
+    display: none;
+  }
+
+  .peninsula-nav .nav-side-left .nav-link-custom {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .peninsula-header .peninsula-nav .hamburger-icon {
+    color: var(--peninsula-gold);
+  }
+
+  .peninsula-header .peninsula-nav .brand a {
+    color: var(--peninsula-charcoal);
+    font-size: 1.15rem;
+  }
+
+  /* ---------- CONTACT US | RESERVE bar ---------- */
+  .peninsula-nav .mobile-actions {
+    display: flex;
+    flex: 0 0 100%;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid var(--peninsula-rule);
+    border-bottom: 1px solid var(--peninsula-rule);
+  }
+
+  .mobile-actions a,
+  .mobile-actions button {
+    flex: 1 1 50%;
+    padding: 1rem 0;
+    background: #fff;
+    border: 0;
+    border-radius: 0;
+    color: var(--peninsula-charcoal);
+    font-family: "Jost", sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-actions > * + * {
+    border-left: 1px solid var(--peninsula-rule);
+  }
+
+  .mobile-actions button {
+    border-left: 1px solid var(--peninsula-rule);
+  }
+
+  .mobile-actions a:hover,
+  .mobile-actions button:hover,
+  .mobile-actions a:active,
+  .mobile-actions button:active {
+    color: var(--peninsula-gold);
+  }
+
+}
+
+/* ---------- RESERVE DRAWER ---------- */
+.reserve-drawer {
+  --rd-page-bg: #f6f4ef;
+  --rd-card-bg: #fff;
+  --rd-line: #e6e3da;
+  --rd-ink: #262521;
+  --rd-muted: #9a9689;
+  --rd-accent: #b99b6b;
+  --rd-serif: "EB Garamond", serif;
+  width: 480px;
+  max-width: 100vw;
+  background: var(--rd-page-bg);
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
+}
+
+.reserve-drawer .offcanvas-header {
+  flex-shrink: 0;
+  background: var(--rd-card-bg);
+  padding: 1.6rem 1.75rem;
+}
+
+.reserve-drawer-title {
+  margin: 0;
+  font-family: var(--rd-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--rd-ink);
+  margin-right: auto;
+}
+
+.reserve-drawer .btn-close-custom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.25rem;
+  border: 0;
+  background: none;
+  color: var(--rd-ink);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.reserve-drawer-body {
+  min-height: 0;
+  padding: 0;
+  overflow-y: auto;
+  background: var(--rd-page-bg);
+}
+
+.rd-field {
+  margin-bottom: 2px;
+  background: var(--rd-card-bg);
+}
+
+.rd-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+  padding: 1.1rem 1.75rem;
+  border: 0;
+  background: none;
+  color: var(--rd-ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.rd-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.rd-label,
+.rd-code-label,
+.rd-dates-row label {
+  color: var(--rd-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.rd-value {
+  color: var(--rd-ink);
+  font-family: "EB Garamond", serif;
+  font-size: 1.1rem;
+}
+
+.rd-value--accent { color: var(--rd-accent); }
+
+.rd-chevron {
+  flex-shrink: 0;
+  color: var(--rd-muted);
+  transition: transform 0.2s ease;
+}
+
+.rd-trigger[aria-expanded="true"] .rd-chevron { transform: rotate(180deg); }
+
+.rd-panel { padding: 0 1.75rem 1.5rem; background: var(--rd-card-bg); }
+
+.rd-hotel-list {
+  max-height: 260px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.rd-hotel-list li {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--rd-line);
+  color: var(--rd-ink);
+  font-family: var(--rd-serif);
+  cursor: pointer;
+}
+
+.rd-hotel-list li:hover,
+.rd-hotel-list li.is-selected { color: var(--rd-accent); }
+
+.rd-dates-row { display: flex; gap: 1rem; }
+
+.rd-dates-row label {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.rd-dates-row input[type="date"],
+.rd-code-input {
+  width: 100%;
+  border: 1px solid var(--rd-line);
+  background: var(--rd-page-bg);
+  padding: 0.6rem 0.7rem;
+  color: var(--rd-ink);
+  font-family: var(--rd-serif);
+  font-size: 0.95rem;
+}
+
+.rd-nights { margin: 0.85rem 0 0; color: var(--rd-muted); font-size: 0.82rem; }
+
+.rd-rooms { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.rd-room {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.9rem 1rem;
+  background: var(--rd-page-bg);
+}
+
+.rd-room-title {
+  margin: 0;
+  color: var(--rd-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rd-stepper-row,
+.rd-guests-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.rd-stepper-row { color: var(--rd-ink); font-family: var(--rd-serif); }
+.rd-stepper { display: flex; align-items: center; gap: 0.6rem; }
+
+.rd-children-control {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.2rem;
+}
+
+.rd-stepper button {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--rd-line);
+  border-radius: 50%;
+  background: var(--rd-card-bg);
+  color: var(--rd-ink);
+  cursor: pointer;
+}
+
+.rd-stepper button:disabled { opacity: 0.35; cursor: not-allowed; }
+.rd-guests-foot { margin-top: 1rem; }
+.rd-note { margin: 0; color: var(--rd-muted); font-size: 0.75rem; }
+
+.rd-remove-room {
+  align-self: flex-end;
+  margin-top: 0.15rem;
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--rd-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.rd-remove-room:hover { color: var(--rd-ink); }
+.rd-remove-room:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.rd-add-room,
+.rd-code-done {
+  border: 1px solid var(--rd-ink);
+  background: none;
+  padding: 0.5rem 1rem;
+  color: var(--rd-ink);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.rd-code-option { padding: 0.85rem 0; }
+.rd-radio { display: flex; align-items: center; gap: 0.6rem; color: var(--rd-ink); font-family: var(--rd-serif); cursor: pointer; }
+.rd-radio input { position: absolute; opacity: 0; }
+.rd-radio-dot { width: 16px; height: 16px; flex-shrink: 0; border: 1px solid var(--rd-muted); border-radius: 50%; position: relative; }
+.rd-radio input:checked + .rd-radio-dot::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--rd-accent); }
+.rd-code-label { display: block; margin-bottom: 0.4rem; }
+.rd-code-input:disabled { background: #efece4; color: var(--rd-muted); }
+.rd-code-divider { height: 1px; margin: 0.25rem 0; background: var(--rd-line); }
+.rd-code-done { margin-top: 1rem; }
+
+.rd-info {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 1.1rem 1.75rem 1.5rem;
+  color: #77726a;
+  font-family: var(--rd-serif);
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.rd-info i { flex-shrink: 0; margin-top: 0.2rem; color: var(--rd-accent); }
+
+.reserve-drawer-footer {
+  flex-shrink: 0;
+  padding: 1rem 1.75rem;
+  background: var(--rd-card-bg);
+}
+
+.rd-submit {
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  background: var(--rd-accent);
+  padding: 0.95rem;
+  color: #fff;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.rd-submit:hover { background: #a88a5c; }
+
+@media (max-width: 576px) {
+  .reserve-drawer { width: 100%; }
+}
+
+@media (max-width: 991.98px) {
+
+  /* ---------- HERO: image on top, indicators on a white strip below ---------- */
+  .hero {
+    height: auto;
+    min-height: 0;
+  }
+
+  #heroCarousel {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    height: auto;
+    background: #F9F9F9;
+    border: none;
+  }
+
+  #heroCarousel .carousel-inner,
+  #heroCarousel .carousel-item {
+    min-height: 0;
+    height: auto;
+  }
+
+  #heroCarousel .carousel-item img {
+    height: clamp(420px, 68vh, 720px);
+  }
+
+  /* soft shade at the bottom of the photo so the caption stays readable */
+  #heroCarousel .carousel-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 55%,
+      rgba(0, 0, 0, 0.45)
+    );
+    pointer-events: none;
+  }
+
+  /* prev / next arrows are a desktop thing */
+  #heroCarousel .carousel-control-prev,
+  #heroCarousel .carousel-control-next {
+    display: none;
+  }
+
+  /* indicators: in the flow, under the image */
+  #heroCarousel .carousel-indicators {
+    position: static;
+    order: 2;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+  }
+
+  #heroCarousel .carousel-indicators [data-bs-target] {
+    width: 6px;
+    height: 6px;
+    margin: 0 8px;
+    border: 0;
+    border-radius: 50%;
+    background-color: #b9b5ad;
+    opacity: 1;
+  }
+
+  #heroCarousel .carousel-indicators .active {
+    width: 44px;
+    height: 2px;
+    border-radius: 0;
+    background-color: var(--peninsula-gold);
+  }
+
+  /* ---------- caption ("Suite Living, Perfected") ---------- */
+  .hero-caption {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2.5rem;
+    z-index: 3;
+    padding: 0 1.5rem;
+    text-align: center;
+    color: #fff;
+  }
+
+  .hero-caption h2 {
+    margin: 0 0 1rem;
+    font-family: "EB Garamond", serif;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    line-height: 1.2;
+  }
+
+  .hero-caption a {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
+
+/* ---------- small phones ---------- */
+@media (max-width: 575.98px) {
+  .peninsula-nav .container-fluid {
+    padding: 0.7rem 1rem !important;
+  }
+
+  .peninsula-header .peninsula-nav .brand a {
+    font-size: 1rem;
+    letter-spacing: 0.14em;
+  }
+
+  .mobile-actions a,
+  .mobile-actions button {
+    padding: 0.85rem 0;
+    font-size: 0.9rem;
+  }
+
+  #heroCarousel .carousel-item img {
+    height: 60vh;
+    min-height: 380px;
+  }
+}
+
+/* ==========================================================
+   SLIDE-OUT MENU on tablet + mobile (full screen, like the reference)
+   Only applies at <= 991.98px. Desktop menu is untouched.
+   ========================================================== */
+@media (max-width: 991.98px) {
+  /* panel fills the screen */
+  .peninsula-menu {
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  /* ---------- header: X on the left, brand centred ---------- */
+  .peninsula-menu .offcanvas-header {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    align-items: center;
+    padding: 1.25rem 2rem 0;
+    /* the HTML has pb-0 (!important), so spacing below the header is a margin */
+    margin-bottom: 1.75rem;
+  }
+
+  .peninsula-menu .btn-close-custom {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    display: flex;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem;
+  }
+
+  .peninsula-menu .menu-brand {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 0;
+    font-size: 1.15rem;
+    letter-spacing: 0.14em;
+    text-align: center;
+    color: var(--peninsula-charcoal);
+  }
+
+  /* ---------- main column fills the height so the footer sits at the bottom ---------- */
+  .peninsula-menu .menu-col-main {
+    flex: 1 1 auto;
+    padding: 0 2rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* when the "Our Hotels" flyout is open, the columns stack and scroll */
+  .peninsula-menu.hotels-open .menu-col-main {
+    flex: 0 0 auto;
+  }
+
+  /* ---------- big, left-aligned links with the chevron on the right ---------- */
+  .peninsula-menu .menu-list li + li {
+    margin-top: 1.9rem;
+  }
+
+  .peninsula-menu .menu-list a {
+    font-size: 1.5rem !important;
+    line-height: 1.25;
+  }
+
+  .peninsula-menu .menu-list a i {
+    font-size: 0.85rem;
+  }
+
+  /* remove the desktop nudge so the chevron centres on the text */
+  .peninsula-menu .brave-our-hotel {
+    padding: 0 !important;
+  }
+
+  /* ---------- footer: hairline, small caps links, chevron right next to text ---------- */
+  .peninsula-menu .menu-footer {
+    padding-top: 1.5rem;
+    gap: 1.1rem;
+  }
+
+  .peninsula-menu .menu-footer a {
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+  }
+
+  .peninsula-menu .menu-footer a span {
+    margin-right: 0;
+  }
+
+  .peninsula-menu .menu-footer-lang svg {
+    width: 20px;
+    height: 20px;
+    color: var(--peninsula-gold);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .peninsula-menu .offcanvas-header {
+    padding: 1rem 1.5rem 0;
+    margin-bottom: 1.25rem;
+  }
+
+  .peninsula-menu .menu-brand {
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+  }
+
+  .peninsula-menu .menu-col-main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .peninsula-menu .menu-list li + li {
+    margin-top: 1.5rem;
+  }
+
+  .peninsula-menu .menu-list a {
+    font-size: 1.35rem !important;
+  }
+}
+
+/* ==========================================================
+   "OUR HOTELS" view on tablet + mobile
+   Back arrow + title, region tabs, scrolling hotel list (no thumbnails)
+   Only applies at <= 991.98px. Desktop flyout is untouched.
+   ========================================================== */
+
+/* back + title row: hidden on desktop */
+.menu-subhead {
+  display: none;
+}
+
+@keyframes menuFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (max-width: 991.98px) {
+  /* main menu and Our Hotels are two separate screens */
+  .peninsula-menu.hotels-open .menu-col-main {
+    display: none;
+  }
+
+  .peninsula-menu:not(.hotels-open) .menu-col-regions,
+  .peninsula-menu:not(.hotels-open) .menu-col-hotels {
+    display: none;
+  }
+
+  .peninsula-menu.hotels-open .offcanvas-header {
+    margin-bottom: 1rem;
+  }
+
+  /* header + title + tabs stay put; only the hotel list scrolls */
+  .peninsula-menu.hotels-open .menu-columns {
+    overflow: hidden;
+  }
+
+  /* ---------- back arrow + "Our Hotels" ---------- */
+  .peninsula-menu.hotels-open .menu-subhead {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    align-items: center;
+    padding: 0 2rem;
+    margin-bottom: 1.25rem;
+    animation: menuFadeIn 0.3s ease;
+  }
+
+  .menu-back {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    display: flex;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: 0;
+    font-size: 1rem;
+    color: var(--peninsula-gold);
+  }
+
+  .menu-back:hover {
+    color: var(--peninsula-gold-dark);
+  }
+
+  .menu-subtitle {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    font-family: "Jost", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-align: center;
+    color: var(--peninsula-charcoal);
+  }
+
+  /* ---------- region tabs ---------- */
+  .peninsula-menu.hotels-open .menu-col-regions {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 0 2rem;
+    border: 0;
+    animation: menuFadeIn 0.3s ease;
+  }
+
+  .peninsula-menu .region-list {
+    display: flex;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--peninsula-charcoal);
+    scrollbar-width: none;
+  }
+
+  .peninsula-menu .region-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .peninsula-menu .region-list li {
+    flex: 1 0 0;
+    min-width: max-content;
+  }
+
+  .peninsula-menu .region-list li + li {
+    margin-top: 0;
+  }
+
+  .peninsula-menu .region-link {
+    position: relative;
+    justify-content: center;
+    padding: 0.9rem 0.75rem;
+    font-size: 1.1rem;
+    white-space: nowrap;
+  }
+
+  .peninsula-menu .region-link i {
+    display: none;
+  }
+
+  /* all tabs stay charcoal; the active one gets a gold underline */
+  .peninsula-menu .region-link.active,
+  .peninsula-menu .region-link:hover {
+    color: var(--peninsula-charcoal);
+  }
+
+  .peninsula-menu .region-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: transparent;
+    transition: background-color 0.2s ease;
+  }
+
+  .peninsula-menu .region-link.active::after {
+    background: var(--peninsula-gold);
+  }
+
+  /* ---------- hotel list: text only, scrolls inside the panel ---------- */
+  .peninsula-menu.hotels-open .menu-col-hotels {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    padding: 0.75rem 2rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
+    border: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #b3a78f transparent;
+    animation: menuFadeIn 0.3s ease;
+  }
+
+  .peninsula-menu .hotel-thumb {
+    display: none;
+  }
+
+  .peninsula-menu .hotel-item a {
+    display: block;
+    padding: 1.05rem 0;
+  }
+
+  .peninsula-menu .hotel-copy h3 {
+    font-size: 1.2rem;
+    color: #3b3b3b;
+  }
+
+  .peninsula-menu .hotel-copy p {
+    font-size: 0.85rem;
+    color: #6b665c;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .peninsula-menu.hotels-open .menu-subhead,
+  .peninsula-menu.hotels-open .menu-col-regions {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .peninsula-menu.hotels-open .menu-col-hotels {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .menu-subtitle {
+    font-size: 1.35rem;
+  }
+
+  .peninsula-menu .region-link {
+    padding: 0.8rem 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .peninsula-menu .hotel-copy h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-subhead,
+  .menu-col-regions,
+  .menu-col-hotels {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================
+   HERO SLIDER  (desktop, >= 992px)
+   Caption bottom-left, thin arrows, pill indicators
+   Tablet/mobile styles live in the block above.
+   ========================================================== */
+
+/* caption link: text + thin arrow on one line (all sizes) */
+.hero-caption a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hero-caption a svg {
+  flex: 0 0 auto;
+  transition: transform 0.3s ease;
+}
+
+@keyframes captionIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 992px) {
+  /* ---------- caption ---------- */
+  .hero-caption {
+    display: block;
+    position: absolute;
+    left: 3.75rem;
+    bottom: 7rem;
+    z-index: 3;
+    max-width: min(760px, 70%);
+    color: #fff;
+    text-align: left;
+  }
+
+  /* the caption eases in each time its slide becomes active */
+  #heroCarousel .carousel-item.active .hero-caption {
+    animation: captionIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+  }
+
+  .hero-caption h2 {
+    margin: 0 0 1.25rem;
+    font-family: "EB Garamond", serif;
+    font-weight: 400;
+    font-size: clamp(1.9rem, 2.4vw, 2.6rem);
+    line-height: 1.2;
+    text-shadow: 0 1px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .hero-caption a {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .hero-caption a:hover svg {
+    transform: translateX(5px);
+  }
+
+  /* soft shade at the bottom so the caption is readable on bright photos */
+  #heroCarousel .carousel-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0) 45%
+    );
+    pointer-events: none;
+  }
+
+  /* ---------- arrows: thin, tall chevrons, vertically centred ---------- */
+  #heroCarousel .carousel-control-prev,
+  #heroCarousel .carousel-control-next {
+    top: 50%;
+    bottom: auto;
+    width: auto;
+    height: 96px;
+    padding: 0 1.5rem;
+    opacity: 1;
+    transform: translateY(-50%);
+    transition: opacity 0.3s ease;
+  }
+
+  #heroCarousel .carousel-control-prev:hover,
+  #heroCarousel .carousel-control-next:hover {
+    opacity: 0.7;
+  }
+
+  #heroCarousel .carousel-control-prev-icon,
+  #heroCarousel .carousel-control-next-icon {
+    width: 20px;
+    height: 38px;
+    background-size: 100% 100%;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.35));
+  }
+
+  #heroCarousel .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 38' fill='none' stroke='%23fff' stroke-width='1.5'%3E%3Cpolyline points='18,1 2,19 18,37'/%3E%3C/svg%3E");
+  }
+
+  #heroCarousel .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 38' fill='none' stroke='%23fff' stroke-width='1.5'%3E%3Cpolyline points='2,1 18,19 2,37'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- indicators: translucent pill, long dash = current slide ---------- */
+  #heroCarousel .carousel-indicators {
+    left: 50%;
+    right: auto;
+    bottom: 5rem;
+    margin: 0;
+    padding: 0 1.1rem;
+    align-items: center;
+    border-radius: 999px;
+    background: rgba(96, 88, 78, 0.55);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    transform: translateX(-50%);
+  }
+
+  #heroCarousel .carousel-indicators [data-bs-target] {
+    width: 5px;
+    height: 5px;
+    margin: 0 6px;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.85;
+    transition: opacity 0.6s ease, width 0.35s ease;
+  }
+
+  #heroCarousel .carousel-indicators .active {
+    width: 45px;
+    height: 2px;
+    border-radius: 0;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #heroCarousel .carousel-item.active .hero-caption {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================
+   BOOKING BAR  (desktop hero, >= 992px)
+   Hotels | Dates | Guests | Special codes | Reserve
+   ========================================================== */
+.booking-bar {
+  display: none;
+  z-index: 4;
+}
+
+@media (min-width: 992px) {
+  .hero .booking-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr minmax(160px, 0.6fr) minmax(100px, 0.4fr);
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    z-index: 4;
+    width: min(1120px, 88%);
+    background: #fff;
+    border: 1px solid var(--peninsula-rule);
+    border-bottom: 0;
+    transform: translateX(-50%);
+  }
+
+  .booking-field {
+    position: relative;
+    min-width: 0;
+    border-right: 1px solid var(--peninsula-rule);
+  }
+
+  /* ---------- the four clickable fields ---------- */
+  .booking-trigger {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "label icon"
+      "value icon";
+    align-items: center;
+    column-gap: 0.75rem;
+    width: 100%;
+    height: 100%;
+    min-height: 4.25rem;
+    padding: 0.8rem 1.25rem;
+    background: #fff;
+    border: 0;
+    border-radius: 0;
+    color: var(--peninsula-charcoal);
+    font-family: inherit;
+    text-align: left;
+    transition: background-color 0.2s ease;
+  }
+
+  .booking-trigger:hover,
+  .booking-field.is-open .booking-trigger {
+    background: #faf9f6;
+  }
+
+  .booking-trigger:focus-visible {
+    outline-offset: -4px;
+  }
+
+  .booking-label {
+    grid-area: label;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #8a8377;
+  }
+
+  .booking-value {
+    grid-area: value;
+    overflow: hidden;
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.4;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .booking-value--accent {
+    color: var(--peninsula-gold);
+  }
+
+  .booking-dot {
+    color: var(--peninsula-gold);
+  }
+
+  .booking-icon {
+    grid-area: icon;
+    color: var(--peninsula-gold);
+    transition: transform 0.2s ease;
+  }
+
+  .booking-field.is-open .booking-icon {
+    transform: rotate(180deg);
+  }
+
+  /* ---------- Reserve ---------- */
+  .booking-submit {
+    background: var(--peninsula-gold);
+    border: 0;
+    border-radius: 0;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease;
+  }
+
+  .booking-submit:hover {
+    background: var(--peninsula-gold-dark);
+  }
+
+  .booking-submit:focus-visible {
+    outline-color: #fff;
+    outline-offset: -6px;
+  }
+
+  /* ---------- dropdown panels (open upward, above the bar) ---------- */
+  .booking-pop {
+    position: absolute;
+    bottom: calc(100% + 1px);
+    left: -1px;
+    z-index: 6;
+    min-width: 320px;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid var(--peninsula-rule);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.12);
+    animation: menuFadeIn 0.2s ease;
+  }
+
+  .booking-pop[hidden] {
+    display: none;
+  }
+
+  .booking-pop--list {
+    max-height: 320px;
+    padding: 0.5rem 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #b3a78f transparent;
+  }
+
+  .booking-option {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    background: none;
+    border: 0;
+    color: var(--peninsula-charcoal);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: left;
+  }
+
+  .booking-option small {
+    display: block;
+    margin-top: 0.1rem;
+    color: #8a8377;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .booking-option:hover,
+  .booking-option[aria-selected="true"] {
+    background: var(--peninsula-cream);
+  }
+
+  .booking-option[aria-selected="true"] {
+    color: var(--peninsula-gold);
+  }
+}
+
+/* narrower desktops / landscape tablets */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .booking-trigger {
+    padding: 0.8rem 1rem;
+  }
+
+  .booking-value {
+    font-size: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .booking-pop {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================
+   DATES: two-month range calendar (desktop, >= 992px)
+   ========================================================== */
+@media (min-width: 992px) {
+  /* the calendar centres over the whole bar, not just the Dates field */
+  .booking-field--dates {
+    position: static;
+  }
+
+  .booking-pop--calendar {
+    left: 50%;
+    right: auto;
+    bottom: 100%;
+    width: 620px;
+    max-width: calc(100vw - 2rem);
+    padding: 1.1rem 1.5rem 1.5rem;
+    transform: translateX(-50%);
+  }
+
+  /* "1 Night" */
+  .cal-nights {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0.3rem 1.5rem;
+    border: 1px solid var(--peninsula-rule);
+    color: var(--peninsula-charcoal);
+    font-size: 0.95rem;
+    font-weight: 300;
+    white-space: nowrap;
+  }
+
+  .cal-months {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cal-month {
+    min-width: 0;
+    padding: 0 0.75rem;
+  }
+
+  /* hairline between the two months */
+  .cal-month + .cal-month {
+    border-left: 1px solid var(--peninsula-rule);
+  }
+
+  .cal-title {
+    margin: 0.75rem 0 0.5rem;
+    color: var(--peninsula-charcoal);
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    line-height: 2.5rem;
+    text-align: center;
+  }
+
+  .cal-weekdays,
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .cal-weekdays span {
+    padding: 0.5rem 0;
+    color: #6b665c;
+    font-size: 0.85rem;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  /* always room for six weeks, so the panel never changes height */
+  .cal-grid {
+    grid-auto-rows: 2.4rem;
+    min-height: calc(6 * 2.4rem);
+  }
+
+  .cal-day {
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    color: #3b3b3b;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .cal-day:disabled {
+    color: #cfcac0;
+    cursor: default;
+  }
+
+  .cal-day:hover:not(:disabled):not(.in-range) {
+    background: var(--peninsula-cream);
+    color: var(--peninsula-gold);
+  }
+
+  .cal-day:focus-visible {
+    outline-offset: -3px;
+  }
+
+  /* chosen stay: soft gold, with a darker edge on the first and last night */
+  .cal-day.is-preview {
+    background: #ece6d8;
+  }
+
+  .cal-day.in-range {
+    background: #a8956a;
+    color: #fff;
+  }
+
+  .cal-day.is-start {
+    box-shadow: inset 6px 0 0 var(--peninsula-gold);
+  }
+
+  .cal-day.is-end {
+    box-shadow: inset -6px 0 0 var(--peninsula-gold);
+  }
+
+  /* previous / next month */
+  .cal-nav {
+    position: absolute;
+    top: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 40px;
+    padding: 0;
+    background: none;
+    border: 0;
+    color: var(--peninsula-gold);
+    transition: color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .cal-prev {
+    left: -0.5rem;
+  }
+
+  .cal-next {
+    right: -0.5rem;
+  }
+
+  .cal-nav:hover:not(:disabled) {
+    color: var(--peninsula-gold-dark);
+  }
+
+  .cal-nav:disabled {
+    opacity: 0.25;
+  }
+}
+
+/* ==========================================================
+   GUESTS panel (desktop, >= 992px)
+   Grey room block(s) + "Max 4 guests per room" + Add room
+   ========================================================== */
+@media (min-width: 992px) {
+  .booking-pop--guests {
+    width: calc(100% + 2px);
+    min-width: 300px;
+    padding: 0;
+  }
+
+  .guests-rooms {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #b3a78f transparent;
+  }
+
+  .guest-room {
+    padding: 0 1.3rem;
+    background: #f4f4f2;
+  }
+
+  .guest-room + .guest-room {
+    border-top: 3px solid #fff;
+  }
+
+  /* "Room 2  Remove" only shows once there is more than one room */
+  .guest-room-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.1rem;
+    color: #8a8377;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .guest-remove {
+    padding: 0;
+    background: none;
+    border: 0;
+    color: var(--peninsula-gold);
+    font: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .guest-remove:hover {
+    color: var(--peninsula-gold-dark);
+  }
+
+  .guest-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+  }
+
+  .guest-room-head + .guest-row {
+    padding-top: 1rem;
+  }
+
+  .guest-row + .guest-row {
+    border-top: 1px solid #dcdcd8;
+  }
+
+  .guest-label {
+    color: var(--peninsula-charcoal);
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.25;
+  }
+
+  .guest-label small {
+    display: block;
+    margin-top: 0.3rem;
+    color: #8a8377;
+    font-size: 0.85rem;
+  }
+
+  /* [ - ]  2  [ + ] */
+  .booking-pop--guests .stepper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .booking-pop--guests .stepper button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: #ecedea;
+    border: 0;
+    border-radius: 0;
+    color: var(--peninsula-gold-dark);
+    transition: background-color 0.15s ease;
+  }
+
+  .booking-pop--guests .stepper button:hover:not(:disabled) {
+    background: #e1e0d9;
+  }
+
+  .booking-pop--guests .stepper button:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  .booking-pop--guests .stepper button:focus-visible {
+    outline-offset: -3px;
+  }
+
+  .booking-pop--guests .stepper output {
+    width: 48px;
+    font-size: 1.05rem;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  /* white footer */
+  .guests-foot {
+    padding: 2rem 1.3rem 1.25rem;
+    text-align: center;
+  }
+
+  .guests-note {
+    margin: 0 0 1.1rem;
+    color: #7a756b;
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
+
+  .guests-add {
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    border: 1px solid var(--peninsula-gold);
+    border-radius: 0;
+    color: var(--peninsula-gold);
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .guests-add:hover:not(:disabled) {
+    background: var(--peninsula-gold);
+    color: #fff;
+  }
+
+  .guests-add:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+
+/* ==========================================================
+   SPECIAL CODES panel (desktop, >= 992px)
+   Promo / Group radio + Travel Advisor ID + Done
+   ========================================================== */
+@media (min-width: 992px) {
+  /* the panel spans the Special Codes field and the Reserve button */
+  .booking-field--codes {
+    position: static;
+  }
+
+  .booking-pop--codes {
+    left: auto;
+    right: -1px;
+    bottom: 100%;
+    width: 25%;
+    min-width: 280px;
+    padding: 2rem 1.9rem 1.9rem;
+  }
+
+  .code-option + .code-option {
+    margin-top: 1.3rem;
+  }
+
+  /* radio: hidden native input + drawn circle, so it stays keyboard accessible */
+  .code-radio {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin: 0 0 0.6rem;
+    font-size: 1.05rem;
+    font-weight: 300;
+    cursor: pointer;
+  }
+
+  .code-radio input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  .code-radio-dot {
+    position: relative;
+    flex: 0 0 19px;
+    width: 19px;
+    height: 19px;
+    background: #fff;
+    border: 1px solid var(--peninsula-rule);
+    border-radius: 50%;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .code-radio input:checked + .code-radio-dot {
+    background: #a8956a;
+    border-color: #a8956a;
+  }
+
+  .code-radio input:checked + .code-radio-dot::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2.5px;
+    width: 4px;
+    height: 8px;
+    border: solid #fff;
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+  }
+
+  .code-radio input:focus-visible + .code-radio-dot {
+    outline: 2px solid var(--peninsula-gold-light);
+    outline-offset: 2px;
+  }
+
+  .code-radio-text {
+    color: var(--peninsula-charcoal);
+  }
+
+  .code-radio input:not(:checked) ~ .code-radio-text {
+    color: #9b978f;
+  }
+
+  .code-label {
+    display: block;
+    margin: 0 0 0.6rem;
+    color: #9b978f;
+    font-size: 1.05rem;
+    font-weight: 300;
+  }
+
+  .code-input {
+    display: block;
+    width: 100%;
+    height: 3.3rem;
+    padding: 0 1.3rem;
+    background: #fff;
+    border: 1px solid var(--peninsula-rule);
+    border-radius: 0;
+    color: var(--peninsula-charcoal);
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 300;
+  }
+
+  .code-input::placeholder {
+    color: #8a8a86;
+    opacity: 1;
+  }
+
+  .code-input:focus {
+    border-color: var(--peninsula-gold);
+    box-shadow: 0 0 0 1px var(--peninsula-gold);
+    outline: 0;
+  }
+
+  /* the code type that isn't selected looks switched off */
+  .code-input:disabled {
+    background: #f9f9f8;
+    cursor: not-allowed;
+  }
+
+  .code-divider {
+    margin-top: 1.9rem;
+    border-top: 1px solid var(--peninsula-rule);
+  }
+
+  .code-divider + .code-option {
+    margin-top: 1.9rem;
+  }
+
+  .code-done {
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin-top: 1.25rem;
+    background: var(--peninsula-gold);
+    border: 1px solid var(--peninsula-gold-light);
+    border-radius: 0;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease;
+  }
+
+  .code-done:hover {
+    background: var(--peninsula-gold-dark);
+  }
+}
+
+
+/* ==========================================================
+   Our Hotels section  (all classes prefixed "oh-")
+   Load AFTER home.css:
+   <link rel="stylesheet" href="./CSS/our-hotels.css" />
+   ========================================================== */
+
+.our-hotel {
+  --oh-gold: #8c7550;
+  --oh-ink: #1c1c1c;
+  --oh-gap: 1.1rem;
+  padding-bottom: 4.5rem;
+  color: var(--oh-ink);
+}
+
+.our-hotel .oh-title {
+  font-family: "EB Garamond", Georgia, serif;
+  font-weight: 400;
+  /* font-size: clamp(2.2rem, 4vw, 3.4rem); */
+  font-size: 40px;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+/* ---------- Region tabs ---------- */
+.our-hotel .oh-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2.2rem;
+  margin: 1.6rem 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+.our-hotel .oh-tab {
+  padding: 0.35rem 0 0.55rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 300;
+  color: var(--oh-ink);
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.our-hotel .oh-tab:hover { color: var(--oh-gold); }
+.our-hotel .oh-tab.is-active {
+  color: var(--oh-gold);
+  border-bottom-color: var(--oh-gold);
+}
+.our-hotel .oh-tab:focus-visible,
+.our-hotel .oh-arrow:focus-visible,
+.our-hotel .oh-card:focus-visible {
+  outline: 2px solid var(--oh-gold);
+  outline-offset: 3px;
+}
+
+/* ---------- Carousel ---------- */
+#hotelsCarousel { position: relative; }
+
+#hotelsCarousel .oh-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+#hotelsCarousel .oh-media {
+  position: relative;             /* the hover card is positioned inside this */
+  aspect-ratio: 7 / 8;
+  background: #d9d3c7;            /* shows while the photo loads */
+  container-type: inline-size;    /* lets the hover text scale with card width */
+}
+#hotelsCarousel .oh-media > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Hover card: white panel over the photo ---------- */
+#hotelsCarousel .oh-hover {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 9%;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0s linear 0.3s;
+}
+#hotelsCarousel .oh-hover img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  flex: none;
+}
+#hotelsCarousel .oh-hover-name {
+  margin: 1.4rem 0 0;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: clamp(0.95rem, 3.4cqw, 1.3rem);
+  font-weight: 400;
+  color: #000;
+}
+#hotelsCarousel .oh-hover-desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+  margin: 0.9rem 0 0;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: clamp(0.9rem, 3.4cqw, 1.2rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: #3d3d3d;
+}
+#hotelsCarousel .oh-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: clamp(0.85rem, 3cqw, 1.1rem);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--oh-gold);
+}
+#hotelsCarousel .oh-explore svg {
+  width: 2.2rem;
+  height: 0.8rem;
+  color: var(--oh-ink);
+  flex: none;
+}
+
+/* Show the card on mouse hover (hover-capable devices) and on keyboard focus */
+@media (hover: hover) {
+  #hotelsCarousel .oh-card:hover .oh-hover {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+}
+#hotelsCarousel .oh-card:focus-visible .oh-hover {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+#hotelsCarousel .oh-name {
+  margin: 1.3rem 0 0;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+/* ---------- Arrows ---------- */
+#hotelsCarousel .oh-arrow {
+  position: absolute;
+  top: 38%;
+  transform: translateY(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 4rem;
+  padding: 0;
+  color: var(--oh-gold);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+#hotelsCarousel .oh-arrow svg { width: 1.5rem; height: 2.5rem; }
+#hotelsCarousel .oh-arrow--prev { left: -2.8rem; }
+#hotelsCarousel .oh-arrow--next { right: -2.8rem; }
+#hotelsCarousel .oh-arrow[hidden] { display: none; }
+
+/* ---------- Indicators: active = long line, others = dots ---------- */
+#hotelsCarousel .oh-indicators {
+  position: static;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 2.6rem 0 0;
+}
+#hotelsCarousel .oh-indicators[hidden] { display: none; }
+#hotelsCarousel .oh-indicators button {
+  box-sizing: border-box;
+  flex: none;
+  width: 5px;
+  height: 5px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: #8a8a8a;
+  opacity: 1;
+  text-indent: -999px;
+  transition: width 0.35s ease, border-radius 0.35s ease, background-color 0.35s ease;
+}
+#hotelsCarousel .oh-indicators button.active {
+  width: 90px;
+  height: 2px;
+  border-radius: 0;
+  background-color: var(--oh-gold);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1399.98px) {
+  #hotelsCarousel .oh-arrow--prev { left: -1.6rem; }
+  #hotelsCarousel .oh-arrow--next { right: -1.6rem; }
+}
+@media (max-width: 767.98px) {
+  .our-hotel .oh-tabs { gap: 0.4rem 1.5rem; }
+  .our-hotel .oh-tab { font-size: 1.15rem; }
+  #hotelsCarousel .oh-arrow { top: 30%; }
+  #hotelsCarousel .oh-arrow--prev { left: -1.3rem; }
+  #hotelsCarousel .oh-arrow--next { right: -1.3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #hotelsCarousel .oh-hover,
+  #hotelsCarousel .oh-indicators button { transition: none; }
+}
+
+
+/* ==========================================================
+   Section three: promo banner  (classes prefixed "promo-")
+   Load AFTER home.css:
+   <link rel="stylesheet" href="./CSS/promo-banner.css" />
+   ========================================================== */
+
+.promo-banner {
+  --promo-gold: #a58d63;
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: clamp(26rem, 30vw, 46rem);
+  padding: 3.5rem 0;
+  overflow: hidden;
+  color: #fff;
+  background: #1a1208;            /* shown while the photo loads */
+}
+
+/* photo fills the section, cropped to fit */
+.promo-banner .promo-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% center;
+}
+
+/* soft dark wash on the left so the text stays readable on any photo */
+.promo-banner .promo-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.2) 45%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+
+.promo-banner .promo-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Text ---------- */
+.promo-banner .promo-eyebrow {
+  margin: 0 0 1.6rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.promo-banner .promo-title {
+  margin: 0 0 1.4rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: clamp(1.9rem, 3.1vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.25;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.promo-banner .promo-text {
+  max-width: 34rem;
+  margin: 0 0 1.4rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: clamp(1rem, 1.25vw, 1.3rem);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ---------- Outlined button ---------- */
+.promo-banner .promo-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--peninsula-white);
+  background: transparent;
+  border: 1px solid var(--promo-gold);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+.promo-banner .promo-btn:hover,
+.promo-banner .promo-btn:focus-visible {
+  color: var(--promo-gold);
+  background: var(--peninsula-white);
+  border-color: var(--peninsula-white);
+}
+.promo-banner .promo-btn:focus-visible {
+  outline: 2px solid var(--peninsula-white);
+  outline-offset: 3px;
+}
+
+/* ---------- Small screens: photo on top, copy in its own white block below ---------- */
+@media (max-width: 991.98px) {
+  .promo-banner {
+    display: block;
+    min-height: 0;
+    padding: 0;
+    background: #fff;
+    color: var(--peninsula-charcoal);
+  }
+
+  .promo-banner .promo-visual {
+    position: relative;
+    height: clamp(360px, 66vw, 560px);
+    overflow: hidden;
+  }
+
+  .promo-banner .promo-bg {
+    position: absolute;
+    inset: 0;
+    object-position: 70% center;
+  }
+
+  .promo-banner .promo-shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 55%);
+  }
+
+  .promo-hero-mobile {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1.75rem;
+    z-index: 1;
+    padding: 0 1.5rem;
+    text-align: center;
+    color: #fff;
+  }
+
+  .promo-hero-mobile .promo-eyebrow { margin: 0 0 0.9rem; }
+  .promo-hero-mobile .promo-title { margin: 0; }
+
+  .promo-banner .promo-inner {
+    position: static;
+    padding: 2.5rem 1.5rem 3rem !important;
+    text-align: center;
+  }
+
+  .promo-banner .row {
+    margin: 0 !important;
+    justify-content: center;
+  }
+
+  .promo-banner .promo-inner .col-lg-7,
+  .promo-banner .promo-inner .col-xl-6,
+  .promo-banner .promo-inner .col-xxl-5,
+  .promo-banner .promo-inner .col-lg-8,
+  .promo-banner .promo-inner .col-xl-7 {
+    width: 100%;
+    max-width: 34rem;
+  }
+
+  .promo-banner .promo-text {
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .promo-banner .promo-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    color: var(--promo-gold);
+  }
+
+  .promo-banner .promo-btn:hover,
+  .promo-banner .promo-btn:focus-visible {
+    background: transparent;
+    color: var(--promo-gold-dark, var(--promo-gold));
+    border-color: var(--promo-gold);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .promo-banner .promo-visual {
+    height: clamp(320px, 72vw, 460px);
+  }
+
+  .promo-banner .promo-bg {
+    object-position: 65% center;
+  }
+
+  .promo-banner .promo-title {
+    font-size: clamp(1.7rem, 8vw, 2.3rem);
+  }
+
+  .promo-banner .promo-text {
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Small screens: stronger wash, since text sits over the photo ---------- */
+/* @media (max-width: 991.98px) {
+  .promo-banner { padding: 4rem 0; }
+  .promo-banner .promo-shade { background: rgba(0, 0, 0, 0.55); }
+
+  .promo-banner .container-fluid {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  .promo-banner .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .promo-banner .promo-inner .col-lg-7,
+  .promo-banner .promo-inner .col-xl-6,
+  .promo-banner .promo-inner .col-xxl-5 {
+    width: 100%;
+    max-width: 34rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .promo-banner {
+    min-height: 38rem;
+    padding: 3.5rem 0;
+  }
+
+  .promo-banner .container-fluid {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .promo-banner .promo-bg {
+    object-position: 65% center;
+  }
+
+  .promo-banner .promo-title {
+    font-size: clamp(2rem, 9vw, 2.7rem);
+  }
+
+  .promo-banner .promo-text {
+    font-size: 1rem;
+  }
+
+  .promo-banner .promo-btn {
+    display: block;
+    text-align: center;
+    padding: 0.9rem 1rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .promo-banner .promo-btn { transition: none; }
+} */
+
+/* ==========================================================
+   Featured Offers  (classes prefixed "offer" / "offers")
+   Load AFTER home.css:
+   <link rel="stylesheet" href="./CSS/featured-offers.css" />
+   ========================================================== */
+
+.featured-offers {
+  --offers-gold: #8c7550;
+  --offers-ink: #1c1c1c;
+  padding: 4rem 0 4.5rem;
+  color: var(--offers-ink);
+  background: #f8f8f8;
+}
+
+.featured-offers .offers-title {
+  margin: 0 0 2.2rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* gutter between cards; rows are equal height because cards use h-100 */
+.featured-offers .offers-grid {
+  --bs-gutter-x: 1.1rem;
+  --bs-gutter-y: 1.1rem;
+}
+
+/* ---------- Card ---------- */
+.featured-offers .offer-card {
+  position: relative;             /* the stretched link covers the whole card */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+}
+
+.featured-offers .offer-media {
+  position: relative;
+  aspect-ratio: 7 / 8;
+  overflow: hidden;
+  background: #d9d3c7;            /* shows while the photo loads */
+}
+.featured-offers .offer-media img,
+.featured-offers .offer-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.featured-offers .offer-card:hover .offer-media img,
+.featured-offers .offer-card:hover .offer-media video { transform: scale(1.03); }
+
+.featured-offers .offer-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.5rem 1.5rem 1.6rem;
+}
+
+.featured-offers .offer-name {
+  margin: 0 0 2.2rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.3;
+  color: #333;
+}
+
+/* two lines, then an ellipsis */
+.featured-offers .offer-desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: #444;
+}
+
+/* "EXPLORE MORE →" sits at the bottom of every card */
+.featured-offers .offer-more {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.8rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--offers-gold);
+}
+.featured-offers .offer-more svg {
+  width: 1.9rem;
+  height: 0.75rem;
+  flex: none;
+  color: var(--offers-ink);
+  transition: transform 0.25s ease;
+}
+.featured-offers .offer-card:hover .offer-more svg { transform: translateX(5px); }
+.featured-offers .offer-more:focus-visible { outline: none; }
+.featured-offers .offer-card:has(.offer-more:focus-visible) {
+  outline: 2px solid var(--offers-gold);
+  outline-offset: 3px;
+}
+
+/* ---------- Video pause / play button ---------- */
+.featured-offers .offer-pause {
+  position: absolute;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  z-index: 3;                      /* above the stretched link so it stays clickable */
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0;
+  color: #fff;
+  background: rgba(90, 80, 60, 0.6);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.featured-offers .offer-pause:hover { background: rgba(60, 52, 38, 0.8); }
+.featured-offers .offer-pause:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.featured-offers .offer-pause svg { width: 1rem; height: 1rem; fill: currentColor; }
+.featured-offers .offer-pause .ico-play { display: none; }
+.featured-offers .offer-pause.is-paused .ico-pause { display: none; }
+.featured-offers .offer-pause.is-paused .ico-play { display: block; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 767.98px) {
+  .featured-offers {
+    padding: 3rem 0 3.5rem;
+  }
+
+  .featured-offers .container-fluid {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .featured-offers .offers-title,
+  .featured-offers .container-fluid > .mx-3 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .featured-offers .offers-title {
+    margin-bottom: 1.75rem;
+    font-size: clamp(2rem, 9vw, 2.7rem);
+  }
+
+  .featured-offers .offers-grid {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 1.25rem;
+  }
+
+  .featured-offers .offer-media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .featured-offers .offer-name { margin-bottom: 1.4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .featured-offers .offer-media img,
+  .featured-offers .offer-media video,
+  .featured-offers .offer-more svg { transition: none; }
+}
+
+/* ==========================================================
+   Events carousel  (classes prefixed "ev-")
+   Load AFTER home.css:
+   <link rel="stylesheet" href="./CSS/events.css" />
+   ========================================================== */
+
+.events {
+  --ev-gold: #7f6a45;
+  --ev-frame: #f0efeb;            /* the thick pale border around each slide */
+  --ev-w: 68.4%;                  /* slide width incl. the photo that overhangs the frame */
+  --ev-gap: 4.7%;                 /* space between slides (also what "peeks" at the edges) */
+  padding: 4rem 0 4.5rem;
+  color: #1c1c1c;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* ---------- Heading + controls ---------- */
+.events .ev-title {
+  margin: 0;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.events .ev-controls {
+  width: var(--ev-w);
+  margin: 1.1rem auto 1.6rem;
+  gap: 1.4rem;
+}
+.events .ev-counter {
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: #444;
+}
+.events .ev-arrow {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2rem;
+  padding: 0;
+  color: var(--ev-gold);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.events .ev-arrow svg { width: 1.9rem; height: 0.8rem; }
+.events .ev-arrow:hover { transform: scale(1.1); }
+.events .ev-arrow:focus-visible { outline: 2px solid var(--ev-gold); outline-offset: 2px; }
+
+/* ---------- Track ----------
+   Slide i sits at i * (width + gap). The JS only sets --ev-i (which slide is
+   showing); the offset below centres that slide in the viewport. */
+.events .ev-viewport { overflow: hidden; touch-action: pan-y; }
+
+.events .ev-track {
+  --ev-i: 0;
+  display: flex;
+  gap: var(--ev-gap);             /* % of the track width = the viewport width */
+  transform: translateX(
+    calc((100% - var(--ev-w)) / 2 - var(--ev-i) * (var(--ev-w) + var(--ev-gap)))
+  );
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.events .ev-track.no-anim { transition: none; }
+
+.events .ev-slide {
+  position: relative;
+  flex: 0 0 var(--ev-w);
+  min-width: 0;
+}
+
+/* ---------- Frame (thick pale border, white inside) ---------- */
+.events .ev-frame {
+  display: flex;
+  margin-left: 4.8%;              /* leaves room for the photo to overhang */
+  aspect-ratio: 3.55 / 1;         /* grows taller automatically if the text needs it */
+  background: #fff;
+  border: 0.5rem solid var(--ev-frame);
+}
+
+/* photo: sticks out of the frame on the left, centred vertically */
+.events .ev-media {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 2;
+  width: 29.6%;
+  transform: translateY(-53%);
+}
+.events .ev-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #d9d3c7;
+}
+
+/* ---------- Text ---------- */
+.events .ev-copy {
+  display: flex;
+  flex: 1;                        /* fills the frame height so the link sits at the bottom */
+  flex-direction: column;
+  align-items: center;
+  margin-left: 26%;               /* starts where the photo ends */
+  padding: 3.2rem 1.5rem 1.6rem;
+  text-align: center;
+}
+.events .ev-eyebrow {
+  margin: 0 0 0.9rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: clamp(0.8rem, 0.95vw, 1rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #444;
+}
+.events .ev-name {
+  margin: 0 0 1rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: clamp(1.4rem, 1.9vw, 2.1rem);
+  font-weight: 300;
+  line-height: 1.25;
+  color: #333;
+}
+.events .ev-desc {
+  margin: 0 0 1.6rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: #444;
+}
+.events .ev-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: auto;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ev-gold);
+}
+.events .ev-more svg {
+  width: 1.9rem;
+  height: 0.75rem;
+  color: #1c1c1c;
+  transition: transform 0.25s ease;
+}
+.events .ev-more:hover svg { transform: translateX(5px); }
+.events .ev-more:focus-visible { outline: 2px solid var(--ev-gold); outline-offset: 4px; }
+
+/* the slides at the sides are clickable to bring them to the centre */
+.events .ev-slide:not(.is-active) { cursor: pointer; }
+
+/* ==========================================================
+   Tablet + mobile (below 992px): photo on top, text below
+   ========================================================== */
+@media (max-width: 991.98px) {
+  .events { --ev-w: 88%; --ev-gap: 3%; padding: 3rem 0 3.5rem; }
+
+  .events .ev-controls { margin-bottom: 1.2rem; }
+
+  .events .ev-frame {
+    display: block;
+    margin-left: 0;
+    aspect-ratio: auto;
+    padding: 1.1rem 1.1rem 2rem;
+  }
+  .events .ev-media {
+    position: static;
+    width: auto;
+    transform: none;
+    margin-bottom: 1.4rem;
+  }
+  .events .ev-copy {
+    margin-left: 0;
+    padding: 0;
+  }
+  .events .ev-more { margin-top: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .events .ev-track,
+  .events .ev-arrow,
+  .events .ev-more svg { transition: none; }
+}
+
+/* ==========================================================
+   Stay Connected: newsletter signup  (classes prefixed "sc-")
+   ========================================================== */
+
+.stay-connected {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: clamp(24rem, 32vw, 34rem);
+  overflow: hidden;
+  color: #fff;
+  background: #1a1a18;   /* shown while the photo loads */
+}
+
+.stay-connected .sc-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* dark wash on the left, fading out toward the right so the room still reads */
+.stay-connected .sc-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.62) 0%,
+    rgba(0, 0, 0, 0.4) 32%,
+    rgba(0, 0, 0, 0.05) 60%
+  );
+}
+
+.stay-connected .sc-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.stay-connected .sc-title {
+  margin: 0 0 1.1rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 2.6vw, 2.75rem);
+  letter-spacing: 0.02em;
+}
+
+.stay-connected .sc-text {
+  max-width: 30rem;
+  margin: 0 0 1.75rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: clamp(1rem, 1.1vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: #f1f0ec;
+}
+
+/* ---------- form: white input + solid gold button, one bar ---------- */
+.stay-connected .sc-form {
+  display: flex;
+  max-width: 34rem;
+}
+
+.stay-connected .sc-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 3.4rem;
+  padding: 0 1.2rem;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  color: var(--peninsula-charcoal);
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.stay-connected .sc-input::placeholder {
+  color: #8a8a86;
+  opacity: 1;
+}
+
+.stay-connected .sc-input:focus {
+  outline: 2px solid var(--peninsula-gold-light);
+  outline-offset: -2px;
+}
+
+.stay-connected .sc-submit {
+  flex: 0 0 auto;
+  height: 3.4rem;
+  padding: 0 1.9rem;
+  background: var(--peninsula-gold);
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.stay-connected .sc-submit:hover {
+  background: var(--peninsula-gold-dark);
+}
+
+.stay-connected .sc-submit:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -4px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991.98px) {
+  .stay-connected {
+    min-height: 0;
+    padding: 3.5rem 0;
+  }
+
+  .stay-connected .sc-shade {
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  .stay-connected .container-fluid {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  .stay-connected .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .stay-connected .sc-inner .col-lg-8,
+  .stay-connected .sc-inner .col-xl-6 {
+    width: 100%;
+    max-width: 30rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .stay-connected {
+    padding: 3rem 0;
+  }
+
+  .stay-connected .container-fluid {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .stay-connected .sc-title {
+    font-size: clamp(1.7rem, 8vw, 2.2rem);
+  }
+
+  .stay-connected .sc-form {
+    flex-direction: column;
+    max-width: none;
+  }
+
+  .stay-connected .sc-input {
+    height: 3.2rem;
+  }
+
+  .stay-connected .sc-submit {
+    height: 3.2rem;
+    margin-top: 0.6rem;
+    width: 100%;
+  }
+}
+
+/* ==========================================================
+   News and Moments  (classes prefixed "news-")
+   ========================================================== */
+
+.news-moments {
+  --news-gold: #8c7550;
+  --news-ink: #1c1c1c;
+  padding: 4.5rem 0;
+  background: #f9f9f9;
+  color: var(--news-ink);
+}
+
+.news-moments .news-eyebrow {
+  margin: 0 0 0.6rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6b665c;
+}
+
+.news-moments .news-title {
+  margin: 0 0 2.6rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 3vw, 2.9rem);
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Grid: featured card left, 2x2 grid right ---------- */
+.news-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.news-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* ---------- Card ---------- */
+.news-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.news-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.news-media {
+  position: relative;
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+  background: #d9d3c7;
+}
+
+.news-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.news-card:hover .news-media img {
+  transform: scale(1.03);
+}
+
+.news-body {
+  padding: 1.4rem 1.6rem;
+}
+
+.news-tag {
+  margin: 0 0 0.6rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a8377;
+}
+
+.news-name {
+  margin: 0 0 0.7rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: clamp(1.05rem, 1.3vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.news-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.news-name a:hover {
+  color: var(--news-gold);
+}
+
+.news-desc {
+  margin: 0 0 0.9rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #444;
+}
+
+.news-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--news-gold);
+}
+
+.news-more svg {
+  width: 1.7rem;
+  height: 0.7rem;
+  flex: none;
+  color: var(--news-ink);
+  transition: transform 0.25s ease;
+}
+
+.news-card:hover .news-more svg {
+  transform: translateX(5px);
+}
+
+/* ---------- Featured card: taller photo, body follows naturally ---------- */
+.news-card--featured {
+  grid-row: span 1;
+}
+
+.news-card--featured .news-media {
+  aspect-ratio: 16 / 9;
+}
+
+.news-card--featured .news-name {
+  font-size: clamp(1.4rem, 1.9vw, 1.9rem);
+}
+
+/* small cards' 4:3 photo + name/desc stack naturally in each grid cell */
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991.98px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-side {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .news-moments {
+    padding: 3rem 0;
+  }
+
+  .news-moments .container-fluid {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .news-moments .mx-3 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .news-moments .news-title {
+    margin-bottom: 1.75rem;
+  }
+
+  .news-side {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card--featured .news-desc {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-media img,
+  .news-more svg {
+    transition: none;
+  }
+}
+
+/* ==========================================================
+   Share Your Experience  (classes prefixed "se-")
+   ========================================================== */
+
+.share-exp {
+  --se-gold: #8c7550;
+  padding: 5rem 0 6rem;
+  background: #fff;
+  overflow: hidden;
+}
+
+.se-row {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+/* ---------- Photos ---------- */
+.se-photo {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #d9d3c7;
+}
+
+.se-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* staggered vertical offsets, like the reference */
+.se-photo--1 { align-self: flex-start; }
+.se-photo--2 { align-self: flex-end; }
+.se-photo--4 { align-self: flex-start; }
+.se-photo--5 {
+  align-self: flex-end;
+  aspect-ratio: 2 / 3;
+}
+
+/* ---------- Center text block ---------- */
+.se-text {
+  flex: 0 0 auto;
+  width: clamp(15rem, 22vw, 21rem);
+  text-align: center;
+  color: var(--peninsula-charcoal);
+}
+
+.se-title {
+  margin: 0 0 1.2rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 2.4vw, 2.5rem);
+  line-height: 1.25;
+}
+
+.se-sub {
+  margin: 0 0 1.5rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: #3d3d3d;
+}
+
+.se-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.se-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.7rem;
+  height: 2.7rem;
+  color: var(--se-gold);
+  background: #fff;
+  border: 1px solid var(--peninsula-rule);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+}
+
+.se-social-link i { font-size: 1rem; }
+
+.se-social-link:hover {
+  color: #fff;
+  background: var(--se-gold);
+  border-color: var(--se-gold);
+}
+
+.se-social-link:focus-visible {
+  outline: 2px solid var(--se-gold);
+  outline-offset: 2px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1199.98px) {
+  .se-row { gap: 1.1rem; }
+  .se-text { width: clamp(13rem, 26vw, 18rem); }
+}
+
+@media (max-width: 991.98px) {
+  .share-exp { padding: 3.5rem 0 4rem; }
+
+  .share-exp .container-fluid {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .se-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 2rem;
+  }
+
+  /* order: title block first, then a 2x2 photo grid */
+  .se-text {
+    order: -1;
+    width: 100%;
+    max-width: 26rem;
+  }
+
+  .se-photo {
+    flex: 1 1 calc(50% - 0.6rem);
+    align-self: auto !important;
+    aspect-ratio: 3 / 4 !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .se-title { font-size: clamp(1.7rem, 8vw, 2.1rem); }
+  .se-sub { font-size: 0.95rem; }
+
+  .se-row { row-gap: 1.25rem; }
+
+  .se-photo {
+    flex: 1 1 100%;
+  }
+
+  /* keep it to 2 photos on very small screens to avoid a long scroll */
+  .se-photo--4,
+  .se-photo--5 {
+    display: none;
+  }
+}
+
+/* ==========================================================
+   Site footer
+   ========================================================== */
+
+.site-footer {
+  --foot-gold: #8c7550;
+  --foot-ink: #1c1c1c;
+  background: #fff;
+  color: var(--foot-ink);
+}
+
+/* ---------- Stay Connected strip ---------- */
+.footer-connect {
+  background: #6f6f6f;
+  padding: 2.4rem 0;
+}
+
+.fc-row {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.fc-title {
+  flex: 0 0 auto;
+  margin: 0;
+  font-family: "EB Garamond", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 1.9vw, 1.9rem);
+  letter-spacing: 0.06em;
+  color: #fff;
+}
+
+.fc-form {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  max-width: 40rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  padding-bottom: 0.6rem;
+}
+
+.fc-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  padding: 0.3rem 0;
+}
+
+.fc-input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  opacity: 1;
+}
+
+.fc-input:focus {
+  outline: 0;
+}
+
+.fc-submit {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 0 1rem;
+  background: none;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.fc-submit:hover { transform: translateX(4px); }
+.fc-submit:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+/* ---------- Link columns ---------- */
+.footer-main {
+  padding: 4rem 0 3rem;
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.3fr;
+  gap: 2.5rem;
+}
+
+.fcol-title {
+  margin: 0 0 1.5rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+}
+
+.fcol-address {
+  margin: 0 0 1.3rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #3d3d3d;
+}
+
+.fcol-accent-link {
+  display: block;
+  margin-bottom: 0.9rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--foot-gold);
+  text-decoration: none;
+}
+
+.fcol-accent-link:hover { color: var(--peninsula-gold-dark); }
+
+.fcol-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fcol-list li + li { margin-top: 1.1rem; }
+
+.fcol-list a {
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--foot-ink);
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.fcol-list a:hover { color: var(--foot-gold); }
+
+.fcol-social {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.6rem;
+}
+
+.fcol-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--foot-gold);
+  background: #fff;
+  border: 1px solid var(--peninsula-rule);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.fcol-social-link i { font-size: 0.9rem; }
+
+.fcol-social-link:hover {
+  color: #fff;
+  background: var(--foot-gold);
+  border-color: var(--foot-gold);
+}
+
+.fcol-social-link:focus-visible {
+  outline: 2px solid var(--foot-gold);
+  outline-offset: 2px;
+}
+
+/* ---------- Bottom bar ---------- */
+.footer-bottom {
+  padding: 1.8rem 0 2.5rem;
+  border-top: 1px solid var(--peninsula-rule);
+}
+
+.fb-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 2.6rem;
+  list-style: none;
+  margin: 0 0 1.6rem;
+  padding: 0;
+}
+
+.fb-legal a {
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--foot-ink);
+  text-decoration: none;
+}
+
+.fb-legal a:hover { color: var(--foot-gold); }
+
+.fb-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+
+.fb-lang {
+  display: flex;
+  align-items: baseline;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.fb-lang-label {
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--foot-ink);
+}
+
+.fb-lang a {
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--foot-gold);
+  text-decoration: none;
+}
+
+.fb-lang a.active {
+  color: var(--foot-ink);
+}
+
+.fb-lang a:hover { color: var(--peninsula-gold-dark); }
+
+.fb-copy {
+  margin: 0;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #6b665c;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991.98px) {
+  .footer-cols {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2.75rem;
+  }
+
+  .fc-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .fc-form { max-width: none; width: 100%; }
+}
+
+@media (max-width: 767.98px) {
+  .footer-connect { padding: 2rem 0; }
+  .footer-main { padding: 3rem 0 2rem; }
+
+  .site-footer .container-fluid {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .footer-cols {
+    grid-template-columns: 1fr;
+    row-gap: 2.25rem;
+  }
+
+  .fb-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

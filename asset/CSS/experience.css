@@ -1,0 +1,354 @@
+.experience-hero-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  color: #fff;
+  font-family: "EB Garamond", serif;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  text-align: center;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.hero {
+  position: relative;
+  height: max(680px, 440px); /* fills the screen, like the reference */
+  overflow: hidden;
+}
+
+.heading-serif {
+    font-family: "Georgia", "Times New Roman", serif;
+    color: #2b2f36;
+  }
+  .letter-spacing {
+    letter-spacing: 1.5px;
+  }
+  .carousel-controls-box {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  }
+  .carousel-arrow-btn {
+    padding: 0.65rem 1.1rem;
+    color: #6b5f4f;
+  }
+  .carousel-arrow-btn:hover {
+    color: #2b2f36;
+  }
+  .carousel-divider {
+    width: 1px;
+    background-color: #e0dcd4;
+  }
+  .read-more-link {
+    letter-spacing: 1px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  .read-more-link:hover {
+    border-bottom-color: #2b2f36;
+  }
+
+  :root {
+  --peninsula-cream: #f7f5f0;
+  --peninsula-gold: #867050;
+  --peninsula-gold-dark: #6e522f;
+  --peninsula-gold-light: #b99d6b;
+  --peninsula-charcoal: #1c1c1c;
+  --peninsula-rule: #dcd8d0;
+  --peninsula-white: #fff;
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  color: var(--peninsula-charcoal);
+  background: var(--peninsula-white);
+}
+
+/* Top slider strip with arrow buttons */
+.slider-strip {
+  height: 55px;
+  background: var(--peninsula-cream) url("https://picsum.photos/1200/60?grayscale") center / cover;
+}
+.slider-arrows {
+  background: var(--peninsula-white);
+  border: 1px solid var(--peninsula-rule);
+  border-top: 0;
+}
+.slider-arrows button {
+  background: none;
+  border: 0;
+  color: var(--peninsula-gold);
+  width: 60px;
+  height: 54px;
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: color .2s;
+}
+.slider-arrows button:hover { color: var(--peninsula-gold-dark); }
+.slider-arrows button + button { border-left: 1px solid var(--peninsula-rule); }
+
+/* Heading */
+.label {
+  font-size: .95rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--peninsula-charcoal);
+  opacity: .75;
+}
+.title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 200;
+  font-size: 30px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.rule {
+  width: 174px;
+  border-top: 1px solid var(--peninsula-gold);
+  opacity: 1;
+  margin: 1.5rem 0 3.5rem;
+}
+
+/* destination */
+.city, .province {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 50;
+  font-size: 1.25rem;
+  color: var(--peninsula-charcoal);
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 .1rem;
+  background: linear-gradient(var(--peninsula-gold-light), var(--peninsula-gold-light)) no-repeat 0 92% / 0 .55rem;
+  transition: background-size .25s ease;
+}
+.city:hover,
+.city:focus-visible,
+.city.active {
+  background-size: 100% .55rem;
+  color: var(--peninsula-charcoal);
+}
+.province:hover,
+.province:focus-visible,
+.province.active {
+  background-size: 100% .55rem;
+  color: var(--peninsula-charcoal);
+}
+.city:focus-visible { outline: 2px solid var(--peninsula-gold); outline-offset: 3px; }
+.province:focus-visible { outline: 2px solid var(--peninsula-gold); outline-offset: 3px; }
+
+/* Hotel overview feature */
+.feature-frame {
+  border: 15px solid var(--peninsula-cream);
+  padding: 3.5rem 1.5rem;
+  background: var(--peninsula-white);
+}
+.feature-img {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  display: block;
+}
+.feature-eyebrow {
+  font-size: .9rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--peninsula-charcoal);
+}
+.feature-text {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--peninsula-charcoal);
+}
+.feature-text p { margin-bottom: 2rem; }
+ 
+/* Collapsed copy fades out at the bottom */
+.feature-text.collapsed {
+  max-height: 15.5rem;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(#000 60%, transparent);
+          mask-image: linear-gradient(#000 60%, transparent);
+}
+.read-more {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 1.15rem;
+  color: var(--peninsula-gold-dark);
+}
+.read-more:hover { color: var(--peninsula-gold); }
+ 
+.explore {
+  color: var(--peninsula-gold-dark);
+  font-size: .95rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.explore:hover { color: var(--peninsula-gold); }
+.explore span { display: inline-block; margin-left: .6rem; text-decoration: none; }
+ 
+@media (min-width: 992px) {
+  .feature-frame { margin-left: 5.5rem; padding: 3.5rem 3.5rem 3.5rem 0; }
+  /* image pokes out of the frame on the left */
+  .feature-img { margin-left: -5.5rem; width: calc(100% + 5.5rem); }
+}
+ 
+
+ 
+/* Services / Design alternating rows */
+.services-band { background: #F2F2F3; padding: 5rem 0; }
+.service-row + .service-row { margin-top: 7rem; }
+.service-row { background: var(--peninsula-white); }
+ 
+.service-media { position: relative; }
+.service-media .carousel-item img {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  display: block;
+}
+.service-arrows {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  display: flex;
+  background: var(--peninsula-white);
+  border: 1px solid var(--peninsula-rule);
+}
+.service-arrows button {
+  background: none;
+  border: 0;
+  width: 60px;
+  height: 60px;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--peninsula-gold);
+  transition: color .2s;
+}
+.service-arrows button:hover { color: var(--peninsula-gold-dark); }
+.service-arrows button + button { border-left: 1px solid var(--peninsula-rule); }
+ 
+.service-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+.service-copy .feature-eyebrow { margin-bottom: .25rem; }
+.service-title {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  color: var(--peninsula-charcoal);
+  margin: 0 0 1.25rem;
+}
+.service-copy p {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 34rem;
+}
+@media (min-width: 992px) {
+  .service-copy { padding: 3rem 3rem; }
+}
+
+/* Inspired Dining */
+.dining { padding: 5rem 0; }
+.dining-head { text-align: center; }
+.dining .rule { margin: 1.5rem auto 1.5rem; }
+ 
+.dining-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  color: var(--peninsula-charcoal);
+}
+.dining-nav button {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: "Jost", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--peninsula-gold);
+  transition: color .2s;
+}
+.dining-nav button:hover { color: var(--peninsula-gold-dark); }
+ 
+/* let the image overhang the frame (fade carousel, so no sliding clip) */
+.dining .carousel-inner { overflow: visible; }
+ 
+.dining-title {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.75rem;
+  color: var(--peninsula-gold);
+  margin-bottom: 1.5rem;
+}
+.dining-text { font-size: 1.1rem; line-height: 1.65; }
+.dining-text a {
+  color: var(--peninsula-gold-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.dining-text a:hover { color: var(--peninsula-gold); }
+
+/* Arrive in Style */
+.arrive { background: #F2F2F3; padding: 5rem 0; margin-bottom: 70px;}
+.arrive .rule { margin: 1.5rem 0 3rem; }
+.arrive-wrap { position: relative; }
+ 
+.arrive-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  height: 3.75rem;
+  margin-bottom: 0;
+}
+ 
+.arrive-slide { position: relative; padding-bottom: 3.5rem; }
+.arrive-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+.arrive-copy { background: var(--peninsula-white); padding: 2rem 1.5rem; }
+.arrive-copy .feature-eyebrow { font-size: 1.05rem; margin-bottom: .5rem; }
+.arrive-copy .dining-title { font-size: 1.6rem; margin-bottom: 1rem; }
+ 
+@media (min-width: 992px) {
+  /* white panel sits behind the image, lower than its top edge */
+  .arrive-slide::before {
+    content: "";
+    position: absolute;
+    top: 3.75rem;
+    bottom: 0;
+    left: 7%;
+    right: 0;
+    background: var(--peninsula-white);
+  }
+  .arrive-img,
+  .arrive-copy { position: relative; }
+  .arrive-copy {
+    background: none;
+    padding: 7.5rem 2rem 0 3.75rem;
+  }
+}
+ 
