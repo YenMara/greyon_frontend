@@ -6,6 +6,10 @@
   width: 100%;
   z-index: 5;
 }
+.brand-logo{
+  width: 60px;
+  height: 60px;
+}
 
 .peninsula-header::before {
   content: "";
@@ -478,7 +482,7 @@
   }
 
   .mobile-actions > * + * {
-    border-left: 1px solid var(--peninsula-rule);
+    border-left: 0;
   }
 
   .peninsula-menu,

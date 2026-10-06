@@ -13,6 +13,9 @@ const updateHeaderState = () => {
   const isScrolled = window.scrollY > 50;
   header.classList.toggle('scrolled', isScrolled);
   nav.classList.toggle('scrolled', isScrolled);
+  document.querySelectorAll('.brand-logo[data-logo-default][data-logo-scrolled]').forEach((img) => {
+    img.src = isScrolled ? img.dataset.logoScrolled : img.dataset.logoDefault;
+  });
 };
 
 window.addEventListener('scroll', updateHeaderState, { passive: true });

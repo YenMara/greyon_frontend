@@ -707,12 +707,12 @@ body {
     transition: color 0.2s ease;
   }
 
-  .mobile-actions > * + * {
-    border-left: 1px solid var(--peninsula-rule);
+  .mobile-actions button {
+    border-left: 0;
   }
 
   .mobile-actions button {
-    border-left: 1px solid var(--peninsula-rule);
+    border-left: 0;
   }
 
   .mobile-actions a:hover,
