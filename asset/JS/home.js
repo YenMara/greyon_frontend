@@ -64,298 +64,6 @@
     );
     setOpen(hotelField, false);
   });
-  
-  /* ===== RESERVE DRAWER LOGIC =====
-   Requires Bootstrap's JS bundle (already loaded on this page for #mainMenu).
-   Include this file after bootstrap.bundle.min.js, e.g.:
-   <script src="./js/reserve-drawer.js"></script>
-*/
-(function () {
-  "use strict";
-
-  document.addEventListener("DOMContentLoaded", init);
-
-  function init() {
-    const drawer = document.getElementById("reserveDrawer");
-    if (!drawer) return;
-
-    wireOpenTriggers(drawer);
-    wireAccordionRows(drawer);
-    populateHotelList(drawer);
-    setupDates(drawer);
-    setupGuests(drawer);
-    setupCodes(drawer);
-    wireSubmit(drawer);
-  }
-
-  // Open the drawer from the existing "Reserve" buttons in the navbar,
-  // without needing to hand-edit data-bs-* attributes on them.
-  function wireOpenTriggers(drawer) {
-    const offcanvas =
-      bootstrap.Offcanvas.getOrCreateInstance(drawer);
-    const openButtons = document.querySelectorAll(
-      ".btn-reserve, .mobile-actions button"
-    );
-    openButtons.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        offcanvas.show();
-      });
-    });
-  }
-
-  // Each row (Hotels / Dates / Guests / Special codes) expands its own
-  // panel underneath; opening one closes the others.
-  function wireAccordionRows(drawer) {
-    const triggers = drawer.querySelectorAll(".rd-trigger");
-    triggers.forEach((trigger) => {
-      trigger.addEventListener("click", () => {
-        const panelId = trigger.getAttribute("aria-controls");
-        const panel = document.getElementById(panelId);
-        const isOpen = trigger.getAttribute("aria-expanded") === "true";
-
-        triggers.forEach((t) => {
-          t.setAttribute("aria-expanded", "false");
-          const p = document.getElementById(t.getAttribute("aria-controls"));
-          if (p) p.hidden = true;
-        });
-
-        if (!isOpen && panel) {
-          trigger.setAttribute("aria-expanded", "true");
-          panel.hidden = false;
-        }
-      });
-    });
-  }
-
-  function populateHotelList(drawer) {
-    const list = drawer.querySelector("#rdHotelList");
-    const valueEl = drawer.querySelector("#rdHotelValue");
-    if (!list) return;
-
-    // Reuse the hotel names already defined in the slide-out menu.
-    const names = Array.from(
-      document.querySelectorAll(".hotel-item h3")
-    ).map((h3) => h3.textContent.trim());
-
-    const items = names.length ? names : ["Select a hotel"];
-    items.forEach((name) => {
-      const li = document.createElement("li");
-      li.textContent = name;
-      li.addEventListener("click", () => {
-        list
-          .querySelectorAll("li")
-          .forEach((el) => el.classList.remove("is-selected"));
-        li.classList.add("is-selected");
-        if (valueEl) valueEl.textContent = name;
-        closePanel(drawer, "rdHotelPanel");
-      });
-      list.appendChild(li);
-    });
-  }
-
-  function setupDates(drawer) {
-    const checkIn = drawer.querySelector("#rdCheckIn");
-    const checkOut = drawer.querySelector("#rdCheckOut");
-    const valueEl = drawer.querySelector("#rdDatesValue");
-    const nightsEl = drawer.querySelector("#rdNights");
-    if (!checkIn || !checkOut) return;
-
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(today.getDate() + 1);
-
-    checkIn.value = toInputDate(today);
-    checkOut.value = toInputDate(tomorrow);
-    checkIn.min = toInputDate(today);
-
-    render();
-
-    checkIn.addEventListener("change", () => {
-      if (checkOut.value <= checkIn.value) {
-        const next = new Date(checkIn.value);
-        next.setDate(next.getDate() + 1);
-        checkOut.value = toInputDate(next);
-      }
-      checkOut.min = checkIn.value;
-      render();
-    });
-    checkOut.addEventListener("change", render);
-
-    function render() {
-      const nights = Math.max(
-        1,
-        Math.round(
-          (new Date(checkOut.value) - new Date(checkIn.value)) /
-            (1000 * 60 * 60 * 24)
-        )
-      );
-      if (valueEl) {
-        valueEl.textContent =
-          formatDate(checkIn.value) + " \u2192 " + formatDate(checkOut.value);
-      }
-      if (nightsEl) {
-        nightsEl.textContent = nights + (nights === 1 ? " Night" : " Nights");
-      }
-    }
-  }
-
-  function toInputDate(d) {
-    return d.toISOString().slice(0, 10);
-  }
-
-  function formatDate(value) {
-    if (!value) return "";
-    const d = new Date(value + "T00:00:00");
-    return d.toLocaleDateString(undefined, {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-    });
-  }
-
-  // --- Guests: rooms with adult/child steppers, "Add room" up to 8 rooms ---
-  const MAX_ROOMS = 8;
-  const MAX_GUESTS_PER_ROOM = 4;
-
-  function setupGuests(drawer) {
-    const container = drawer.querySelector("#rdRooms");
-    const addBtn = drawer.querySelector("#rdAddRoom");
-    const valueEl = drawer.querySelector("#rdGuestsValue");
-    if (!container) return;
-
-    let rooms = [{ adults: 2, children: 0 }];
-
-    render();
-
-    addBtn.addEventListener("click", () => {
-      if (rooms.length >= MAX_ROOMS) return;
-      rooms.push({ adults: 1, children: 0 });
-      render();
-    });
-
-    function render() {
-      container.innerHTML = "";
-      rooms.forEach((room, i) => {
-        const roomEl = document.createElement("div");
-        roomEl.className = "rd-room";
-        roomEl.innerHTML =
-          '<p class="rd-room-title">Room ' +
-          (i + 1) +
-          "</p>" +
-          stepperRow("Adults", room.adults, 1) +
-          '<div class="rd-children-control">' +
-          stepperRow("Children", room.children, 0) +
-          '<button type="button" class="rd-remove-room" data-remove-room aria-label="Remove Room ' +
-          (i + 1) +
-          '">Remove</button></div>';
-        container.appendChild(roomEl);
-
-        const removeBtn = roomEl.querySelector("[data-remove-room]");
-        removeBtn.disabled = rooms.length === 1;
-        removeBtn.addEventListener("click", () => {
-          if (rooms.length === 1) return;
-          rooms.splice(i, 1);
-          render();
-        });
-
-        roomEl.querySelectorAll("[data-op]").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            const key = btn.getAttribute("data-key");
-            const op = btn.getAttribute("data-op");
-            const total = room.adults + room.children;
-            if (op === "inc" && total < MAX_GUESTS_PER_ROOM) {
-              room[key]++;
-            } else if (op === "dec") {
-              const min = key === "adults" ? 1 : 0;
-              if (room[key] > min) room[key]--;
-            }
-            render();
-          });
-        });
-      });
-
-      addBtn.disabled = rooms.length >= MAX_ROOMS;
-
-      const totalAdults = rooms.reduce((s, r) => s + r.adults, 0);
-      const totalChildren = rooms.reduce((s, r) => s + r.children, 0);
-      if (valueEl) {
-        valueEl.textContent =
-          rooms.length +
-          (rooms.length === 1 ? " Room" : " Rooms") +
-          " \u2022 " +
-          totalAdults +
-          " Adults " +
-          totalChildren +
-          " Children";
-      }
-    }
-
-    function stepperRow(label, value, min) {
-      return (
-        '<div class="rd-stepper-row"><span>' +
-        label +
-        '</span><span class="rd-stepper">' +
-        '<button type="button" data-op="dec" data-key="' +
-        label.toLowerCase() +
-        '">\u2212</button><span>' +
-        value +
-        '</span><button type="button" data-op="inc" data-key="' +
-        label.toLowerCase() +
-        '">+</button></span></div>'
-      );
-    }
-  }
-
-  function setupCodes(drawer) {
-    const radios = drawer.querySelectorAll('input[name="rdCodeType"]');
-    const promo = drawer.querySelector("#rdPromoCode");
-    const group = drawer.querySelector("#rdGroupCode");
-    const valueEl = drawer.querySelector("#rdCodesValue");
-    const doneBtn = drawer.querySelector("#rdCodeDone");
-    const advisor = drawer.querySelector("#rdAdvisorId");
-
-    radios.forEach((radio) => {
-      radio.addEventListener("change", () => {
-        const isPromo = radio.value === "promo" && radio.checked;
-        promo.disabled = !isPromo;
-        group.disabled = isPromo;
-      });
-    });
-
-    doneBtn.addEventListener("click", () => {
-      const active =
-        promo.value.trim() || group.value.trim() || advisor.value.trim();
-      if (valueEl) {
-        valueEl.textContent = active
-          ? promo.value.trim() || group.value.trim() || advisor.value.trim()
-          : "Add Special Codes";
-      }
-      closePanel(drawer, "rdCodesPanel");
-    });
-  }
-
-  function closePanel(drawer, panelId) {
-    const panel = document.getElementById(panelId);
-    const trigger = drawer.querySelector(
-      '[aria-controls="' + panelId + '"]'
-    );
-    if (panel) panel.hidden = true;
-    if (trigger) trigger.setAttribute("aria-expanded", "false");
-  }
-
-  function wireSubmit(drawer) {
-    const form = drawer.querySelector("#reserveDrawerForm");
-    if (!form) return;
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      // Wire this up to your actual booking/search endpoint.
-      // For now it just closes the drawer once fields are chosen.
-      const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(drawer);
-      offcanvas.hide();
-    });
-  }
-})();
 
   // ---------- dates: two-month range calendar ----------
   const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -694,6 +402,298 @@
   });
 })();
 
+/* ===== RESERVE DRAWER LOGIC =====
+   Requires Bootstrap's JS bundle (already loaded on this page for #mainMenu).
+   Include this file after bootstrap.bundle.min.js, e.g.:
+   <script src="./js/reserve-drawer.js"></script>
+*/
+(function () {
+  "use strict";
+
+  document.addEventListener("DOMContentLoaded", init);
+
+  function init() {
+    const drawer = document.getElementById("reserveDrawer");
+    if (!drawer) return;
+
+    wireOpenTriggers(drawer);
+    wireAccordionRows(drawer);
+    populateHotelList(drawer);
+    setupDates(drawer);
+    setupGuests(drawer);
+    setupCodes(drawer);
+    wireSubmit(drawer);
+  }
+
+  // Open the drawer from the existing "Reserve" buttons in the navbar,
+  // without needing to hand-edit data-bs-* attributes on them.
+  function wireOpenTriggers(drawer) {
+    const offcanvas =
+      bootstrap.Offcanvas.getOrCreateInstance(drawer);
+    const openButtons = document.querySelectorAll(
+      ".btn-reserve, .mobile-actions button"
+    );
+    openButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        offcanvas.show();
+      });
+    });
+  }
+
+  // Each row (Hotels / Dates / Guests / Special codes) expands its own
+  // panel underneath; opening one closes the others.
+  function wireAccordionRows(drawer) {
+    const triggers = drawer.querySelectorAll(".rd-trigger");
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const panelId = trigger.getAttribute("aria-controls");
+        const panel = document.getElementById(panelId);
+        const isOpen = trigger.getAttribute("aria-expanded") === "true";
+
+        triggers.forEach((t) => {
+          t.setAttribute("aria-expanded", "false");
+          const p = document.getElementById(t.getAttribute("aria-controls"));
+          if (p) p.hidden = true;
+        });
+
+        if (!isOpen && panel) {
+          trigger.setAttribute("aria-expanded", "true");
+          panel.hidden = false;
+        }
+      });
+    });
+  }
+
+  function populateHotelList(drawer) {
+    const list = drawer.querySelector("#rdHotelList");
+    const valueEl = drawer.querySelector("#rdHotelValue");
+    if (!list) return;
+
+    // Reuse the hotel names already defined in the slide-out menu.
+    const names = Array.from(
+      document.querySelectorAll(".hotel-item h3")
+    ).map((h3) => h3.textContent.trim());
+
+    const items = names.length ? names : ["Select a hotel"];
+    items.forEach((name) => {
+      const li = document.createElement("li");
+      li.textContent = name;
+      li.addEventListener("click", () => {
+        list
+          .querySelectorAll("li")
+          .forEach((el) => el.classList.remove("is-selected"));
+        li.classList.add("is-selected");
+        if (valueEl) valueEl.textContent = name;
+        closePanel(drawer, "rdHotelPanel");
+      });
+      list.appendChild(li);
+    });
+  }
+
+  function setupDates(drawer) {
+    const checkIn = drawer.querySelector("#rdCheckIn");
+    const checkOut = drawer.querySelector("#rdCheckOut");
+    const valueEl = drawer.querySelector("#rdDatesValue");
+    const nightsEl = drawer.querySelector("#rdNights");
+    if (!checkIn || !checkOut) return;
+
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+
+    checkIn.value = toInputDate(today);
+    checkOut.value = toInputDate(tomorrow);
+    checkIn.min = toInputDate(today);
+
+    render();
+
+    checkIn.addEventListener("change", () => {
+      if (checkOut.value <= checkIn.value) {
+        const next = new Date(checkIn.value);
+        next.setDate(next.getDate() + 1);
+        checkOut.value = toInputDate(next);
+      }
+      checkOut.min = checkIn.value;
+      render();
+    });
+    checkOut.addEventListener("change", render);
+
+    function render() {
+      const nights = Math.max(
+        1,
+        Math.round(
+          (new Date(checkOut.value) - new Date(checkIn.value)) /
+            (1000 * 60 * 60 * 24)
+        )
+      );
+      if (valueEl) {
+        valueEl.textContent =
+          formatDate(checkIn.value) + " \u2192 " + formatDate(checkOut.value);
+      }
+      if (nightsEl) {
+        nightsEl.textContent = nights + (nights === 1 ? " Night" : " Nights");
+      }
+    }
+  }
+
+  function toInputDate(d) {
+    return d.toISOString().slice(0, 10);
+  }
+
+  function formatDate(value) {
+    if (!value) return "";
+    const d = new Date(value + "T00:00:00");
+    return d.toLocaleDateString(undefined, {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
+  }
+
+  // --- Guests: rooms with adult/child steppers, "Add room" up to 8 rooms ---
+  const MAX_ROOMS = 8;
+  const MAX_GUESTS_PER_ROOM = 4;
+
+  function setupGuests(drawer) {
+    const container = drawer.querySelector("#rdRooms");
+    const addBtn = drawer.querySelector("#rdAddRoom");
+    const valueEl = drawer.querySelector("#rdGuestsValue");
+    if (!container) return;
+
+    let rooms = [{ adults: 2, children: 0 }];
+
+    render();
+
+    addBtn.addEventListener("click", () => {
+      if (rooms.length >= MAX_ROOMS) return;
+      rooms.push({ adults: 1, children: 0 });
+      render();
+    });
+
+    function render() {
+      container.innerHTML = "";
+      rooms.forEach((room, i) => {
+        const roomEl = document.createElement("div");
+        roomEl.className = "rd-room";
+        roomEl.innerHTML =
+          '<p class="rd-room-title">Room ' +
+          (i + 1) +
+          "</p>" +
+          stepperRow("Adults", room.adults, 1) +
+          '<div class="rd-children-control">' +
+          stepperRow("Children", room.children, 0) +
+          '<button type="button" class="rd-remove-room" data-remove-room aria-label="Remove Room ' +
+          (i + 1) +
+          '">Remove</button></div>';
+        container.appendChild(roomEl);
+
+        const removeBtn = roomEl.querySelector("[data-remove-room]");
+        removeBtn.disabled = rooms.length === 1;
+        removeBtn.addEventListener("click", () => {
+          if (rooms.length === 1) return;
+          rooms.splice(i, 1);
+          render();
+        });
+
+        roomEl.querySelectorAll("[data-op]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const key = btn.getAttribute("data-key");
+            const op = btn.getAttribute("data-op");
+            const total = room.adults + room.children;
+            if (op === "inc" && total < MAX_GUESTS_PER_ROOM) {
+              room[key]++;
+            } else if (op === "dec") {
+              const min = key === "adults" ? 1 : 0;
+              if (room[key] > min) room[key]--;
+            }
+            render();
+          });
+        });
+      });
+
+      addBtn.disabled = rooms.length >= MAX_ROOMS;
+
+      const totalAdults = rooms.reduce((s, r) => s + r.adults, 0);
+      const totalChildren = rooms.reduce((s, r) => s + r.children, 0);
+      if (valueEl) {
+        valueEl.textContent =
+          rooms.length +
+          (rooms.length === 1 ? " Room" : " Rooms") +
+          " \u2022 " +
+          totalAdults +
+          " Adults " +
+          totalChildren +
+          " Children";
+      }
+    }
+
+    function stepperRow(label, value, min) {
+      return (
+        '<div class="rd-stepper-row"><span>' +
+        label +
+        '</span><span class="rd-stepper">' +
+        '<button type="button" data-op="dec" data-key="' +
+        label.toLowerCase() +
+        '">\u2212</button><span>' +
+        value +
+        '</span><button type="button" data-op="inc" data-key="' +
+        label.toLowerCase() +
+        '">+</button></span></div>'
+      );
+    }
+  }
+
+  function setupCodes(drawer) {
+    const radios = drawer.querySelectorAll('input[name="rdCodeType"]');
+    const promo = drawer.querySelector("#rdPromoCode");
+    const group = drawer.querySelector("#rdGroupCode");
+    const valueEl = drawer.querySelector("#rdCodesValue");
+    const doneBtn = drawer.querySelector("#rdCodeDone");
+    const advisor = drawer.querySelector("#rdAdvisorId");
+
+    radios.forEach((radio) => {
+      radio.addEventListener("change", () => {
+        const isPromo = radio.value === "promo" && radio.checked;
+        promo.disabled = !isPromo;
+        group.disabled = isPromo;
+      });
+    });
+
+    doneBtn.addEventListener("click", () => {
+      const active =
+        promo.value.trim() || group.value.trim() || advisor.value.trim();
+      if (valueEl) {
+        valueEl.textContent = active
+          ? promo.value.trim() || group.value.trim() || advisor.value.trim()
+          : "Add Special Codes";
+      }
+      closePanel(drawer, "rdCodesPanel");
+    });
+  }
+
+  function closePanel(drawer, panelId) {
+    const panel = document.getElementById(panelId);
+    const trigger = drawer.querySelector(
+      '[aria-controls="' + panelId + '"]'
+    );
+    if (panel) panel.hidden = true;
+    if (trigger) trigger.setAttribute("aria-expanded", "false");
+  }
+
+  function wireSubmit(drawer) {
+    const form = drawer.querySelector("#reserveDrawerForm");
+    if (!form) return;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      // Wire this up to your actual booking/search endpoint.
+      // For now it just closes the drawer once fields are chosen.
+      const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(drawer);
+      offcanvas.hide();
+    });
+  }
+})();
+
 /* ==========================================================
    Our Hotels carousel
    - Reads the hotels already listed in the slide-out menu
@@ -708,6 +708,7 @@
   const innerEl = document.getElementById("hotelsInner");
   const prevBtn = document.getElementById("hotelsPrev");
   const nextBtn = document.getElementById("hotelsNext");
+  const indicators = document.getElementById("hotelsIndicators");
   const tabs = document.querySelectorAll(".oh-tab");
 
   let region = "all";
@@ -761,6 +762,21 @@
       // Filter cards
       filterHotels();
 
+      const slides = [...innerEl.querySelectorAll(".carousel-item")];
+      const firstMatchingSlide = slides.findIndex((slide) =>
+        [...slide.querySelectorAll(".hotel-card")].some(
+          (card) => region === "all" || card.dataset.region === region
+        )
+      );
+
+      if (firstMatchingSlide >= 0) {
+        carousel.to(firstMatchingSlide);
+      }
+
+      const activeSlide = innerEl.querySelector(".carousel-item.active");
+      activeSlide.scrollTo({ left: 0, behavior: "smooth" });
+      updateArrows();
+
     });
 
   });
@@ -792,10 +808,45 @@
 
     const index = slides.indexOf(activeSlide);
 
+    if (slides.length === 1) {
+      const maxScroll = activeSlide.scrollWidth - activeSlide.clientWidth;
+      prevBtn.hidden = activeSlide.scrollLeft <= 0;
+      nextBtn.hidden = activeSlide.scrollLeft >= maxScroll - 1;
+      indicators.hidden = true;
+      return;
+    }
+
     prevBtn.hidden = index <= 0;
     nextBtn.hidden = index >= slides.length - 1;
+    indicators.hidden = false;
 
   }
+
+  prevBtn.addEventListener("click", () => {
+    const activeSlide = innerEl.querySelector(".carousel-item.active");
+    if (slidesCount() === 1) {
+      activeSlide.scrollBy({ left: -activeSlide.clientWidth, behavior: "smooth" });
+    } else {
+      carousel.prev();
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    const activeSlide = innerEl.querySelector(".carousel-item.active");
+    if (slidesCount() === 1) {
+      activeSlide.scrollBy({ left: activeSlide.clientWidth, behavior: "smooth" });
+    } else {
+      carousel.next();
+    }
+  });
+
+  function slidesCount() {
+    return innerEl.querySelectorAll(".carousel-item").length;
+  }
+
+  innerEl.querySelectorAll(".carousel-item").forEach((slide) => {
+    slide.addEventListener("scroll", updateArrows, { passive: true });
+  });
 
   // --------------------------------------------------
   // Bootstrap carousel event
@@ -983,3 +1034,101 @@
   });
 })();
 
+    (function () {
+      var carouselEl = document.getElementById("hotelsCarousel");
+      var inner = document.getElementById("hotelsInner");
+      var indicators = document.getElementById("hotelsIndicators");
+      var prev = document.getElementById("hotelsPrev");
+      var next = document.getElementById("hotelsNext");
+      var tabs = document.querySelectorAll(".oh-tab");
+  
+      if (!carouselEl || !inner || !indicators || !prev || !next) return;
+  
+      // Keep every card in memory so filters / resizes can regroup them
+      var allCards = Array.prototype.slice.call(inner.querySelectorAll(".hotel-card"));
+      var carousel = bootstrap.Carousel.getOrCreateInstance(carouselEl, { interval: false, wrap: false });
+ 
+      var region = "all";
+      var slideCount = 1;
+ 
+      // Must match the breakpoints in our-hotels.css (3 / 2 / 1 cards)
+      function perSlide() {
+        if (window.matchMedia("(min-width: 992px)").matches) return 3;
+        if (window.matchMedia("(min-width: 768px)").matches) return 2;
+        return 1;
+      }
+      var per = perSlide();
+ 
+      function updateArrows(index) {
+        prev.hidden = slideCount < 2 || index === 0;
+        next.hidden = slideCount < 2 || index === slideCount - 1;
+      }
+ 
+      function render() {
+        var cards = allCards.filter(function (c) {
+          return region === "all" || c.dataset.region === region;
+        });
+ 
+        inner.innerHTML = "";
+        indicators.innerHTML = "";
+        slideCount = Math.max(1, Math.ceil(cards.length / per));
+ 
+        for (var s = 0; s < slideCount; s++) {
+          var slide = document.createElement("div");
+          slide.className = "carousel-item hotel-slide" + (s === 0 ? " active" : "");
+ 
+          var row = document.createElement("div");
+          row.className = "row hotel-card-row";
+          row.style.cssText = "--bs-gutter-x: 1.1rem; --bs-gutter-y: 0";
+ 
+          var chunk = cards.slice(s * per, (s + 1) * per);
+          chunk.forEach(function (c) { row.appendChild(c); });
+ 
+          // Pad the last slide so 1-2 cards keep the same width as a full row
+          for (var p = chunk.length; p < per; p++) {
+            var spacer = document.createElement("div");
+            spacer.className = "col hotel-spacer";
+            spacer.setAttribute("aria-hidden", "true");
+            row.appendChild(spacer);
+          }
+ 
+          slide.appendChild(row);
+          inner.appendChild(slide);
+ 
+          var dot = document.createElement("button");
+          dot.type = "button";
+          dot.setAttribute("data-bs-target", "#hotelsCarousel");
+          dot.setAttribute("data-bs-slide-to", s);
+          dot.setAttribute("aria-label", "Go to slide " + (s + 1));
+          if (s === 0) { dot.className = "active"; dot.setAttribute("aria-current", "true"); }
+          indicators.appendChild(dot);
+        }
+ 
+        indicators.hidden = slideCount < 2;
+        updateArrows(0);
+      }
+ 
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          tabs.forEach(function (t) {
+            var on = t === tab;
+            t.classList.toggle("is-active", on);
+            t.setAttribute("aria-pressed", on);
+          });
+          region = tab.dataset.region;
+          render();
+        });
+      });
+ 
+      prev.addEventListener("click", function () { carousel.prev(); });
+      next.addEventListener("click", function () { carousel.next(); });
+      carouselEl.addEventListener("slid.bs.carousel", function (e) { updateArrows(e.to); });
+ 
+      // Regroup when the screen crosses a breakpoint
+      window.addEventListener("resize", function () {
+        var n = perSlide();
+        if (n !== per) { per = n; render(); }
+      });
+ 
+      render();
+    })();

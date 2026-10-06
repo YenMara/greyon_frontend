@@ -97,7 +97,7 @@ body {
 
 .hero {
   position: relative;
-  height: max(880px, 640px); /* fills the screen, like the reference */
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -2278,27 +2278,25 @@ body {
 
 /* ==========================================================
    Our Hotels section  (all classes prefixed "oh-")
-   Load AFTER home.css:
-   <link rel="stylesheet" href="./CSS/our-hotels.css" />
+   Replaces the whole "Our Hotels section" block in your CSS.
+   Load AFTER home.css if kept as its own file.
    ========================================================== */
-
+ 
 .our-hotel {
   --oh-gold: #8c7550;
   --oh-ink: #1c1c1c;
-  --oh-gap: 1.1rem;
   padding-bottom: 4.5rem;
   color: var(--oh-ink);
 }
-
+ 
 .our-hotel .oh-title {
-  font-family: "EB Garamond", Georgia, serif;
-  font-weight: 400;
-  /* font-size: clamp(2.2rem, 4vw, 3.4rem); */
-  font-size: 40px;
-  letter-spacing: 0.01em;
   margin: 0;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
-
+ 
 /* ---------- Region tabs ---------- */
 .our-hotel .oh-tabs {
   display: flex;
@@ -2308,6 +2306,7 @@ body {
   padding: 0;
   list-style: none;
 }
+ 
 .our-hotel .oh-tab {
   padding: 0.35rem 0 0.55rem;
   font-family: "Jost", "Futura", sans-serif;
@@ -2320,39 +2319,70 @@ body {
   cursor: pointer;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
+ 
 .our-hotel .oh-tab:hover { color: var(--oh-gold); }
+ 
 .our-hotel .oh-tab.is-active {
   color: var(--oh-gold);
   border-bottom-color: var(--oh-gold);
 }
+ 
 .our-hotel .oh-tab:focus-visible,
 .our-hotel .oh-arrow:focus-visible,
 .our-hotel .oh-card:focus-visible {
   outline: 2px solid var(--oh-gold);
   outline-offset: 3px;
 }
-
-/* ---------- Carousel ---------- */
+ 
+/* ---------- Carousel ----------
+   The script puts 3 / 2 / 1 cards in each slide (desktop / tablet / phone),
+   so the slide itself no longer scrolls. */
 #hotelsCarousel { position: relative; }
-
+ 
+#hotelsCarousel .hotel-card-row { flex-wrap: nowrap; }
+ 
+#hotelsCarousel .hotel-card-row > .hotel-card,
+#hotelsCarousel .hotel-card-row > .hotel-spacer {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+ 
+@media (min-width: 768px) {
+  #hotelsCarousel .hotel-card-row > .hotel-card,
+  #hotelsCarousel .hotel-card-row > .hotel-spacer {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+ 
+@media (min-width: 992px) {
+  #hotelsCarousel .hotel-card-row > .hotel-card,
+  #hotelsCarousel .hotel-card-row > .hotel-spacer {
+    flex-basis: 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+ 
 #hotelsCarousel .oh-card {
   display: block;
   color: inherit;
   text-decoration: none;
 }
+ 
 #hotelsCarousel .oh-media {
-  position: relative;             /* the hover card is positioned inside this */
+  position: relative;             /* hover panel is positioned inside this */
   aspect-ratio: 7 / 8;
   background: #d9d3c7;            /* shows while the photo loads */
-  container-type: inline-size;    /* lets the hover text scale with card width */
+  container-type: inline-size;    /* hover text scales with card width */
 }
+ 
 #hotelsCarousel .oh-media > img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
+ 
 /* ---------- Hover card: white panel over the photo ---------- */
 #hotelsCarousel .oh-hover {
   position: absolute;
@@ -2366,15 +2396,17 @@ body {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.18);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0s linear 0.3s;
+  transition: opacity 0.5s ease, visibility 0s linear 0.5s;
 }
+ 
 #hotelsCarousel .oh-hover img {
   display: block;
+  flex: none;
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  flex: none;
 }
+ 
 #hotelsCarousel .oh-hover-name {
   margin: 1.4rem 0 0;
   font-family: "Jost", "Futura", sans-serif;
@@ -2382,6 +2414,7 @@ body {
   font-weight: 400;
   color: #000;
 }
+ 
 #hotelsCarousel .oh-hover-desc {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -2395,11 +2428,13 @@ body {
   line-height: 1.7;
   color: #3d3d3d;
 }
+ 
 #hotelsCarousel .oh-explore {
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  margin-top: 1.2rem;
+  margin-top: auto;               /* pinned to the bottom of the panel */
+  padding-top: 1.2rem;
   font-family: "Jost", "Futura", sans-serif;
   font-size: clamp(0.85rem, 3cqw, 1.1rem);
   font-weight: 300;
@@ -2407,14 +2442,15 @@ body {
   text-transform: uppercase;
   color: var(--oh-gold);
 }
+ 
 #hotelsCarousel .oh-explore svg {
+  flex: none;
   width: 2.2rem;
   height: 0.8rem;
   color: var(--oh-ink);
-  flex: none;
 }
-
-/* Show the card on mouse hover (hover-capable devices) and on keyboard focus */
+ 
+/* Show on mouse hover (hover-capable devices) and on keyboard focus */
 @media (hover: hover) {
   #hotelsCarousel .oh-card:hover .oh-hover {
     opacity: 1;
@@ -2422,22 +2458,25 @@ body {
     transition-delay: 0s;
   }
 }
+ 
 #hotelsCarousel .oh-card:focus-visible .oh-hover {
   opacity: 1;
   visibility: visible;
   transition-delay: 0s;
 }
+ 
 #hotelsCarousel .oh-name {
   margin: 1.3rem 0 0;
   font-family: "Jost", "Futura", sans-serif;
   font-size: 20px;
   font-weight: 300;
 }
-
-/* ---------- Arrows ---------- */
+ 
+/* ---------- Arrows ----------
+   Centred on the photos: 3.2rem ≈ half of (name + indicator spacing) below them. */
 #hotelsCarousel .oh-arrow {
   position: absolute;
-  top: 38%;
+  top: calc(50% - 3.2rem);
   transform: translateY(-50%);
   z-index: 5;
   display: flex;
@@ -2451,11 +2490,12 @@ body {
   border: 0;
   cursor: pointer;
 }
+ 
 #hotelsCarousel .oh-arrow svg { width: 1.5rem; height: 2.5rem; }
 #hotelsCarousel .oh-arrow--prev { left: -2.8rem; }
 #hotelsCarousel .oh-arrow--next { right: -2.8rem; }
 #hotelsCarousel .oh-arrow[hidden] { display: none; }
-
+ 
 /* ---------- Indicators: active = long line, others = dots ---------- */
 #hotelsCarousel .oh-indicators {
   position: static;
@@ -2464,7 +2504,9 @@ body {
   gap: 0.8rem;
   margin: 2.6rem 0 0;
 }
+ 
 #hotelsCarousel .oh-indicators[hidden] { display: none; }
+ 
 #hotelsCarousel .oh-indicators button {
   box-sizing: border-box;
   flex: none;
@@ -2477,31 +2519,63 @@ body {
   background-color: #8a8a8a;
   opacity: 1;
   text-indent: -999px;
+  overflow: hidden;
   transition: width 0.35s ease, border-radius 0.35s ease, background-color 0.35s ease;
 }
+ 
 #hotelsCarousel .oh-indicators button.active {
   width: 90px;
   height: 2px;
   border-radius: 0;
   background-color: var(--oh-gold);
 }
-
+ 
 /* ---------- Responsive ---------- */
 @media (max-width: 1399.98px) {
   #hotelsCarousel .oh-arrow--prev { left: -1.6rem; }
   #hotelsCarousel .oh-arrow--next { right: -1.6rem; }
 }
+ 
 @media (max-width: 767.98px) {
-  .our-hotel .oh-tabs { gap: 0.4rem 1.5rem; }
+  /* match the page gutters used by the other sections */
+  .our-hotel { padding-bottom: 3.5rem; }
+ 
+  .our-hotel .container-fluid {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+ 
+  .our-hotel .oh-title,
+  .our-hotel .container-fluid > .mx-3 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+ 
+  .our-hotel .oh-title { font-size: clamp(2rem, 9vw, 2.7rem); }
+  .our-hotel .oh-tabs { gap: 0.4rem 1.5rem; margin-bottom: 1.5rem; }
   .our-hotel .oh-tab { font-size: 1.15rem; }
-  #hotelsCarousel .oh-arrow { top: 30%; }
-  #hotelsCarousel .oh-arrow--prev { left: -1.3rem; }
-  #hotelsCarousel .oh-arrow--next { right: -1.3rem; }
+ 
+  /* no room outside the page edge: arrows sit on the photo instead */
+  #hotelsCarousel .oh-arrow {
+    width: 2rem;
+    height: 3rem;
+    color: #fff;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+  }
+  #hotelsCarousel .oh-arrow svg { width: 1.1rem; height: 1.9rem; }
+  #hotelsCarousel .oh-arrow--prev { left: 0.25rem; }
+  #hotelsCarousel .oh-arrow--next { right: 0.25rem; }
+ 
+  #hotelsCarousel .oh-indicators { margin-top: 2rem; }
+  #hotelsCarousel .oh-indicators button.active { width: 56px; }
 }
+ 
 @media (prefers-reduced-motion: reduce) {
+  #hotelsCarousel .carousel-item,
   #hotelsCarousel .oh-hover,
   #hotelsCarousel .oh-indicators button { transition: none; }
 }
+ 
 
 
 /* ==========================================================

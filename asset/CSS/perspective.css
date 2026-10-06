@@ -1,0 +1,346 @@
+.dest-section { padding: 6rem 0; }
+ 
+    /* ---------- Arrows ---------- */
+    .dest-arrow {
+      background: none; border: 0; padding: .5rem;
+      color: var(--peninsula-gold); line-height: 0;
+    }
+    .dest-arrow svg { width: 52px; height: 24px; }
+    .dest-arrow:hover { color: var(--peninsula-gold-dark); }
+    .dest-arrow:focus-visible { outline: 2px solid var(--peninsula-gold); outline-offset: 4px; }
+ 
+ 
+    /* ---------- Sliding track (moves one card per click) ---------- */
+    .dest-viewport { overflow: hidden; }
+    .dest-track { --n: 3; display: flex; }
+    .dest-item {
+      flex: 0 0 calc(100% / var(--n));
+      padding: 0 .75rem;
+    }
+    @media (min-width: 992px) { .dest-item { padding: 0 1.5rem; } }
+    @media (prefers-reduced-motion: reduce) { .dest-track { transition: none !important; } }
+ 
+    /* ---------- Card ---------- */
+    .dest-card {
+      position: relative;
+      display: block;
+      aspect-ratio: 3 / 4.15;
+      background-size: cover;
+      background-position: center;
+      color: var(--peninsula-white);
+      text-decoration: none;
+      overflow: hidden;
+    }
+    .dest-card::before {            /* white inner frame */
+      content: "";
+      position: absolute;
+      inset: 6% 6.5%;
+      border: 4px solid var(--peninsula-white);
+      pointer-events: none;
+    }
+    .dest-title {
+      position: absolute; left: 0; right: 0; top: 50%;
+      transform: translateY(-50%);
+      margin: 0; text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      font-size: clamp(1.8rem, 3vw, 2.9rem);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 8px rgba(0,0,0,.45);
+    }
+    .dest-link {
+      position: absolute; left: 0; right: 0; bottom: 11%;
+      display: flex; justify-content: center; align-items: center; gap: .6rem;
+      font-size: 1.1rem; letter-spacing: .12em; text-transform: uppercase;
+      text-shadow: 0 1px 4px rgba(0,0,0,.5);
+    }
+    .dest-link svg { width: 26px; height: 12px; }
+    .dest-card:focus-visible { outline: 3px solid var(--peninsula-gold); outline-offset: 4px; }
+ 
+ 
+    /* Replace the image paths with your own photos */
+    .hong-kong { background-image: url("images/hong-kong.jpg"), linear-gradient(160deg, #c9b99a, #7d6c55); }
+    .shanghai  { background-image: url("images/shanghai.jpg"),  linear-gradient(160deg, #8fb0c9, #3d3a36); }
+    .tokyo     { background-image: url("images/tokyo.jpg"),     linear-gradient(160deg, #8b86b0, #2f3550); }
+    .singapore { background-image: url("images/singapore.jpg"), linear-gradient(160deg, #7fb6a6, #2c4a48); }
+    .seoul     { background-image: url("images/seoul.jpg"),     linear-gradient(160deg, #b69aa5, #4a3a4a); }
+    .bangkok   { background-image: url("images/bangkok.jpg"),   linear-gradient(160deg, #d1a86b, #5b3f22); }
+    .taipei    { background-image: url("images/taipei.jpg"),    linear-gradient(160deg, #9aa9c0, #34415a); }
+ 
+    /* ---------- Hexagon pagination ---------- */
+    .dest-pager {
+      width: 100%; max-width: 440px;
+      border-top: 1px solid var(--peninsula-rule);
+      padding-top: .9rem; margin: 1.6rem auto 0;
+      display: flex; justify-content: center; gap: 1rem;
+    }
+    .hex {
+      width: 26px; height: 28px; padding: 0; border: 0;
+      background: var(--peninsula-rule);   /* outline colour */
+      clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+      position: relative;
+    }
+    .hex::after {                      /* inner fill → makes the outline look thin */
+      content: ""; position: absolute; inset: 1px; background: var(--peninsula-white);
+      clip-path: inherit;
+    }
+    .hex.active { background: var(--peninsula-gold-light); }
+    .hex.active::after { background: var(--peninsula-gold-light); }
+    .hex:hover { background: var(--peninsula-gold-light); }
+    .hex:focus-visible { outline: 2px solid var(--peninsula-gold); outline-offset: 3px; }
+ 
+    @media (max-width: 767.98px) {
+      .dest-arrow svg { width: 32px; }
+    }
+
+
+ .people { padding: 80px 0 78px; background-color: #F1ECE3; }
+ 
+    /* Title + short rule */
+    .people-title {
+      font-family: 'EB Garamond', Georgia, serif; font-weight: 400; font-size: 29px;
+      letter-spacing: .07em; line-height: 1.2; color: var(--peninsula-charcoal); text-align: center; margin: 0;
+    }
+    .title-rule { width: 86px; height: 1px; background: var(--peninsula-gold-light); margin: 22px auto 0; }
+ 
+    /* City tabs: 482px line with chevrons outside */
+    .city-wrap { position: relative; width: 520px; max-width: 100%; margin: 30px auto 0; }
+    .city-nav {
+      display: flex; flex-wrap: nowrap; overflow: hidden; margin: 0; padding: 0; list-style: none;
+    }
+    .city-nav .nav-link {
+      position: relative; border: 0; background: none; border-radius: 0; white-space: nowrap;
+      font-family: 'EB Garamond', serif; font-style: italic; font-size: 20px; line-height: 25px;
+      color: var(--text-soft); padding: 0 21.75px 14px;
+    }
+    .city-nav li:first-child .nav-link { padding-left: 13px; }
+    .city-nav .nav-link.active { color: var(--peninsula-gold); }
+    .city-nav .nav-link.active::after {
+      content: ""; position: absolute; left: 12px; right: 12px; bottom: -1px; height: 2px; background: var(--peninsula-gold);
+    }
+    .city-nav li:first-child .nav-link.active::after { left: 4px; }
+    .chev { position: absolute; top: 3px; border: 0; background: none; padding: 4px; line-height: 0; color: #a99a76; }
+    .chev.prev { left: -28px; }
+    .chev.next { right: -28px; }
+    .chev:disabled { color: #d3cab5; cursor: default; }
+ 
+    /* Person tabs */
+    .person-nav { display: flex; justify-content: center; margin: 33px 0 0; padding: 0; list-style: none; }
+    .person-nav .nav-link {
+      position: relative; border: 0; background: none; border-radius: 0; padding: 0; margin: 0 32px;
+      font-family: 'EB Garamond', serif; font-style: italic; font-size: 19px; line-height: 24px; color: var(--text-soft);
+    }
+    .person-nav .nav-link.active::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 4px; background: var(--tab-underline); z-index: -1;
+    }
+ 
+    /* Profile block (911 x 328) */
+    .profile { position: relative; width: 1200px; max-width: 100%; height: 430px; margin: 54px auto 0; }
+    .profile-media { position: absolute; top: 0; left: 0; width: 58%; height: auto; aspect-ratio: 16 / 9; z-index: 2; background: #cfd6de; }
+    .profile-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .play-btn {
+      position: absolute; top: 50%; left: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px;
+      border: 0; border-radius: 50%; background: rgba(118,114,104,.85); color: #fff; display: grid; place-items: center; padding: 0;
+    }
+    .profile-card {
+      position: absolute; left: 3%; right: 0; top: 39px; height: 391px; z-index: 1;
+      background: var(--peninsula-white); box-shadow: 0 2px 5px rgba(0,0,0,.22);
+      padding: 21px 32px 0 calc(58% - 11px);
+    }
+    .p-name { font-family: 'EB Garamond', serif; font-style: italic; font-weight: 400; font-size: 32px; line-height: 38px; color: var(--peninsula-gold); margin: 0 0 16px; }
+    .p-quote { font-size: 15px; line-height: 20px; margin: 0 0 19px; color: var(--text-soft); }
+    .p-role { font-size: 15px; line-height: 20px; margin: 0 0 30px; color: var(--text-soft); }
+    .read-more {
+      display: inline-flex; align-items: center; gap: 9px; color: var(--peninsula-gold); text-decoration: none;
+      font-size: 12.5px; letter-spacing: .16em; line-height: 18px; text-transform: uppercase;
+    }
+    .read-more:hover { color: var(--peninsula-gold-dark); }
+ 
+    .pager { position: absolute; top: -2px; right: 15px; z-index: 3; display: flex; align-items: center; gap: 17px; color: var(--peninsula-charcoal); }
+    .pager span { font-family: 'EB Garamond', serif; font-size: 17px; letter-spacing: .1em; }
+    .pager button { border: 0; background: none; padding: 0; line-height: 0; color: var(--peninsula-gold); }
+ 
+    @media (max-width: 991.98px) {
+      .profile { height: auto; padding: 0 12px; }
+      .profile-media, .profile-card, .pager { position: static; width: auto; height: auto; }
+      .profile-media { position: relative; height: auto; aspect-ratio: 16 / 9; }
+      .profile-card { padding: 24px; }
+      .pager { justify-content: flex-end; margin-bottom: 8px; }
+      .city-wrap { margin-left: 40px; margin-right: 40px; width: auto; }
+    }
+  
+    .city-pane { display: none; }
+    .city-pane.active { display: block; }
+    .person-slide { display: none; }
+    .person-slide.active { display: contents; }
+    .person-slide.active .profile-media img { animation: fade .35s ease; }
+    @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+    .person-nav .nav-link.active::after { z-index: -1; }
+
+
+
+    /* Heading */
+    .eyebrow { text-align: center; font-size: 11px; line-height: 14px; letter-spacing: .1em; text-transform: uppercase; color: #555; margin: 0; }
+    .hotels-title { font-family: 'EB Garamond', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 34px; letter-spacing: .06em; text-align: center; margin: 1px 0 0; }
+    .title-rule { width: 86px; height: 1px; background: var(--peninsula-gold-light); margin: 14px auto 0; }
+ 
+    /* Level 1: categories */
+    .cat-nav { display: flex; width: 573px; max-width: 100%; margin: 46px auto 0; padding: 0 0 0 8px; list-style: none; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none;}
+    .cat-nav::-webkit-scrollbar { display: none; }
+    .cat-nav .nav-link {
+      position: relative; border: 0; border-radius: 0; background: none; white-space: nowrap;
+      font-family: 'EB Garamond', serif; font-style: italic; font-size: 20px; line-height: 24px;
+      color: var(--peninsula-charcoal); padding: 0 37px 13px;
+    }
+    .cat-nav .nav-link.active::after { content: ""; position: absolute; left: 50%; width: 42px; margin-left: -21px; bottom: -1px; height: 3px; background: var(--peninsula-gold-light); }
+ 
+    /* Level 2: cities */
+    .city-nav { display: none; justify-content: center; margin: 21px 0 0; padding: 0; list-style: none; overflow-x: auto; scrollbar-width: none; }
+    .city-nav::-webkit-scrollbar { display: none; }
+    .cat-pane.active .city-nav { display: flex; }
+    .city-nav .nav-link {
+      position: relative; border: 0; border-radius: 0; background: none; white-space: nowrap;
+      font-family: 'EB Garamond', serif; font-style: italic; font-size: 23px; line-height: 28px;
+      color: var(--peninsula-charcoal); padding: 0 34.5px 4px;
+    }
+    .city-nav .nav-link.active::after { content: ""; position: absolute; left: 50%; width: 50px; margin-left: -25px; bottom: -2px; height: 3px; background: var(--peninsula-gold-light); }
+ 
+    /* Slider */
+    .cat-pane { display: none; }
+    .cat-pane.active { display: block; }
+    .slider { position: relative; margin-top: 47px; }
+    .track { display: flex; gap: 19.5px; overflow-x: auto; scrollbar-width: none; scroll-behavior: smooth; }
+    .track::-webkit-scrollbar { display: none; }
+    .hotel-card { position: relative; flex: 0 0 380px; height: 396px; overflow: hidden; color: #fff; background: #555; cursor: pointer; }
+    .hotel-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hotel-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.5)); }
+    .hotel-name {
+      position: absolute; left: 30px; bottom: 36px; margin: 0; font-family: 'EB Garamond', serif; font-style: italic;
+      font-weight: 400; font-size: 26px; line-height: 30px; color: #fff; transition: opacity .25s;
+    }
+    .hotel-more {
+      position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity .3s ease;
+      background: linear-gradient(to bottom, rgba(52,56,100,.55), rgba(14,15,34,.9) 75%);
+      padding: 38px 29px 0 29.5px;
+    }
+    .hotel-card.active .hotel-more { opacity: 1; pointer-events: auto; }
+    .hotel-card.active .hotel-name, .hotel-card.active::before { opacity: 0; }
+    .hotel-tagline {
+      margin: 0 0 20px; font-family: 'EB Garamond', serif; font-weight: 400; font-size: 20px; line-height: 23.5px;
+      letter-spacing: .05em; text-transform: uppercase; color: #fff;
+    }
+    .hotel-text { margin: 0; font-size: 13px; line-height: 23.5px; letter-spacing: .02em; color: #fff; }
+    .hotel-link {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 46px; display: flex; align-items: center;
+      padding-left: 26.5px; background: var(--bar); color: #fff; text-decoration: none;
+      font-size: 14px; letter-spacing: .01em; text-transform: uppercase;
+    }
+    .s-btn {
+      position: absolute; top: 187px; z-index: 5; width: 37.5px; height: 37px; border: 0; padding: 0;
+      background: var(--btn); display: grid; place-items: center;
+    }
+    .s-prev { left: 0; }
+    .s-next { right: 0; }
+    .s-btn:hover { background: var(--peninsula-gold); }
+ 
+    @media (max-width: 767.98px) {
+      .hotel-card { flex-basis: 82vw; }
+      .cat-nav .nav-link { padding: 0 20px 13px; }
+      .city-nav { justify-content: flex-start; }
+      .city-nav .nav-link { padding: 0 20px 4px; }
+    }
+
+
+    /* section 6 */
+   /* section 6 */
+button { font: inherit; }
+.hotels { padding: 4px 0 0; }
+ 
+/* Heading */
+.eyebrow { text-align: center; font-size: 11px; line-height: 14px; letter-spacing: .1em; text-transform: uppercase; color: #555; margin: 0; }
+.hotels-title { font-family: 'EB Garamond', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 34px; letter-spacing: .06em; text-align: center; margin: 1px 0 0; }
+.title-rule { width: 86px; height: 1px; background: var(--peninsula-gold-light, #b99d6b); margin: 14px auto 0; }
+ 
+/* Level 1: categories (Featured / Asia / Europe / Americas) */
+.cat-nav {
+  display: flex; width: 573px; max-width: 100%; margin: 46px auto 0; padding: 0 0 0 8px; list-style: none;
+  border-bottom: 1px solid var(--line, #ddd);   /* grey ruler under all tabs */
+}
+.cat-nav .nav-link {
+  position: relative; border: 0; border-radius: 0; background: none; white-space: nowrap;
+  font-family: 'EB Garamond', serif; font-style: italic; font-size: 20px; line-height: 24px;
+  color: var(--peninsula-charcoal, #1c1c1c); padding: 0 37px 13px;
+}
+.cat-nav .nav-link.active::after {              /* gold ruler under the active tab */
+  content: ""; position: absolute; left: 50%; width: 42px; margin-left: -21px; bottom: 0; height: 3px;
+  background: var(--peninsula-gold-light, #b99d6b);
+}
+ 
+/* Level 2: cities */
+.city-nav { display: none; justify-content: center; margin: 21px 0 0; padding: 0; list-style: none; }
+.cat-pane.active .city-nav { display: flex; }
+.city-nav .nav-link {
+  position: relative; border: 0; border-radius: 0; background: none; white-space: nowrap;
+  font-family: 'EB Garamond', serif; font-style: italic; font-size: 23px; line-height: 28px;
+  color: var(--peninsula-charcoal, #1c1c1c); padding: 0 34.5px 4px;
+}
+.city-nav .nav-link.active::after {
+  content: ""; position: absolute; left: 50%; width: 50px; margin-left: -25px; bottom: 0; height: 3px;
+  background: var(--peninsula-gold-light, #b99d6b);
+}
+ 
+/* Slider */
+.cat-pane { display: none; }
+.cat-pane.active { display: block; }
+.slider { position: relative; margin-top: 47px; }
+.track { display: flex; gap: 19.5px; overflow-x: auto; scrollbar-width: none; scroll-behavior: smooth; }
+.track::-webkit-scrollbar { display: none; }
+.hotel-card { position: relative; flex: 0 0 380px; height: 396px; overflow: hidden; color: #fff; background: #555; cursor: pointer; }
+.hotel-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hotel-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,.5)); transition: opacity .3s ease; }
+.hotel-name {
+  position: absolute; left: 30px; bottom: 36px; margin: 0; font-family: 'EB Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: 26px; line-height: 30px; color: #fff; transition: opacity .25s;
+}
+.hotel-more {
+  position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity .3s ease;
+  background: linear-gradient(to bottom, rgba(52,56,100,.55), rgba(14,15,34,.9) 75%);
+  padding: 38px 29px 0 29.5px;
+}
+/* Active card (first one by default) always shows its text. Other cards show it on hover. */
+.hotel-card.active .hotel-more, .hotel-card:hover .hotel-more { opacity: 1; pointer-events: auto; }
+.hotel-card.active .hotel-name, .hotel-card.active::before,
+.hotel-card:hover .hotel-name, .hotel-card:hover::before { opacity: 0; }
+.hotel-tagline {
+  margin: 0 0 20px; font-family: 'EB Garamond', serif; font-weight: 400; font-size: 20px; line-height: 23.5px;
+  letter-spacing: .05em; text-transform: uppercase; color: #fff;
+}
+.hotel-text { margin: 0; font-size: 13px; line-height: 23.5px; letter-spacing: .02em; color: #fff; }
+.hotel-link {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 46px; display: flex; align-items: center;
+  padding-left: 26.5px; background: var(--bar, rgba(125,106,68,.96)); color: #fff; text-decoration: none;
+  font-size: 14px; letter-spacing: .01em; text-transform: uppercase;
+}
+.s-btn {
+  position: absolute; top: 187px; z-index: 5; width: 37.5px; height: 37px; border: 0; padding: 0;
+  background: var(--btn, #a58c5f); display: grid; place-items: center;
+}
+.s-prev { left: 0; }
+.s-next { right: 0; }
+.s-btn:hover { background: var(--peninsula-gold, #867050); }
+ 
+@media (max-width: 767.98px) {
+  .cat-nav, .city-nav { overflow-x: auto; scrollbar-width: none; }   /* scrolling only on mobile, so the rulers aren't clipped on desktop */
+  .hotel-card { flex-basis: 82vw; }
+  .cat-nav .nav-link { padding: 0 20px 13px; }
+  .city-nav { justify-content: flex-start; }
+  .city-nav .nav-link { padding: 0 20px 4px; }
+}
+ 
+/* your override */
+.s-btn {
+  background-color: var(--peninsula-gold, #867050);
+  z-index: 1;
+}
+ 

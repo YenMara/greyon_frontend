@@ -1,0 +1,200 @@
+    body {
+      font-family: "Jost", "Futura", "Century Gothic", sans-serif;
+      color: var(--peninsula-charcoal);
+      background: var(--peninsula-white);
+    }
+    .wellness { padding: 7rem 0; }
+    .wellness-title {
+      font-family: "Spectral", Georgia, serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--peninsula-gold-dark);
+      margin-bottom: 1.5rem;
+    }
+    .wellness-text {
+      max-width: 880px;
+      margin-inline: auto;
+      font-size: 1.15rem;
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: 2.25rem;
+    }
+      .title-rule {
+      width: 120px;
+      height: 1px;
+      background: var(--peninsula-gold);
+      border: 0;
+      opacity: 1;
+      margin: 2.5rem 0 4rem;
+      margin-top: 18px;
+      }
+
+    .icon-circle {
+      width: 150px;
+      height: 150px;
+      border: 1.5px solid var(--peninsula-gold-light);
+      background: var(--peninsula-cream);
+      transition: border-color .2s, background-color .2s;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+    .icon-circle svg {
+      width: 90px;
+      height: 90px;
+      stroke: var(--peninsula-gold);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .icon-circle:hover { border-color: var(--peninsula-gold-dark); background: var(--peninsula-white); }
+    .pillars { border-top: 1px solid var(--peninsula-rule); padding-top: 2.5rem; }
+    .pillar-label { font-size: 1.2rem; font-weight: 300; margin: 0; color: var(--peninsula-charcoal); }
+
+.hero {
+  position: relative;
+  z-index: 0;
+  height: max(400px, 440px); /* fills the screen, like the reference */
+  overflow: hidden;
+}
+.experience-hero-title {
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  color: #fff;
+  font-family: "EB Garamond", serif;
+  font-size: 35px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  text-align: center;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.section-one-title h2{
+  width: 700px;
+}
+
+ /* ===== Services band: alternating image / text rows ===== */
+    .services-band { background: #f2f2f3; padding: 5rem 0; }
+    .service-row { background: var(--peninsula-white); }
+    .service-row + .service-row { margin-top: 7rem; }
+ 
+    .service-media { position: relative; min-height: 320px; }
+    .service-media img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+ 
+    .service-copy {
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+    .feature-eyebrow {
+      font-size: .95rem; font-weight: 400;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--peninsula-charcoal);
+      margin-bottom: .25rem;
+    }
+    .service-title {
+      font-family: "Spectral", Georgia, serif;
+      font-style: italic; font-weight: 300;
+      font-size: 28px;
+      line-height: 1.25;
+      color: var(--peninsula-charcoal);
+      margin: 0 0 1.25rem;
+    }
+    .service-copy p {
+      font-size: 1.1rem; font-weight: 300; line-height: 1.7;
+      max-width: 34rem; margin: 0 auto 2rem;
+    }
+    .btn-explore {
+      display: inline-block;
+      min-width: 280px;
+      padding: 0.7rem 2rem;
+      border: 1px solid var(--peninsula-gold);
+      border-radius: 0;
+      background: transparent;
+      color: var(--peninsula-gold-dark);
+      font-size: 1rem; font-weight: 300;
+      letter-spacing: .08em; text-transform: uppercase;
+      text-decoration: none;
+      transition: background-color .2s, color .2s;
+    }
+    .btn-explore:hover { background: var(--peninsula-gold-dark); color: var(--peninsula-white); }
+    @media (min-width: 992px) { .service-copy { padding: 3rem; } }
+
+
+  /* ===== Explore wellness by hotel ===== */
+    .by-hotel { padding: 4rem 0 6rem; background: var(--peninsula-white); }
+    .by-hotel-head { text-align: center; margin-bottom: 3.5rem; }
+    .by-hotel-head .feature-eyebrow { font-size: 1.05rem; letter-spacing: .12em; }
+    .by-hotel-title {
+      font-family: "Spectral", Georgia, serif;
+      font-weight: 400; font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--peninsula-charcoal);
+      margin: 0 0 2.25rem;
+    }
+    .by-hotel-head hr {
+      width: 172px; margin: 0 auto; opacity: 1;
+      border-top: 1px solid var(--peninsula-gold);
+    }
+    .hotel-nav {
+      display: flex; justify-content: flex-end; align-items: center;
+      gap: 1.25rem; margin-bottom: 2rem;
+      font-family: "Spectral", Georgia, serif; font-size: 1.6rem;
+      color: var(--peninsula-charcoal);
+    }
+    .hotel-nav button {
+      background: none; border: 0; padding: 0 .25rem;
+      font-size: 1.9rem; line-height: 1;
+      color: var(--peninsula-gold); transition: color .2s;
+    }
+    .hotel-nav button:hover { color: var(--peninsula-gold-dark); }
+    .hotel-viewport { overflow: hidden; margin: 0 -.9rem; }
+    .hotel-track {
+      --per: 3;
+      display: flex;
+      transition: transform .5s ease;
+    }
+    .hotel-slide { flex: 0 0 calc(100% / var(--per)); padding: 0 .9rem; }
+    @media (max-width: 991.98px) { .hotel-track { --per: 2; } }
+    @media (max-width: 575.98px) { .hotel-track { --per: 1; } }
+    .hotel-card {
+      display: flex; flex-direction: column; height: 100%;
+      border-bottom: 1px solid var(--peninsula-rule);
+    }
+    .hotel-card img {
+      width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;
+    }
+    .hotel-name {
+      font-family: "Spectral", Georgia, serif;
+      font-style: italic; font-weight: 300;
+      font-size: 1.7rem; color: var(--peninsula-gold);
+      margin: 1.5rem 0 0; min-height: 5.5rem;
+    }
+    .hotel-card p {
+      font-size: 1.1rem; font-weight: 300; line-height: 1.65;
+      color: var(--peninsula-charcoal);
+      min-height: 5.5rem; margin: 0 0 1.5rem;
+    }
+    .link-explore span { font-size: 1.6rem; line-height: 1; }
+    .link-explore {
+      display: inline-flex; align-items: center; gap: .9rem;
+      padding-bottom: 2rem;
+      font-size: 1.05rem; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--peninsula-gold-dark); text-decoration: none;
+      margin-top: auto;
+    }
+    .link-explore:hover { color: var(--peninsula-charcoal); }

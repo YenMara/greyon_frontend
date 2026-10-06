@@ -1,0 +1,192 @@
+.sustain { padding: 48px 0; margin: auto;}
+    .sustain-text {
+      max-width: 910px; margin: 0 auto; padding: 0 15px; text-align: center;
+      font-family: "Jost", "Futura", "Century Gothic", sans-serif; font-weight: 300; font-size: 18px; line-height: 18px; color: var(--text-soft);
+    }
+    .sustain-text p { margin: 0 0 18px; }          /* one blank line between paragraphs */
+    .sustain-text ul { list-style: none; margin: 0 0 18px; padding: 0; }
+    .sustain-text li::before { content: "\2022\00a0"; }
+
+        :root {
+      --peninsula-gold-dark: #6e522f;
+      --peninsula-white: #fff;
+      /* sampled from the screenshot */
+      --frame: #f1f0eb;
+      --text-soft: #3d3d3d;
+      --link: #7b6542;
+    }
+    body { margin: 0; background: var(--peninsula-white); font-family: 'Jost', sans-serif; font-weight: 300; }
+ 
+    .feature { padding: 68px 0 72px; }
+    .feature-wrap { position: relative; max-width: 1100px; margin: 0 auto; padding-left: 5%; }
+ 
+    /* white card with the light frame */
+    .feature-frame {
+      position: relative; height: clamp(480px, 45vw, 530px); background: var(--peninsula-white);
+      border: 8px solid var(--frame); box-sizing: border-box;
+    }
+    /* photo overlaps the frame on the left */
+    .feature-img { position: absolute; left: -5.7%; top: 6.8%; width: 70%; aspect-ratio: 16 / 9; height: auto; object-fit: cover; display: block; }
+ 
+    .feature-text { position: absolute; left: 68%; top: 6.8%; width: 27%; }
+    .copy {
+      font-size: 14px; line-height: 21px; color: var(--text-soft); overflow: hidden; max-height: 412px;
+      -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 320px, transparent 412px);
+              mask-image: linear-gradient(to bottom, #000 0, #000 320px, transparent 412px);
+    }
+    .copy p { margin: 0 0 18px; }
+    .feature-text.open .copy { max-height: none; -webkit-mask-image: none; mask-image: none; }
+    .read-more { display: inline-block; margin-top: 1px; padding: 0; border: 0; background: none; color: var(--link); font-size: 14px; line-height: 20px; font-weight: 400; }
+    .read-more:hover { color: var(--peninsula-gold-dark); }
+ 
+    @media (max-width: 991.98px) {
+      .feature { padding: 32px 0; }
+      .feature-wrap { padding: 0 15px; }
+      .feature-frame { height: auto; padding: 0 0 24px; }
+      .feature-img, .feature-text { position: static; width: 100%; }
+      .feature-img { height: auto; aspect-ratio: 16 / 9; margin: 0 0 20px; }
+      .feature-text { padding: 0 20px; }
+      .copy { max-height: 200px; -webkit-mask-image: linear-gradient(to bottom, #000 120px, transparent 200px); mask-image: linear-gradient(to bottom, #000 120px, transparent 200px); }
+    }
+
+
+
+
+        /* Section heading with short gold rule */
+    .section-title {
+      font-family: "Cormorant Garamond", "EB Garamond", Garamond, Georgia, serif;
+      font-weight: 300;
+      font-size: 35px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--peninsula-charcoal);
+      margin: 0 0 1.25rem;
+    }
+    .section-rule {
+      width: 100px;
+      height: 1px;
+      margin: 0 auto 2.5rem;
+      background: var(--peninsula-gold);
+      border: 0;
+      opacity: 1;
+    }
+        /* Outer light-grey frame behind the card */
+    .people-frame {
+      width: 1200px;
+      position: relative;
+      background: var(--peninsula-cream);
+      padding: 14px;
+      margin-left: auto;
+    }
+    .people-card {
+      background: var(--peninsula-white);
+      position: relative;
+    }
+ 
+    /* Image sticks out to the left of the frame on large screens */
+    @media (min-width: 992px) {
+      .people-image {
+        margin-left: -90px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+      }
+      .people-text { padding: 60px 40px 60px 20px; }
+    }
+    @media (max-width: 991.98px) {
+      .people-text { padding: 24px; }
+    }
+    .people-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+ 
+    /* Text clipped with fade-out, like the screenshot */
+    .people-excerpt {
+      max-height: 330px;
+      overflow: hidden;
+      position: relative;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+    .people-excerpt::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 110px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0), var(--peninsula-white) 90%);
+      pointer-events: none;
+    }
+ 
+    .read-more {
+      color: var(--peninsula-gold);
+      font-size: 1.15rem;
+      text-decoration: none;
+      padding: 0;
+      border: 0;
+      background: none;
+    }
+    .read-more:hover { color: var(--peninsula-gold-dark); }
+ 
+    /* Modal */
+    .people-modal .modal-content {
+      border-radius: 0;
+      border: 2px solid var(--peninsula-gold-light);
+    }
+    .people-modal .modal-body {
+      padding: 4rem 4.5rem 4rem;
+      line-height: 1.7;
+    }
+    .people-modal .btn-close {
+      position: absolute;
+      z-index: 1;
+      top: 28px;
+      right: 36px;
+      opacity: 1;
+      /* brown "X" */
+      background: none;
+      width: 28px;
+      height: 28px;
+    }
+    .people-modal .btn-close::before,
+    .people-modal .btn-close::after {
+      content: "";
+      position: absolute;
+      top: 13px; left: 2px;
+      width: 24px; height: 2px;
+      background: var(--peninsula-gold);
+    }
+    .people-modal .btn-close::before { transform: rotate(45deg); }
+    .people-modal .btn-close::after  { transform: rotate(-45deg); }
+ 
+    .people-modal ul { list-style: none; padding: 0; margin: 0; }
+    .people-modal li { margin-bottom: 1.5rem; }
+    .people-modal li::before { content: "\2022\00a0"; }
+    .modal-backdrop.show { opacity: .65; }
+
+
+    /* Investing in Tomorrow */
+    .closing-title {
+      font-family: "Cormorant Garamond", "EB Garamond", Garamond, Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: #3d3d3d;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .closing-text {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.65;
+    }
+    .closing-text a {
+      color: var(--peninsula-gold);
+      text-decoration: none;
+    }
+    .closing-text a:hover,
+    .closing-text a:focus { color: var(--peninsula-gold-dark); text-decoration: underline; }

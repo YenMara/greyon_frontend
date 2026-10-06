@@ -1,5 +1,6 @@
 (function () {
   const root   = document.querySelector('[data-peek]');
+  if (!root) return;
   const stage  = root.querySelector('.peek-stage');
   const slides = Array.from(root.querySelectorAll('.peek-slide'));
   const n      = slides.length;

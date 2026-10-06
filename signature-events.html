@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meeting & Celebration</title>
+    <title>Signature Events</title>
 
     <!-- Bootstrap 5 CSS -->
     <link
@@ -29,8 +29,7 @@
     <link rel="stylesheet" href="./asset/CSS/home.css" />
     <link rel="stylesheet" href="./asset/CSS/header.css" />
     <link rel="stylesheet" href="./asset/CSS/footer.css" />
-    <link rel="stylesheet" href="./asset/CSS/meeting&celebration.css" />
-    <link rel="stylesheet" href="./asset/CSS/wellness.css" />
+    <link rel="stylesheet" href="./asset/CSS/experience.css" />
   </head>
 
   <body>
@@ -122,7 +121,7 @@
     <main>
       <!-- ===== Hero Section ====== -->
       <section id="one" class="hero border-bottom">
-        <div class="experience-hero-title">Life Lived Best</div>
+        <div class="experience-hero-title">Signature Events</div>
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="./asset/img/PIT hero.jpg" alt="" />
@@ -690,506 +689,269 @@
         </div>
       </div>
 
-      <!-- ==== Section1: Title ==== -->
-      <div class="container py-5 section-one-title">
-        <h2 class="m-auto text-center p-3">
-          THE PENINSULA HOTELS LAUNCHES COMPREHENSIVE NEW WELLNESS AND
-          SUSTAINABILITY PLATFORM, “LIFE LIVED BEST”
-        </h2>
-        <hr class="title-rule m-auto" />
-      </div>
+      <!-- ==== Section1: What defines Greyon Signature Events ==== -->
+      <section class="peninsula-experience py-5">
+        <div class="container">
+          <!-- Intro Text -->
+          <div class="row justify-content-center text-center mb-5">
+            <div class="col-lg-7">
+              <h2 class="fst-italic mb-4 heading-serif">
+                Moments worth remembering
+              </h2>
+              <p class="text-secondary mb-4">
+                Every occasion has a story to tell. At Greyon, the most
+                remarkable events are those crafted with care — where every
+                detail, from the first invitation to the last farewell, is
+                thoughtfully considered.
+              </p>
+              <p class="text-secondary mb-4">
+                From intimate gatherings to grand celebrations, our signature
+                events bring people together in settings that inspire. Whether
+                it is a gala dinner under the stars, a wedding on the
+                terrace, or a conference that moves minds, our team is here
+                to make it unforgettable.
+              </p>
+              <p class="text-secondary mb-">
+                We invite you to explore our signature events and discover
+                the possibilities that await.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <!-- ==== Section2: Event Images ==== -->
-      <section class="peek-section py-5">
+      <!-- ==== Section2: Signature Events carousel ===== -->
+      <section id="events" class="events" aria-labelledby="eventsHeading">
+        <h2 class="ev-title text-center" id="eventsHeading">
+          SIGNATURE EVENTS
+        </h2>
+
+        <!-- prev / counter / next (right edge lines up with the centre slide) -->
         <div
-          class="peek"
-          data-peek
-          tabindex="0"
+          class="ev-controls d-flex align-items-center justify-content-end"
+        >
+          <button
+            type="button"
+            class="ev-arrow"
+            id="evPrev"
+            aria-label="Previous event"
+          >
+            <svg
+              viewBox="0 0 28 12"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M27 6H1M6 1 1 6l5 5" />
+            </svg>
+          </button>
+          <span class="ev-counter" id="evCounter" aria-live="polite"
+            >01/04</span
+          >
+          <button
+            type="button"
+            class="ev-arrow"
+            id="evNext"
+            aria-label="Next event"
+          >
+            <svg
+              viewBox="0 0 28 12"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M1 6h26M22 1l5 5-5 5" />
+            </svg>
+          </button>
+        </div>
+
+        <div
+          class="ev-viewport"
           role="region"
           aria-roledescription="carousel"
-          aria-label="Weddings and celebrations"
+          aria-label="Signature events"
         >
-          <div class="peek-stage">
-            <figure class="peek-slide">
-              <img
-                src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80"
-                alt="Newlyweds walking through a grand ballroom"
-              />
-              <figcaption>
-                Iconic venues and bespoke experiences combine with legendary
-                service to craft moments to cherish forever
-              </figcaption>
-            </figure>
+          <div class="ev-track" id="evTrack">
+            <!-- Slide 1 -->
+            <article class="ev-slide">
+              <div class="ev-frame">
+                <div class="ev-media">
+                  <img src="./asset/img/events.jpg" alt="" loading="lazy" />
+                </div>
+                <div class="ev-copy">
+                  <p class="ev-eyebrow">Greyon Hotels</p>
+                  <h3 class="ev-name">The Greyon Gala</h3>
+                  <p class="ev-desc">
+                    An evening of elegance and purpose. The Greyon Gala brings
+                    together guests, partners and friends for a night of fine
+                    dining, live music and celebration in our grand ballrooms.
+                  </p>
+                  <a href="#" class="ev-more"
+                    >Learn more
+                    <svg
+                      viewBox="0 0 28 12"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M1 6h26M22 1l5 5-5 5" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
 
-            <figure class="peek-slide">
-              <img
-                src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80"
-                alt="Elegant wedding reception tables"
-              />
-              <figcaption>
-                Specialist wedding teams help tailor every element of your
-                perfect day
-              </figcaption>
-            </figure>
+            <!-- Slide 2 -->
+            <article class="ev-slide">
+              <div class="ev-frame">
+                <div class="ev-media">
+                  <img
+                    src="./asset/img/experience_img1.jpg"
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+                <div class="ev-copy">
+                  <p class="ev-eyebrow">Greyon Hotels</p>
+                  <h3 class="ev-name">Weddings & Celebrations</h3>
+                  <p class="ev-desc">
+                    Say "I do" against a backdrop of timeless architecture and
+                    glowing city lights. Our celebrations team designs weddings
+                    and private events that feel personal, effortless and
+                    yours.
+                  </p>
+                  <a href="#" class="ev-more"
+                    >Learn more
+                    <svg
+                      viewBox="0 0 28 12"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M1 6h26M22 1l5 5-5 5" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
 
-            <figure class="peek-slide">
-              <img
-                src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1600&q=80"
-                alt="Wedding celebration in a ballroom"
-              />
-              <figcaption>
-                Elegant ballrooms and intimate terraces for every kind of
-                celebration
-              </figcaption>
-            </figure>
+            <!-- Slide 3 -->
+            <article class="ev-slide">
+              <div class="ev-frame">
+                <div class="ev-media">
+                  <img
+                    src="./asset/img/experience_img2.jpg"
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+                <div class="ev-copy">
+                  <p class="ev-eyebrow">Greyon Hotels</p>
+                  <h3 class="ev-name">Corporate & Conferences</h3>
+                  <p class="ev-desc">
+                    From boardroom briefings to landmark summits, our flexible
+                    event spaces and dedicated planners turn every gathering
+                    into a signature occasion.
+                  </p>
+                  <a href="#" class="ev-more"
+                    >Learn more
+                    <svg
+                      viewBox="0 0 28 12"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M1 6h26M22 1l5 5-5 5" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
 
-            <figure class="peek-slide">
-              <img
-                src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1600&q=80"
-                alt="Beautifully set banquet table"
-              />
-              <figcaption>
-                Exquisite dining crafted by our chefs, from classic favourites
-                to regional cuisines
-              </figcaption>
-            </figure>
+            <!-- Slide 4 -->
+            <article class="ev-slide">
+              <div class="ev-frame">
+                <div class="ev-media">
+                  <img
+                    src="./asset/img/experience_img3.jpg"
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+                <div class="ev-copy">
+                  <p class="ev-eyebrow">Greyon Hotels</p>
+                  <h3 class="ev-name">Seasonal Experiences</h3>
+                  <p class="ev-desc">
+                    Curated throughout the year — holiday markets, rooftop
+                    cinema evenings and culinary residencies that capture the
+                    spirit of each season.
+                  </p>
+                  <a href="#" class="ev-more"
+                    >Learn more
+                    <svg
+                      viewBox="0 0 28 12"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M1 6h26M22 1l5 5-5 5" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-            <!-- Arrows, aligned to the centre photo -->
-            <div class="peek-controls">
-              <button
-                type="button"
-                class="peek-btn"
-                data-dir="-1"
-                aria-label="Previous slide"
-              >
-                <svg
-                  width="36"
-                  height="20"
-                  viewBox="0 0 36 20"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  aria-hidden="true"
+      <!-- ==== Stay Connected: newsletter signup === -->
+      <section id="six" class="stay-connected" aria-labelledby="scHeading">
+        <img class="sc-bg" src="./asset/img/section6-img.png" alt="" />
+        <div class="sc-shade" aria-hidden="true"></div>
+
+        <div class="container-fluid px-5 sc-inner">
+          <div class="row ms-3">
+            <div class="col-lg-8 col-xl-6">
+              <h2 class="sc-title" id="scHeading">Stay Connected</h2>
+              <p class="sc-text">
+                Sign up our newsletter for exclusive offers, travel inspiration,
+                and insider news about our luxurious experiences and
+                promotions.
+              </p>
+
+              <form class="sc-form" id="newsletterForm" novalidate>
+                <label class="visually-hidden" for="newsletterEmail"
+                  >Email address</label
                 >
-                  <path d="M36 10H2M10 1 1.5 10 10 19" />
-                </svg>
-              </button>
-              <button
-                type="button"
-                class="peek-btn"
-                data-dir="1"
-                aria-label="Next slide"
-              >
-                <svg
-                  width="36"
-                  height="20"
-                  viewBox="0 0 36 20"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  aria-hidden="true"
-                >
-                  <path d="M0 10h34M26 1l8.5 9L26 19" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== Section3: The Greyon Wellness ===== -->
-      <section class="wellness">
-        <div class="container text-center">
-          <div class="row justify-content-center">
-            <div class="col-lg-10 col-xl-8">
-              <h2 class="wellness-title">The Greyon Wellness</h2>
-
-              <p class="wellness-text">
-                The Greyon Hotels, whose properties around the world have
-                epitomised luxurious elegance for almost a century, will debut
-                an extensive collection of new wellness resources for its
-                guests, inviting them to experience “Life Lived Best.”
-              </p>
-
-              <p class="wellness-text">
-                The brand-wide initiative will provide guests at all Peninsula
-                properties with unprecedented opportunities to pursue their
-                fitness, mindfulness, and nutritional goals – and to access
-                those opportunities whenever they wish through a dedicated
-                Wellness Portal and 24-hour Wellness Concierge service.
-              </p>
-
-              <p class="wellness-text">
-                The new programming offers Peninsula guests a holistic
-                experience of wellness, one that can – if they wish – enhance
-                their bodily, mind, and nutritional well-being. Though many of
-                the offerings, including activities, classes, and menu options,
-                will be available at every property in the Peninsula portfolio,
-                others reflect the distinctive traditions of their destination
-                cities, and are created in partnership with local residents. In
-                this way, guests who partake of Peninsula wellness experiences
-                can know they are supporting not only their own health, but the
-                health of local communities, as well.
-              </p>
-
-              <!-- Three pillars -->
-              <!-- <div class="row g-4 justify-content-center mt-2 pillars">
- 
-          <div class="col-12 col-sm-4">
-            <div class="icon-circle">
-              <svg viewBox="0 0 64 64" aria-hidden="true">
-                <path d="M32 30C24 20 12 22 12 32c0 8 12 14 20 18 8-4 20-10 20-18 0-10-12-12-20-2z" transform="translate(0,-8)"/>
-                <path d="M16 40h32M16 34v12M20 32v16M44 32v16M48 34v12"/>
-                <path d="M26 46l6 8 6-8z"/>
-              </svg>
-            </div>
-            <p class="pillar-label">Physical Fitness</p>
-          </div>
- 
-          <div class="col-12 col-sm-4">
-            <div class="icon-circle">
-              <svg viewBox="0 0 64 64" aria-hidden="true">
-                <path d="M30 56V46c-8-2-12-8-12-16 0-9 6-16 15-16s15 7 15 15-3 12-8 15v8"/>
-                <path d="M18 30l-4 4 4 2"/>
-                <path d="M34 20c-4 0-6 3-6 6 3 0 6-1 6-6zM34 20c4 0 6 3 6 6-3 0-6-1-6-6zM34 20c0 5 0 8 0 11"/>
-              </svg>
-            </div>
-            <p class="pillar-label">Mental Health</p>
-          </div>
- 
-          <div class="col-12 col-sm-4">
-            <div class="icon-circle">
-              <svg viewBox="0 0 64 64" aria-hidden="true">
-                <path d="M32 8v48M8 32h48" opacity=".6"/>
-                <path d="M20 14l-5 12M14 20c3 1 5 0 6-2"/>
-                <circle cx="46" cy="20" r="7"/>
-                <path d="M46 13c0-3 2-4 4-5"/>
-                <path d="M14 46c0-5 4-7 8-7s8 2 8 7-4 6-8 6-8-1-8-6z"/>
-                <path d="M42 42c0-3 3-5 6-5s6 2 6 5-2 8-6 8-6-5-6-8z"/>
-              </svg>
-            </div>
-            <p class="pillar-label">Nutrition</p>
-          </div>
- 
-        </div> -->
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==== Section4: Physical Fitness ==== -->
-      <section class="services-band">
-        <div class="container-xl">
-          <div class="row g-0 service-row">
-            <div class="col-lg-6 service-media">
-              <img
-                src="https://picsum.photos/seed/fitness/1000/700"
-                alt="Physical Fitness"
-              />
-            </div>
-            <div class="col-lg-6 service-copy">
-              <div class="feature-eyebrow">Physical Fitness</div>
-              <h3 class="service-title">
-                Enhance Well-Being With Physical Vitality
-              </h3>
-              <p>
-                Our wealth of exercise-related offerings ensures your stay can
-                be as active as you wish. We offer guided strength and
-                flexibility routines in the privacy of your room, energising
-                fitness-centre classes, and exhilarating adventures amid the
-                land- and streetscapes of your hotel’s locale.
-              </p>
-              <a href="#" class="btn-explore">Explore more</a>
-            </div>
-          </div>
-          <div class="row g-0 service-row flex-lg-row-reverse">
-            <div class="col-lg-6 service-media">
-              <img
-                src="https://picsum.photos/seed/mindful/1000/700"
-                alt="Mental Health"
-              />
-            </div>
-            <div class="col-lg-6 service-copy">
-              <div class="feature-eyebrow">Mental Health</div>
-              <h3 class="service-title">
-                Peace of Mind with Relaxing Rituals and Guided Breethe
-                Meditation
-              </h3>
-              <p>
-                A robust lineup of meditation and relaxation choices aim to help
-                you achieve optimal peace of mind during your stay. Offerings
-                created in collaboration with the ground-breaking meditation app
-                Breethe, combine with aromatherapy self-care rituals, balancing
-                Peninsula Spa treatments and traditional mindfulness practices,
-                and allow you to de-stress and connect with the culture of your
-                travel destination.
-              </p>
-              <a href="#" class="btn-explore">Explore more</a>
-            </div>
-          </div>
-          <div class="row g-0 service-row">
-            <div class="col-lg-6 service-media">
-              <img
-                src="https://picsum.photos/seed/fitness/1000/700"
-                alt="Physical Fitness"
-              />
-            </div>
-            <div class="col-lg-6 service-copy">
-              <div class="feature-eyebrow">Physical Fitness</div>
-              <h3 class="service-title">
-                Enhance Well-Being With Physical Vitality
-              </h3>
-              <p>
-                Our wealth of exercise-related offerings ensures your stay can
-                be as active as you wish. We offer guided strength and
-                flexibility routines in the privacy of your room, energising
-                fitness-centre classes, and exhilarating adventures amid the
-                land- and streetscapes of your hotel’s locale.
-              </p>
-              <a href="#" class="btn-explore">Explore more</a>
-            </div>
-          </div>
-          <div class="row g-0 service-row flex-lg-row-reverse">
-            <div class="col-lg-6 service-media">
-              <img
-                src="https://picsum.photos/seed/mindful/1000/700"
-                alt="Mental Health"
-              />
-            </div>
-            <div class="col-lg-6 service-copy">
-              <div class="feature-eyebrow">Mental Health</div>
-              <h3 class="service-title">
-                Peace of Mind with Relaxing Rituals and Guided Breethe
-                Meditation
-              </h3>
-              <p>
-                A robust lineup of meditation and relaxation choices aim to help
-                you achieve optimal peace of mind during your stay. Offerings
-                created in collaboration with the ground-breaking meditation app
-                Breethe, combine with aromatherapy self-care rituals, balancing
-                Peninsula Spa treatments and traditional mindfulness practices,
-                and allow you to de-stress and connect with the culture of your
-                travel destination.
-              </p>
-              <a href="#" class="btn-explore">Explore more</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== Section5: Explore Wellness ===== -->
-      <section class="by-hotel">
-        <div class="container-xl">
-          <div class="by-hotel-head">
-            <div class="feature-eyebrow">Explore Wellness</div>
-            <h2 class="by-hotel-title">By Hotel</h2>
-            <hr />
-          </div>
-
-          <div class="hotel-nav">
-            <button type="button" id="hotelPrev" aria-label="Previous">
-              &larr;
-            </button>
-            <span id="hotelCount">01/12</span>
-            <button type="button" id="hotelNext" aria-label="Next">
-              &rarr;
-            </button>
-          </div>
-
-          <div class="hotel-viewport">
-            <div class="hotel-track" id="hotelTrack">
-              <div class="hotel-slide">
-                <article class="hotel-card">
-                  <img
-                    src="https://picsum.photos/seed/hotel0/800/450"
-                    alt="The Peninsula Hong Kong"
-                  />
-                  <h3 class="hotel-name">The Peninsula Hong Kong</h3>
-                  <p>
-                    Find inspiration with personalised spa experiences enhanced
-                    by breathtaking harbour views
-                  </p>
-                  <a href="#" class="link-explore"
-                    >Explore more <span aria-hidden="true">&rarr;</span></a
-                  >
-                </article>
-              </div>
-              <div class="hotel-slide">
-                <article class="hotel-card">
-                  <img
-                    src="https://picsum.photos/seed/hotel1/800/450"
-                    alt="The Peninsula Shanghai"
-                  />
-                  <h3 class="hotel-name">The Peninsula Shanghai</h3>
-                  <p>
-                    Seek pure indulgence for the mind and body at the 1930s Art
-                    Deco-inspired Peninsula Spa
-                  </p>
-                  <a href="#" class="link-explore"
-                    >Explore more <span aria-hidden="true">&rarr;</span></a
-                  >
-                </article>
-              </div>
-              <div class="hotel-slide">
-                <article class="hotel-card">
-                  <img
-                    src="https://picsum.photos/seed/hotel2/800/450"
-                    alt="The Peninsula Beijing"
-                  />
-                  <h3 class="hotel-name">The Peninsula Beijing</h3>
-                  <p>
-                    Treat yourself to an indulgent Spa and beauty therapy
-                    appointment. The Peninsula Spa's design fuses ...
-                  </p>
-                  <a href="#" class="link-explore"
-                    >Explore more <span aria-hidden="true">&rarr;</span></a
-                  >
-                </article>
-              </div>
-              <div class="hotel-slide">
-                <article class="hotel-card">
-                  <img
-                    src="https://picsum.photos/seed/hotel3/800/450"
-                    alt="The Peninsula Tokyo"
-                  />
-                  <h3 class="hotel-name">The Peninsula Tokyo</h3>
-                  <p>
-                    Unwind with Japanese-inspired treatments and calm city views
-                    above the Imperial Palace gardens
-                  </p>
-                  <a href="#" class="link-explore"
-                    >Explore more <span aria-hidden="true">&rarr;</span></a
-                  >
-                </article>
-              </div>
-              <div class="hotel-slide">
-                <article class="hotel-card">
-                  <img
-                    src="https://picsum.photos/seed/hotel4/800/450"
-                    alt="The Peninsula Bangkok"
-                  />
-                  <h3 class="hotel-name">The Peninsula Bangkok</h3>
-                  <p>
-                    Restore your balance with riverside rituals drawing on
-                    traditional Thai healing
-                  </p>
-                  <a href="#" class="link-explore"
-                    >Explore more <span aria-hidden="true">&rarr;</span></a
-                  >
-                </article>
-              </div>
-              <div class="hotel-slide">
-                <article class="hotel-card">
-                  <img
-                    src="https://picsum.photos/seed/hotel5/800/450"
-                    alt="The Peninsula Manila"
-                  />
-                  <h3 class="hotel-name">The Peninsula Manila</h3>
-                  <p>
-                    Refresh body and mind with soothing treatments in the heart
-                    of Makati
-                  </p>
-                  <a href="#" class="link-explore"
-                    >Explore more <span aria-hidden="true">&rarr;</span></a
-                  >
-                </article>
-              </div>
-              <div class="hotel-slide">
-                <article class="hotel-card">
-                  <img
-                    src="https://picsum.photos/seed/hotel6/800/450"
-                    alt="The Peninsula Paris"
-                  />
-                  <h3 class="hotel-name">The Peninsula Paris</h3>
-                  <p>
-                    Discover a serene Parisian retreat with a spa, pool and
-                    fitness studio near the Arc de Triomphe
-                  </p>
-                  <a href="#" class="link-explore"
-                    >Explore more <span aria-hidden="true">&rarr;</span></a
-                  >
-                </article>
-              </div>
-              <div class="hotel-slide">
-                <article class="hotel-card">
-                  <img
-                    src="https://picsum.photos/seed/hotel7/800/450"
-                    alt="The Peninsula Istanbul"
-                  />
-                  <h3 class="hotel-name">The Peninsula Istanbul</h3>
-                  <p>
-                    Relax by the Bosphorus with treatments inspired by the
-                    traditions of the hammam
-                  </p>
-                  <a href="#" class="link-explore"
-                    >Explore more <span aria-hidden="true">&rarr;</span></a
-                  >
-                </article>
-              </div>
-              <div class="hotel-slide">
-                <article class="hotel-card">
-                  <img
-                    src="https://picsum.photos/seed/hotel8/800/450"
-                    alt="The Peninsula Beverly Hills"
-                  />
-                  <h3 class="hotel-name">The Peninsula Beverly Hills</h3>
-                  <p>
-                    Soak up the California sun with poolside wellness and a
-                    signature spa escape
-                  </p>
-                  <a href="#" class="link-explore"
-                    >Explore more <span aria-hidden="true">&rarr;</span></a
-                  >
-                </article>
-              </div>
-              <div class="hotel-slide">
-                <article class="hotel-card">
-                  <img
-                    src="https://picsum.photos/seed/hotel9/800/450"
-                    alt="The Peninsula New York"
-                  />
-                  <h3 class="hotel-name">The Peninsula New York</h3>
-                  <p>
-                    Recharge above Fifth Avenue with a rooftop pool, spa
-                    treatments and a state-of-the-art fitness centre
-                  </p>
-                  <a href="#" class="link-explore"
-                    >Explore more <span aria-hidden="true">&rarr;</span></a
-                  >
-                </article>
-              </div>
-              <div class="hotel-slide">
-                <article class="hotel-card">
-                  <img
-                    src="https://picsum.photos/seed/hotel10/800/450"
-                    alt="The Peninsula Chicago"
-                  />
-                  <h3 class="hotel-name">The Peninsula Chicago</h3>
-                  <p>
-                    Find calm on the Magnificent Mile with an indoor pool, spa
-                    and guided fitness classes
-                  </p>
-                  <a href="#" class="link-explore"
-                    >Explore more <span aria-hidden="true">&rarr;</span></a
-                  >
-                </article>
-              </div>
-              <div class="hotel-slide">
-                <article class="hotel-card">
-                  <img
-                    src="https://picsum.photos/seed/hotel11/800/450"
-                    alt="The Peninsula London"
-                  />
-                  <h3 class="hotel-name">The Peninsula London</h3>
-                  <p>
-                    Slow down in Belgravia with restorative spa rituals and
-                    personal wellness programmes
-                  </p>
-                  <a href="#" class="link-explore"
-                    >Explore more <span aria-hidden="true">&rarr;</span></a
-                  >
-                </article>
-              </div>
+                <input
+                  type="email"
+                  class="sc-input"
+                  id="newsletterEmail"
+                  name="email"
+                  placeholder="Enter your email address"
+                  autocomplete="email"
+                  required
+                />
+                <button type="submit" class="sc-submit">Sign up</button>
+              </form>
             </div>
           </div>
         </div>
@@ -1371,7 +1133,5 @@
     <script src="./asset/JS/header.js"></script>
     <script src="./asset/JS/footer.js"></script>
     <script src="./asset/JS/home.js"></script>
-    <script src="./asset/JS/meeting&celebration.js"></script>
-    <script src="./asset/JS/wellness.js"></script>
   </body>
 </html>

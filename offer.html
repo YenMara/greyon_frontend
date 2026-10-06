@@ -239,6 +239,7 @@
                 aria-label="Back to menu"
               >
                 <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                <span>Back</span>
               </button>
               <h2 class="menu-subtitle">Our Hotels</h2>
             </div>
@@ -266,16 +267,16 @@
                     <a href="meeting&celebration.html"><span>Meetings &amp; Celebrations</span></a>
                   </li>
                   <li>
-                    <a href="#"><span>Wellness</span></a>
+                    <a href="wellness.html"><span>Wellness</span></a>
                   </li>
                   <li>
-                    <a href="#"><span>Signature Events</span></a>
+                    <a href="signature-events.html"><span>Signature Events</span></a>
                   </li>
                   <li>
-                    <a href="#"><span>Perspectives</span></a>
+                    <a href="perspectives.html"><span>Perspectives</span></a>
                   </li>
                   <li>
-                    <a href="#"><span>Sustainability</span></a>
+                    <a href="sustainability.html"><span>Sustainability</span></a>
                   </li>
                 </ul>
               </div>
@@ -285,7 +286,7 @@
                   <span>Global homepage</span>
                   <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                 </a>
-                <a href="#">
+                <a href="#" id="selectHotelLink">
                   <span>Select a hotel</span>
                   <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                 </a>
@@ -471,7 +472,224 @@
         </div>
       </section>
 
-      <!-- ==== 1.Feature Offers ===== -->
+      <!-- ===== RESERVE DRAWER ===== -->
+      <div
+        class="offcanvas offcanvas-end reserve-drawer"
+        tabindex="-1"
+        id="reserveDrawer"
+        aria-labelledby="reserveDrawerLabel"
+      >
+        <div class="offcanvas-header">
+          <h2 class="reserve-drawer-title" id="reserveDrawerLabel">Reserve</h2>
+          <button
+            type="button"
+            class="btn-close-custom"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          >
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="offcanvas-body reserve-drawer-body">
+          <form id="reserveDrawerForm" autocomplete="off">
+            <!-- Hotels -->
+            <div class="rd-field">
+              <button
+                type="button"
+                class="rd-trigger"
+                aria-expanded="false"
+                aria-controls="rdHotelPanel"
+              >
+                <span class="rd-col">
+                  <span class="rd-label">Hotels</span>
+                  <span class="rd-value" id="rdHotelValue">Select a hotel</span>
+                </span>
+                <svg
+                  class="rd-chevron"
+                  viewBox="0 0 16 9"
+                  width="14"
+                  height="8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M1 1l7 7 7-7" />
+                </svg>
+              </button>
+              <div class="rd-panel" id="rdHotelPanel" hidden>
+                <ul class="rd-hotel-list" id="rdHotelList"></ul>
+              </div>
+            </div>
+
+            <!-- Dates -->
+            <div class="rd-field">
+              <button
+                type="button"
+                class="rd-trigger"
+                aria-expanded="false"
+                aria-controls="rdDatesPanel"
+              >
+                <span class="rd-col">
+                  <span class="rd-label">Dates</span>
+                  <span class="rd-value" id="rdDatesValue"></span>
+                </span>
+                <svg
+                  class="rd-chevron"
+                  viewBox="0 0 16 9"
+                  width="14"
+                  height="8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M1 1l7 7 7-7" />
+                </svg>
+              </button>
+              <div class="rd-panel" id="rdDatesPanel" hidden>
+                <div class="rd-dates-row">
+                  <label>
+                    <span>Check-in</span>
+                    <input type="date" id="rdCheckIn" name="checkin" />
+                  </label>
+                  <label>
+                    <span>Check-out</span>
+                    <input type="date" id="rdCheckOut" name="checkout" />
+                  </label>
+                </div>
+                <p class="rd-nights" id="rdNights">1 Night</p>
+              </div>
+            </div>
+
+            <!-- Guests -->
+            <div class="rd-field">
+              <button
+                type="button"
+                class="rd-trigger"
+                aria-expanded="false"
+                aria-controls="rdGuestsPanel"
+              >
+                <span class="rd-col">
+                  <span class="rd-label">Guests</span>
+                  <span class="rd-value" id="rdGuestsValue"></span>
+                </span>
+                <svg
+                  class="rd-chevron"
+                  viewBox="0 0 16 9"
+                  width="14"
+                  height="8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M1 1l7 7 7-7" />
+                </svg>
+              </button>
+              <div class="rd-panel" id="rdGuestsPanel" hidden>
+                <div class="rd-rooms" id="rdRooms"></div>
+                <div class="rd-guests-foot">
+                  <p class="rd-note">Max 4 guests per room, Max 8 rooms</p>
+                  <button type="button" class="rd-add-room" id="rdAddRoom">
+                    Add room
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Special codes -->
+            <div class="rd-field">
+              <button
+                type="button"
+                class="rd-trigger"
+                aria-expanded="false"
+                aria-controls="rdCodesPanel"
+              >
+                <span class="rd-col">
+                  <span class="rd-label">Special codes</span>
+                  <span class="rd-value rd-value--accent" id="rdCodesValue"
+                    >Add Special Codes</span
+                  >
+                </span>
+              </button>
+              <div class="rd-panel" id="rdCodesPanel" hidden>
+                <div class="rd-code-option">
+                  <label class="rd-radio">
+                    <input
+                      type="radio"
+                      name="rdCodeType"
+                      value="promo"
+                      checked
+                    />
+                    <span class="rd-radio-dot"></span>
+                    <span>Promo Code</span>
+                  </label>
+                  <input
+                    class="rd-code-input"
+                    type="text"
+                    id="rdPromoCode"
+                    placeholder="Enter Promo Code"
+                    maxlength="20"
+                  />
+                </div>
+                <div class="rd-code-option">
+                  <label class="rd-radio">
+                    <input type="radio" name="rdCodeType" value="group" />
+                    <span class="rd-radio-dot"></span>
+                    <span>Group Code</span>
+                  </label>
+                  <input
+                    class="rd-code-input"
+                    type="text"
+                    id="rdGroupCode"
+                    placeholder="Enter Group Code"
+                    maxlength="20"
+                    disabled
+                  />
+                </div>
+                <div class="rd-code-divider"></div>
+                <div class="rd-code-option">
+                  <label class="rd-code-label" for="rdAdvisorId"
+                    >Travel Advisor ID</label
+                  >
+                  <input
+                    class="rd-code-input"
+                    type="text"
+                    id="rdAdvisorId"
+                    placeholder="Enter Travel Advisor ID"
+                    maxlength="20"
+                  />
+                </div>
+                <button type="button" class="rd-code-done" id="rdCodeDone">
+                  Done
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <p class="rd-info">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            Book direct for the best rates and offers and access to Peninsula
+            Time, a flexible check-in &amp; check-out programme
+          </p>
+        </div>
+
+        <div class="offcanvas-footer reserve-drawer-footer">
+          <button type="submit" form="reserveDrawerForm" class="rd-submit">
+            Reserve
+          </button>
+        </div>
+      </div>
+
+      <!-- ==== Section1: Feature Offers ===== -->
       <section class="py-5">
         <div class="container">
           <h2 class="section-title">Featured Offer</h2>
@@ -515,7 +733,7 @@
         </div>
       </section>
 
-      <!-- ===== 2.Global Offer ==== -->
+      <!-- ===== Section2: Global Offer ==== -->
       <section class="global">
         <div class="container">
           <div class="text-center">
@@ -649,7 +867,7 @@
         </div>
       </section>
 
-      <!-- 3.Destination section -->
+      <!-- ==== Section3: Destination section ==== -->
       <section class="container-xl py-5 mb-5">
         <div class="row">
           <div class="col-11 col-lg-10 mx-auto">
@@ -682,7 +900,7 @@
         </div>
       </section>
 
-      <!-- === 4.More Global offers===-->
+      <!-- ==== Section4: More Global offers ==== -->
       <section>
         <div class="container">
           <div class="row offer-grid">
