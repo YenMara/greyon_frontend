@@ -708,11 +708,7 @@ body {
   }
 
   .mobile-actions button {
-    border-left: 0;
-  }
-
-  .mobile-actions button {
-    border-left: 0;
+    border-left: 1px solid var(--peninsula-gold);
   }
 
   .mobile-actions a:hover,
