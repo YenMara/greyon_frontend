@@ -481,9 +481,9 @@
     text-transform: uppercase;
   }
 
-  .mobile-actions > * + * {
-      border-left: 1px solid var(--peninsula-gold);
-  }
+/* THE DIVIDER */ 
+.peninsula-nav .mobile-actions button { border-left: 1px solid rgba(186, 176, 143, 0.425) !important; }
+
 
   .peninsula-menu,
   .peninsula-menu.hotels-open {
