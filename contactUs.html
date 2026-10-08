@@ -616,289 +616,537 @@
         </div>
       </div>
 
-      <!-- ===== CONTACT US (paste inside <main>, replacing the old contact markup) ===== -->
-      <section class="mt-5">
-        <div class="contact-main">
-          <!-- 1. Title -->
-          <section class="ct-hero">
-            <div class="container">
-              <span class="ct-eyebrow">Get in touch</span>
-              <h1 class="ct-title">How can we help?</h1>
-              <p class="ct-lead">
-                Call, write or send us a message &mdash; choose whatever is most
-                convenient for you.
+<!-- ===== CONTACT US (paste inside <main>, replacing the old contact markup) ===== -->
+<div class="contact-main">
+
+  <!-- 1. Title -->
+  <section class="ct-hero">
+    <div class="container">
+      <span class="ct-eyebrow">Get in touch</span>
+      <h1 class="ct-title">How can we help?</h1>
+      <p class="ct-lead">
+        Call, write or send us a message &mdash; choose whatever is most
+        convenient for you.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. Quick contact cards -->
+  <section class="ct-quick">
+    <div class="container">
+      <div class="row g-3 g-lg-4">
+        <div class="col-md-4">
+          <a href="#tollfree" class="ct-quick-card">
+            <span class="ct-quick-icon"><i class="fa-solid fa-phone"></i></span>
+            <span class="ct-quick-body">
+              <strong>Call us</strong>
+              <small>Find your local toll-free number</small>
+            </span>
+            <i class="fa-solid fa-arrow-right ct-quick-arrow"></i>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="mailto:reservationgcsc@peninsula.com" class="ct-quick-card">
+            <span class="ct-quick-icon"><i class="fa-regular fa-envelope"></i></span>
+            <span class="ct-quick-body">
+              <strong>Email us</strong>
+              <small>reservationgcsc@peninsula.com</small>
+            </span>
+            <i class="fa-solid fa-arrow-right ct-quick-arrow"></i>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#message" class="ct-quick-card">
+            <span class="ct-quick-icon"><i class="fa-regular fa-comment-dots"></i></span>
+            <span class="ct-quick-body">
+              <strong>Send a message</strong>
+              <small>Fill in a short form below</small>
+            </span>
+            <i class="fa-solid fa-arrow-right ct-quick-arrow"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Toll-free numbers (rendered by contact.js) -->
+  <section class="ct-section" id="tollfree">
+    <div class="container">
+      <div class="ct-section-head">
+        <div>
+          <h2 class="ct-h2">Reservations toll-free numbers</h2>
+          <p class="ct-sub mb-0">Search for your country or browse by region.</p>
+        </div>
+
+        <div class="ct-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="search"
+            id="ctSearch"
+            class="form-control"
+            placeholder="Search country…"
+            aria-label="Search country"
+            autocomplete="off"
+          />
+        </div>
+      </div>
+
+      <!-- region filter -->
+      <div class="ct-pills" id="ctPills" role="tablist" aria-label="Filter by region">
+        <button class="ct-pill active" type="button" data-region="all">All</button>
+        <button class="ct-pill" type="button" data-region="Asia Pacific">Asia Pacific</button>
+        <button class="ct-pill" type="button" data-region="Europe">Europe</button>
+        <button class="ct-pill" type="button" data-region="Americas">Americas</button>
+        <button class="ct-pill" type="button" data-region="Middle East">Middle East</button>
+      </div>
+
+      <div class="row g-3" id="ctNumbers">
+        <!-- Asia Pacific -->
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Asia Pacific" data-name="Australia" data-code="AU">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">AU</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Australia</span>
+              <a class="ct-number" href="tel:1800116888">1 800 116 888</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="1 800 116 888" aria-label="Copy number for Australia"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:1800116888" aria-label="Call Australia"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Asia Pacific" data-name="China" data-code="CN">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">CN</span>
+            <div class="ct-num-body">
+              <span class="ct-country">China</span>
+              <a class="ct-number" href="tel:4001200618">4001 200 618</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="4001 200 618" aria-label="Copy number for China"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:4001200618" aria-label="Call China"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Asia Pacific" data-name="Hong Kong" data-code="HK">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">HK</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Hong Kong</span>
+              <a class="ct-number" href="tel:29262888">2926 2888</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="2926 2888" aria-label="Copy number for Hong Kong"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:29262888" aria-label="Call Hong Kong"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Asia Pacific" data-name="India" data-code="IN">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">IN</span>
+            <div class="ct-num-body">
+              <span class="ct-country">India</span>
+              <a class="ct-number" href="tel:0008008521388">000 800 852 1388</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="000 800 852 1388" aria-label="Copy number for India"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:0008008521388" aria-label="Call India"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Asia Pacific" data-name="Japan" data-code="JP">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">JP</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Japan</span>
+              <a class="ct-number" href="tel:0120348288">0120 348 288</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="0120 348 288" aria-label="Copy number for Japan"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:0120348288" aria-label="Call Japan"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Asia Pacific" data-name="Philippines" data-code="PH">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">PH</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Philippines</span>
+              <a class="ct-number" href="tel:180089180147">1 800 89180147</a>
+                <span class="ct-note">Mobile dialing from Globelines, Globelines Payphones, Globe Handyphone and Touch Mobile</span>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="1 800 89180147" aria-label="Copy number for Philippines"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:180089180147" aria-label="Call Philippines"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Asia Pacific" data-name="Singapore" data-code="SG">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">SG</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Singapore</span>
+              <a class="ct-number" href="tel:8008526288">800 8526288</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="800 8526288" aria-label="Copy number for Singapore"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:8008526288" aria-label="Call Singapore"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Asia Pacific" data-name="South Korea" data-code="KR">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">KR</span>
+            <div class="ct-num-body">
+              <span class="ct-country">South Korea</span>
+              <a class="ct-number" href="tel:0079885216388">00798 8521 6388</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="00798 8521 6388" aria-label="Copy number for South Korea"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:0079885216388" aria-label="Call South Korea"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Asia Pacific" data-name="Taiwan" data-code="TW">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">TW</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Taiwan</span>
+              <a class="ct-number" href="tel:00801856908">00801856908</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="00801856908" aria-label="Copy number for Taiwan"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:00801856908" aria-label="Call Taiwan"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Asia Pacific" data-name="Thailand" data-code="TH">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">TH</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Thailand</span>
+              <a class="ct-number" href="tel:1800011888">1800011888</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="1800011888" aria-label="Copy number for Thailand"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:1800011888" aria-label="Call Thailand"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Europe -->
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Europe" data-name="France" data-code="FR">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">FR</span>
+            <div class="ct-num-body">
+              <span class="ct-country">France</span>
+              <a class="ct-number" href="tel:0801130888">0801 130 888</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="0801 130 888" aria-label="Copy number for France"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:0801130888" aria-label="Call France"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Europe" data-name="Germany" data-code="DE">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">DE</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Germany</span>
+              <a class="ct-number" href="tel:08001826838">0800 182 6838</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="0800 182 6838" aria-label="Copy number for Germany"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:08001826838" aria-label="Call Germany"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Europe" data-name="Italy" data-code="IT">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">IT</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Italy</span>
+              <a class="ct-number" href="tel:800826988">800 826 988</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="800 826 988" aria-label="Copy number for Italy"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:800826988" aria-label="Call Italy"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Europe" data-name="Spain" data-code="ES">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">ES</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Spain</span>
+              <a class="ct-number" href="tel:900752168">900 752 168</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="900 752 168" aria-label="Copy number for Spain"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:900752168" aria-label="Call Spain"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Europe" data-name="Switzerland" data-code="CH">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">CH</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Switzerland</span>
+              <a class="ct-number" href="tel:800800128">800 800128</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="800 800128" aria-label="Copy number for Switzerland"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:800800128" aria-label="Call Switzerland"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Europe" data-name="Türkiye" data-code="TR">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">TR</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Türkiye</span>
+              <a class="ct-number" href="tel:0080049240880005">00 80049240880005</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="00 80049240880005" aria-label="Copy number for Türkiye"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:0080049240880005" aria-label="Call Türkiye"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Europe" data-name="United Kingdom" data-code="GB">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">GB</span>
+            <div class="ct-num-body">
+              <span class="ct-country">United Kingdom</span>
+              <a class="ct-number" href="tel:08007830388">08007830388</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="08007830388" aria-label="Copy number for United Kingdom"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:08007830388" aria-label="Call United Kingdom"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Americas -->
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Americas" data-name="Argentina" data-code="AR">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">AR</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Argentina</span>
+              <a class="ct-number" href="tel:08003451806">0800 345 1806</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="0800 345 1806" aria-label="Copy number for Argentina"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:08003451806" aria-label="Call Argentina"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Americas" data-name="Brazil" data-code="BR">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">BR</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Brazil</span>
+              <a class="ct-number" href="tel:08007620199">0800 762 0199</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="0800 762 0199" aria-label="Copy number for Brazil"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:08007620199" aria-label="Call Brazil"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Americas" data-name="Canada" data-code="CA">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">CA</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Canada</span>
+              <a class="ct-number" href="tel:18663088881">1866 308 8881</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="1866 308 8881" aria-label="Copy number for Canada"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:18663088881" aria-label="Call Canada"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Americas" data-name="Mexico" data-code="MX">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">MX</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Mexico</span>
+              <a class="ct-number" href="tel:8008721990">800 872 1990</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="800 872 1990" aria-label="Copy number for Mexico"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:8008721990" aria-label="Call Mexico"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Americas" data-name="USA" data-code="US">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">US</span>
+            <div class="ct-num-body">
+              <span class="ct-country">USA</span>
+              <a class="ct-number" href="tel:18663828388">1 866 382 8388</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="1 866 382 8388" aria-label="Copy number for USA"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:18663828388" aria-label="Call USA"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle East -->
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Middle East" data-name="Bahrain" data-code="BH">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">BH</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Bahrain</span>
+              <a class="ct-number" href="tel:65006972">6500 6972</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="6500 6972" aria-label="Copy number for Bahrain"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:65006972" aria-label="Call Bahrain"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Middle East" data-name="Saudi Arabia" data-code="SA">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">SA</span>
+            <div class="ct-num-body">
+              <span class="ct-country">Saudi Arabia</span>
+              <a class="ct-number" href="tel:8008501659">800 850 1659</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="800 850 1659" aria-label="Copy number for Saudi Arabia"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:8008501659" aria-label="Call Saudi Arabia"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 ct-item" data-region="Middle East" data-name="UAE" data-code="AE">
+          <div class="ct-num">
+            <span class="ct-code" aria-hidden="true">AE</span>
+            <div class="ct-num-body">
+              <span class="ct-country">UAE</span>
+              <a class="ct-number" href="tel:8000120403">800 012 0403</a>
+            </div>
+            <div class="ct-actions">
+              <button type="button" class="ct-icon-btn" data-copy="800 012 0403" aria-label="Copy number for UAE"><i class="fa-regular fa-copy"></i></button>
+              <a class="ct-icon-btn" href="tel:8000120403" aria-label="Call UAE"><i class="fa-solid fa-phone"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ct-empty d-none" id="ctEmpty">
+        <i class="fa-regular fa-face-frown"></i>
+        <p class="mb-1">No number found for &ldquo;<span id="ctEmptyTerm"></span>&rdquo;.</p>
+        <small>Call our Global Customer Service on
+          <a href="tel:+85229262888">+852 2926 2888</a>.</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Message form -->
+  <section class="ct-section pt-0" id="message">
+    <div class="container">
+      <div class="ct-form-wrap">
+        <div class="row g-0">
+          <!-- side info -->
+          <div class="col-lg-4">
+            <div class="ct-form-side">
+              <h2 class="ct-h2 text-white">Send us a message</h2>
+              <p>
+                Prefer to write? Complete the form and our team will get back
+                to you.
               </p>
+
+              <ul class="ct-side-list">
+                <li>
+                  <i class="fa-solid fa-phone"></i>
+                  <a href="tel:+85229262888">+852 2926 2888</a>
+                </li>
+                <li>
+                  <i class="fa-regular fa-envelope"></i>
+                  <a href="mailto:reservationgcsc@peninsula.com">reservationgcsc@peninsula.com</a>
+                </li>
+                <li>
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span>
+                    5/F, The Peninsula Hong Kong<br />
+                    Salisbury Road, Kowloon, Hong Kong SAR
+                  </span>
+                </li>
+              </ul>
             </div>
-          </section>
+          </div>
 
-          <!-- 2. Quick contact cards -->
-          <section class="ct-quick">
-            <div class="container">
-              <div class="row g-3 g-lg-4">
-                <div class="col-md-4">
-                  <a href="#tollfree" class="ct-quick-card">
-                    <span class="ct-quick-icon"
-                      ><i class="fa-solid fa-phone"></i
-                    ></span>
-                    <span class="ct-quick-body">
-                      <strong>Call us</strong>
-                      <small>Find your local toll-free number</small>
-                    </span>
-                    <i class="fa-solid fa-arrow-right ct-quick-arrow"></i>
-                  </a>
-                </div>
-                <div class="col-md-4">
-                  <a
-                    href="mailto:reservationgcsc@peninsula.com"
-                    class="ct-quick-card"
-                  >
-                    <span class="ct-quick-icon"
-                      ><i class="fa-regular fa-envelope"></i
-                    ></span>
-                    <span class="ct-quick-body">
-                      <strong>Email us</strong>
-                      <small>reservationgcsc@peninsula.com</small>
-                    </span>
-                    <i class="fa-solid fa-arrow-right ct-quick-arrow"></i>
-                  </a>
-                </div>
-                <div class="col-md-4">
-                  <a href="#message" class="ct-quick-card">
-                    <span class="ct-quick-icon"
-                      ><i class="fa-regular fa-comment-dots"></i
-                    ></span>
-                    <span class="ct-quick-body">
-                      <strong>Send a message</strong>
-                      <small>Fill in a short form below</small>
-                    </span>
-                    <i class="fa-solid fa-arrow-right ct-quick-arrow"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- 3. Toll-free numbers (rendered by contact.js) -->
-          <section class="ct-section" id="tollfree">
-            <div class="container">
-              <div class="ct-section-head">
-                <div>
-                  <h2 class="ct-h2">Reservations toll-free numbers</h2>
-                  <p class="ct-sub mb-0">
-                    Search for your country or browse by region.
-                  </p>
-                </div>
-
-                <div class="ct-search">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                  <input
-                    type="search"
-                    id="ctSearch"
-                    class="form-control"
-                    placeholder="Search country…"
-                    aria-label="Search country"
-                    autocomplete="off"
-                  />
-                </div>
-              </div>
-
-              <!-- region filter -->
-              <div
-                class="ct-pills"
-                id="ctPills"
-                role="tablist"
-                aria-label="Filter by region"
-              >
-                <button class="ct-pill active" type="button" data-region="all">
-                  All
-                </button>
-                <button
-                  class="ct-pill"
-                  type="button"
-                  data-region="Asia Pacific"
-                >
-                  Asia Pacific
-                </button>
-                <button class="ct-pill" type="button" data-region="Europe">
-                  Europe
-                </button>
-                <button class="ct-pill" type="button" data-region="Americas">
-                  Americas
-                </button>
-                <button class="ct-pill" type="button" data-region="Middle East">
-                  Middle East
-                </button>
-              </div>
-
-              <div class="row g-3" id="ctNumbers" aria-live="polite"></div>
-
-              <div class="ct-empty d-none" id="ctEmpty">
-                <i class="fa-regular fa-face-frown"></i>
-                <p class="mb-1">
-                  No number found for &ldquo;<span id="ctEmptyTerm"></span
-                  >&rdquo;.
-                </p>
-                <small
-                  >Call our Global Customer Service on
-                  <a href="tel:+85229262888">+852 2926 2888</a>.</small
-                >
-              </div>
-            </div>
-          </section>
-
-          <!-- 4. Message form -->
-          <section class="ct-section pt-0" id="message">
-            <div class="container">
-              <div class="ct-form-wrap">
-                <div class="row g-0">
-                  <!-- side info -->
-                  <div class="col-lg-4">
-                    <div class="ct-form-side">
-                      <h2 class="ct-h2 text-white">Send us a message</h2>
-                      <p>
-                        Prefer to write? Complete the form and our team will get
-                        back to you.
-                      </p>
-
-                      <ul class="ct-side-list">
-                        <li>
-                          <i class="fa-solid fa-phone"></i>
-                          <a href="tel:+85229262888">+852 2926 2888</a>
-                        </li>
-                        <li>
-                          <i class="fa-regular fa-envelope"></i>
-                          <a href="mailto:reservationgcsc@peninsula.com"
-                            >reservationgcsc@peninsula.com</a
-                          >
-                        </li>
-                        <li>
-                          <i class="fa-solid fa-location-dot"></i>
-                          <span>
-                            5/F, The Peninsula Hong Kong<br />
-                            Salisbury Road, Kowloon, Hong Kong SAR
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <!-- form -->
-                  <div class="col-lg-8">
-                    <form
-                      class="ct-form needs-validation"
-                      id="ctForm"
-                      novalidate
-                    >
-                      <div class="row g-3">
-                        <div class="col-md-6">
-                          <div class="form-floating">
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="ctName"
-                              placeholder="Full name"
-                              required
-                            />
-                            <label for="ctName">Full name *</label>
-                            <div class="invalid-feedback">
-                              Please enter your name.
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-floating">
-                            <input
-                              type="email"
-                              class="form-control"
-                              id="ctEmail"
-                              placeholder="Email"
-                              required
-                            />
-                            <label for="ctEmail">Email *</label>
-                            <div class="invalid-feedback">
-                              Please enter a valid email.
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-floating">
-                            <input
-                              type="tel"
-                              class="form-control"
-                              id="ctPhone"
-                              placeholder="Phone"
-                            />
-                            <label for="ctPhone">Phone (optional)</label>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-floating">
-                            <select class="form-select" id="ctTopic" required>
-                              <option value="" selected disabled>
-                                Choose…
-                              </option>
-                              <option>Reservations</option>
-                              <option>Meetings &amp; celebrations</option>
-                              <option>Existing booking</option>
-                              <option>Feedback</option>
-                              <option>Other</option>
-                            </select>
-                            <label for="ctTopic">Topic *</label>
-                            <div class="invalid-feedback">
-                              Please choose a topic.
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <div class="form-floating">
-                            <textarea
-                              class="form-control"
-                              id="ctMsg"
-                              placeholder="Message"
-                              style="height: 140px"
-                              required
-                            ></textarea>
-                            <label for="ctMsg">Your message *</label>
-                            <div class="invalid-feedback">
-                              Please write a short message.
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="col-12 d-flex flex-wrap align-items-center justify-content-between gap-3"
-                        >
-                          <small class="text-muted">* Required fields</small>
-                          <button type="submit" class="ct-btn" id="ctSubmit">
-                            <span class="ct-btn-label">Send message</span>
-                            <span
-                              class="spinner-border spinner-border-sm d-none"
-                              aria-hidden="true"
-                            ></span>
-                          </button>
-                        </div>
-                      </div>
-
-                      <div
-                        class="alert ct-success d-none mt-3 mb-0"
-                        id="ctSuccess"
-                        role="status"
-                      >
-                        <i class="fa-solid fa-circle-check me-2"></i>
-                        Thank you &mdash; your message has been sent.
-                      </div>
-                    </form>
+          <!-- form -->
+          <div class="col-lg-8">
+            <form class="ct-form needs-validation" id="ctForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="ctName" placeholder="Full name" required />
+                    <label for="ctName">Full name *</label>
+                    <div class="invalid-feedback">Please enter your name.</div>
                   </div>
                 </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="ctEmail" placeholder="Email" required />
+                    <label for="ctEmail">Email *</label>
+                    <div class="invalid-feedback">Please enter a valid email.</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="tel" class="form-control" id="ctPhone" placeholder="Phone" />
+                    <label for="ctPhone">Phone (optional)</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <select class="form-select" id="ctTopic" required>
+                      <option value="" selected disabled>Choose…</option>
+                      <option>Reservations</option>
+                      <option>Meetings &amp; celebrations</option>
+                      <option>Existing booking</option>
+                      <option>Feedback</option>
+                      <option>Other</option>
+                    </select>
+                    <label for="ctTopic">Topic *</label>
+                    <div class="invalid-feedback">Please choose a topic.</div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <textarea class="form-control" id="ctMsg" placeholder="Message" style="height: 140px" required></textarea>
+                    <label for="ctMsg">Your message *</label>
+                    <div class="invalid-feedback">Please write a short message.</div>
+                  </div>
+                </div>
+                <div class="col-12 d-flex flex-wrap align-items-center justify-content-between gap-3">
+                  <small class="text-muted">* Required fields</small>
+                  <button type="submit" class="ct-btn" id="ctSubmit">
+                    <span class="ct-btn-label">Send message</span>
+                    <span class="spinner-border spinner-border-sm d-none" aria-hidden="true"></span>
+                  </button>
+                </div>
               </div>
-            </div>
-          </section>
-        </div>
 
-        <!-- toast for "number copied" -->
-        <div class="ct-toast" id="ctToast" role="status" aria-live="polite">
-          Number copied
+              <div class="alert ct-success d-none mt-3 mb-0" id="ctSuccess" role="status">
+                <i class="fa-solid fa-circle-check me-2"></i>
+                Thank you &mdash; your message has been sent.
+              </div>
+            </form>
+          </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- toast for "number copied" -->
+<div class="ct-toast" id="ctToast" role="status" aria-live="polite">Number copied</div>
     </main>
 
     <!-- ==== Footer ==== -->
@@ -1078,211 +1326,118 @@
     <script src="./asset/JS/home.js"></script>
 
     <script>
-      /* contact.js - load after the Bootstrap bundle and header.js */
-      (function () {
-        "use strict";
+  /* contact.js - load after the Bootstrap bundle and header.js
+   The number cards live in contact.html; this script only filters,
+   copies and validates. */
+(function () {
+  "use strict";
 
-        /* ---------- data ---------- */
-        var NUMBERS = [
-          // Asia Pacific
-          { r: "Asia Pacific", c: "AU", n: "Australia", p: "1 800 116 888" },
-          { r: "Asia Pacific", c: "CN", n: "China", p: "4001 200 618" },
-          { r: "Asia Pacific", c: "HK", n: "Hong Kong", p: "2926 2888" },
-          { r: "Asia Pacific", c: "IN", n: "India", p: "000 800 852 1388" },
-          { r: "Asia Pacific", c: "JP", n: "Japan", p: "0120 348 288" },
-          {
-            r: "Asia Pacific",
-            c: "PH",
-            n: "Philippines",
-            p: "1 800 89180147",
-            note: "Mobile dialing from Globelines, Globelines Payphones, Globe Handyphone and Touch Mobile",
-          },
-          { r: "Asia Pacific", c: "SG", n: "Singapore", p: "800 8526288" },
-          {
-            r: "Asia Pacific",
-            c: "KR",
-            n: "South Korea",
-            p: "00798 8521 6388",
-          },
-          { r: "Asia Pacific", c: "TW", n: "Taiwan", p: "00801856908" },
-          { r: "Asia Pacific", c: "TH", n: "Thailand", p: "1800011888" },
-          // Europe
-          { r: "Europe", c: "FR", n: "France", p: "0801 130 888" },
-          { r: "Europe", c: "DE", n: "Germany", p: "0800 182 6838" },
-          { r: "Europe", c: "IT", n: "Italy", p: "800 826 988" },
-          { r: "Europe", c: "ES", n: "Spain", p: "900 752 168" },
-          { r: "Europe", c: "CH", n: "Switzerland", p: "800 800128" },
-          { r: "Europe", c: "TR", n: "T\u00fcrkiye", p: "00 80049240880005" },
-          { r: "Europe", c: "GB", n: "United Kingdom", p: "08007830388" },
-          // Americas
-          { r: "Americas", c: "AR", n: "Argentina", p: "0800 345 1806" },
-          { r: "Americas", c: "BR", n: "Brazil", p: "0800 762 0199" },
-          { r: "Americas", c: "CA", n: "Canada", p: "1866 308 8881" },
-          { r: "Americas", c: "MX", n: "Mexico", p: "800 872 1990" },
-          { r: "Americas", c: "US", n: "USA", p: "1 866 382 8388" },
-          // Middle East
-          { r: "Middle East", c: "BH", n: "Bahrain", p: "6500 6972" },
-          { r: "Middle East", c: "SA", n: "Saudi Arabia", p: "800 850 1659" },
-          { r: "Middle East", c: "AE", n: "UAE", p: "800 012 0403" },
-        ];
+  var listEl = document.getElementById("ctNumbers");
+  if (!listEl) return;
 
-        var listEl = document.getElementById("ctNumbers");
-        if (!listEl) return;
+  var items = Array.prototype.slice.call(listEl.querySelectorAll(".ct-item"));
+  var searchEl = document.getElementById("ctSearch");
+  var pillsEl = document.getElementById("ctPills");
+  var emptyEl = document.getElementById("ctEmpty");
+  var emptyTerm = document.getElementById("ctEmptyTerm");
+  var toastEl = document.getElementById("ctToast");
+  var region = "all";
 
-        var searchEl = document.getElementById("ctSearch");
-        var pillsEl = document.getElementById("ctPills");
-        var emptyEl = document.getElementById("ctEmpty");
-        var emptyTerm = document.getElementById("ctEmptyTerm");
-        var toastEl = document.getElementById("ctToast");
-        var region = "all";
+  function norm(s) {
+    return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
 
-        /* ---------- helpers ---------- */
-        function esc(s) {
-          return String(s).replace(/[&<>"']/g, function (m) {
-            return {
-              "&": "&amp;",
-              "<": "&lt;",
-              ">": "&gt;",
-              '"': "&quot;",
-              "'": "&#39;",
-            }[m];
-          });
-        }
-        function telHref(p) {
-          return "tel:" + p.replace(/[^\d+]/g, "");
-        }
-        function norm(s) {
-          return s
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "");
-        }
+  /* ---------- filter ---------- */
+  function applyFilter() {
+    var q = norm(searchEl.value.trim());
+    var visible = 0;
 
-        /* ---------- render ---------- */
-        function render() {
-          var q = norm(searchEl.value.trim());
-          var items = NUMBERS.filter(function (x) {
-            var okRegion = region === "all" || x.r === region;
-            var okText =
-              !q || norm(x.n).indexOf(q) > -1 || norm(x.c).indexOf(q) === 0;
-            return okRegion && okText;
-          });
+    items.forEach(function (el) {
+      var okRegion = region === "all" || el.dataset.region === region;
+      var okText =
+        !q ||
+        norm(el.dataset.name).indexOf(q) > -1 ||
+        norm(el.dataset.code).indexOf(q) === 0;
+      var show = okRegion && okText;
+      el.classList.toggle("d-none", !show);
+      if (show) visible++;
+    });
 
-          listEl.innerHTML = items
-            .map(function (x) {
-              return (
-                '<div class="col-sm-6 col-lg-4"><div class="ct-num">' +
-                '<span class="ct-code" aria-hidden="true">' +
-                esc(x.c) +
-                "</span>" +
-                '<div class="ct-num-body">' +
-                '<span class="ct-country">' +
-                esc(x.n) +
-                "</span>" +
-                '<a class="ct-number" href="' +
-                telHref(x.p) +
-                '">' +
-                esc(x.p) +
-                "</a>" +
-                (x.note
-                  ? '<span class="ct-note">' + esc(x.note) + "</span>"
-                  : "") +
-                "</div>" +
-                '<div class="ct-actions">' +
-                '<button type="button" class="ct-icon-btn" data-copy="' +
-                esc(x.p) +
-                '" aria-label="Copy number for ' +
-                esc(x.n) +
-                '"><i class="fa-regular fa-copy"></i></button>' +
-                '<a class="ct-icon-btn" href="' +
-                telHref(x.p) +
-                '" aria-label="Call ' +
-                esc(x.n) +
-                '"><i class="fa-solid fa-phone"></i></a>' +
-                "</div>" +
-                "</div></div>"
-              );
-            })
-            .join("");
+    emptyEl.classList.toggle("d-none", visible > 0);
+    if (visible === 0) emptyTerm.textContent = searchEl.value.trim();
+  }
 
-          var none = items.length === 0;
-          emptyEl.classList.toggle("d-none", !none);
-          if (none) emptyTerm.textContent = searchEl.value.trim();
-        }
+  searchEl.addEventListener("input", applyFilter);
 
-        /* ---------- events ---------- */
-        searchEl.addEventListener("input", render);
+  pillsEl.addEventListener("click", function (e) {
+    var btn = e.target.closest(".ct-pill");
+    if (!btn) return;
+    region = btn.getAttribute("data-region");
+    pillsEl.querySelectorAll(".ct-pill").forEach(function (b) {
+      b.classList.toggle("active", b === btn);
+    });
+    applyFilter();
+  });
 
-        pillsEl.addEventListener("click", function (e) {
-          var btn = e.target.closest(".ct-pill");
-          if (!btn) return;
-          region = btn.getAttribute("data-region");
-          pillsEl.querySelectorAll(".ct-pill").forEach(function (b) {
-            b.classList.toggle("active", b === btn);
-          });
-          render();
-        });
+  /* ---------- copy number ---------- */
+  var toastTimer;
+  function toast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+      toastEl.classList.remove("show");
+    }, 1800);
+  }
 
-        var toastTimer;
-        function toast(msg) {
-          toastEl.textContent = msg;
-          toastEl.classList.add("show");
-          clearTimeout(toastTimer);
-          toastTimer = setTimeout(function () {
-            toastEl.classList.remove("show");
-          }, 1800);
-        }
+  listEl.addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-copy]");
+    if (!btn) return;
+    var text = btn.getAttribute("data-copy");
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        toast("Number copied");
+      });
+    } else {
+      var t = document.createElement("textarea");
+      t.value = text;
+      document.body.appendChild(t);
+      t.select();
+      document.execCommand("copy");
+      document.body.removeChild(t);
+      toast("Number copied");
+    }
+  });
 
-        listEl.addEventListener("click", function (e) {
-          var btn = e.target.closest("[data-copy]");
-          if (!btn) return;
-          var text = btn.getAttribute("data-copy");
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(function () {
-              toast("Number copied");
-            });
-          } else {
-            var t = document.createElement("textarea");
-            t.value = text;
-            document.body.appendChild(t);
-            t.select();
-            document.execCommand("copy");
-            document.body.removeChild(t);
-            toast("Number copied");
-          }
-        });
+  /* ---------- form ---------- */
+  var form = document.getElementById("ctForm");
+  if (form) {
+    var submitBtn = document.getElementById("ctSubmit");
+    var spinner = submitBtn.querySelector(".spinner-border");
+    var successEl = document.getElementById("ctSuccess");
 
-        /* ---------- form ---------- */
-        var form = document.getElementById("ctForm");
-        if (form) {
-          var submitBtn = document.getElementById("ctSubmit");
-          var spinner = submitBtn.querySelector(".spinner-border");
-          var successEl = document.getElementById("ctSuccess");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      successEl.classList.add("d-none");
+      if (!form.checkValidity()) {
+        form.classList.add("was-validated");
+        return;
+      }
+      submitBtn.disabled = true;
+      spinner.classList.remove("d-none");
 
-          form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            successEl.classList.add("d-none");
-            if (!form.checkValidity()) {
-              form.classList.add("was-validated");
-              return;
-            }
-            submitBtn.disabled = true;
-            spinner.classList.remove("d-none");
-
-            // TODO: replace this timeout with your real request, e.g.
-            // fetch("/api/contact", { method: "POST", body: new FormData(form) })
-            setTimeout(function () {
-              submitBtn.disabled = false;
-              spinner.classList.add("d-none");
-              form.reset();
-              form.classList.remove("was-validated");
-              successEl.classList.remove("d-none");
-            }, 900);
-          });
-        }
-
-        render();
-      })();
+      // TODO: replace this timeout with your real request, e.g.
+      // fetch("/api/contact", { method: "POST", body: new FormData(form) })
+      setTimeout(function () {
+        submitBtn.disabled = false;
+        spinner.classList.add("d-none");
+        form.reset();
+        form.classList.remove("was-validated");
+        successEl.classList.remove("d-none");
+      }, 900);
+    });
+  }
+})();
     </script>
   </body>
 </html>
