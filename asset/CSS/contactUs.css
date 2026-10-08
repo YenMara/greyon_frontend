@@ -1,0 +1,639 @@
+/* =========================================================
+   contact-modern.css  -  replaces the section styles in contact.css
+   Load order: ... footer.css, contact-modern.css, contact-header.css (last)
+   ========================================================= */
+
+body {
+  background: #F9F9F9;
+}
+
+.contact-main {
+  --ct-bg: #f6f4f0;
+  --ct-ink: #1f1f1f;
+  --ct-muted: #6a6a6a;
+  --ct-gold: #7d6a4b;
+  --ct-gold-dark: #66563c;
+  --ct-gold-soft: #f1ece2;
+  --ct-line: #e6e1d6;
+  --ct-serif: "EB Garamond", Georgia, serif;
+  --ct-sans: "Jost", system-ui, sans-serif;
+
+  /* background: var(--ct-bg); */
+  font-family: var(--ct-sans);
+  color: var(--ct-ink);
+  padding-bottom: 5rem;
+}
+.contact-main [id] { scroll-margin-top: 100px; }
+
+/* ---------- 1. Hero ---------- */
+.ct-hero {
+  text-align: center;
+  padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2rem, 4vw, 3rem);
+}
+.ct-eyebrow {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ct-gold);
+}
+.ct-title {
+  margin: 0;
+  font-family: var(--ct-serif);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  line-height: 1.1;
+}
+.ct-lead {
+  max-width: 520px;
+  margin: 1.1rem auto 0;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--ct-muted);
+}
+
+/* ---------- 2. Quick cards ---------- */
+.ct-quick { padding-bottom: clamp(2.5rem, 5vw, 4rem); }
+.ct-quick-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  padding: 1.25rem 1.4rem;
+  background: #fff;
+  border: 1px solid var(--ct-line);
+  border-radius: 14px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.ct-quick-card:hover,
+.ct-quick-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--ct-gold);
+  box-shadow: 0 14px 30px rgba(60, 45, 20, 0.1);
+}
+.ct-quick-icon {
+  flex: 0 0 48px;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ct-gold-soft);
+  color: var(--ct-gold);
+  font-size: 1.1rem;
+}
+.ct-quick-body { flex: 1; min-width: 0; line-height: 1.35; }
+.ct-quick-body strong { display: block; font-weight: 500; font-size: 1.05rem; }
+.ct-quick-body small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ct-muted);
+}
+.ct-quick-arrow { color: var(--ct-gold); transition: transform 0.2s ease; }
+.ct-quick-card:hover .ct-quick-arrow { transform: translateX(4px); }
+
+/* ---------- 3. Numbers ---------- */
+.ct-section { padding: 1rem 0 clamp(3rem, 6vw, 5rem); }
+.ct-section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.ct-h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--ct-serif);
+  font-weight: 500;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+}
+.ct-sub { color: var(--ct-muted); font-weight: 300; }
+
+.ct-search { position: relative; width: 100%; max-width: 320px; }
+.ct-search i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ct-gold);
+  pointer-events: none;
+}
+.ct-search .form-control {
+  height: 48px;
+  padding-left: 2.6rem;
+  border: 1px solid var(--ct-line);
+  border-radius: 999px;
+  background: #fff;
+  font-family: var(--ct-sans);
+  box-shadow: none;
+}
+.ct-search .form-control:focus {
+  border-color: var(--ct-gold);
+  box-shadow: 0 0 0 4px rgba(125, 106, 75, 0.15);
+}
+
+/* region pills: scroll sideways on small screens */
+.ct-pills {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.ct-pills::-webkit-scrollbar { display: none; }
+.ct-pill {
+  flex: 0 0 auto;
+  padding: 0.55rem 1.2rem;
+  border: 1px solid var(--ct-line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ct-ink);
+  font-family: var(--ct-sans);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+.ct-pill:hover { border-color: var(--ct-gold); color: var(--ct-gold); }
+.ct-pill.active {
+  background: var(--ct-gold);
+  border-color: var(--ct-gold);
+  color: #fff;
+}
+
+/* number card */
+.ct-num {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  height: 100%;
+  padding: 1rem 1.1rem;
+  background: #fff;
+  border: 1px solid var(--ct-line);
+  border-radius: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.ct-num:hover {
+  border-color: var(--ct-gold);
+  box-shadow: 0 10px 24px rgba(60, 45, 20, 0.08);
+}
+.ct-code {
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--ct-gold-soft);
+  color: var(--ct-gold-dark);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+.ct-num-body { flex: 1; min-width: 0; line-height: 1.3; }
+.ct-country { display: block; font-size: 0.85rem; color: var(--ct-muted); }
+.ct-number {
+  display: block;
+  font-family: var(--ct-serif);
+  font-size: 1.3rem;
+  color: var(--ct-ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.ct-number:hover { color: var(--ct-gold); }
+.ct-note { display: block; margin-top: 0.15rem; font-size: 0.75rem; color: var(--ct-muted); }
+
+.ct-actions { display: flex; gap: 0.4rem; }
+.ct-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--ct-line);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ct-gold);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.ct-icon-btn:hover,
+.ct-icon-btn:focus-visible {
+  background: var(--ct-gold);
+  border-color: var(--ct-gold);
+  color: #fff;
+}
+
+.ct-empty { padding: 3rem 1rem; text-align: center; color: var(--ct-muted); }
+.ct-empty i { margin-bottom: 0.75rem; font-size: 2rem; color: var(--ct-gold); }
+.ct-empty a { color: var(--ct-gold); }
+
+/* toast */
+.ct-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 2000;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  background: #1f1f1f;
+  color: #fff;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.ct-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- 4. Form ---------- */
+.ct-form-wrap {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--ct-line);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(60, 45, 20, 0.08);
+}
+.ct-form-side {
+  height: 100%;
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+  background: linear-gradient(160deg, #8a7650 0%, #5f4f35 100%);
+  color: rgba(255, 255, 255, 0.9);
+}
+.ct-form-side p { font-weight: 300; line-height: 1.7; }
+.ct-side-list { margin: 2rem 0 0; padding: 0; list-style: none; }
+.ct-side-list li { display: flex; gap: 0.9rem; margin-bottom: 1.15rem; line-height: 1.5; }
+.ct-side-list i { width: 18px; margin-top: 0.3rem; text-align: center; color: #e6d7b8; }
+.ct-side-list a { color: #fff; text-decoration: none; word-break: break-word; }
+.ct-side-list a:hover { text-decoration: underline; }
+
+.ct-form { padding: clamp(1.75rem, 3vw, 2.75rem); }
+.ct-form .form-control,
+.ct-form .form-select {
+  border: 1px solid var(--ct-line);
+  border-radius: 10px;
+  font-family: var(--ct-sans);
+  box-shadow: none;
+}
+.ct-form .form-control:focus,
+.ct-form .form-select:focus {
+  border-color: var(--ct-gold);
+  box-shadow: 0 0 0 4px rgba(125, 106, 75, 0.15);
+}
+.ct-form .form-floating > label { color: var(--ct-muted); }
+
+.ct-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 2.2rem;
+  border: 1px solid var(--ct-gold);
+  border-radius: 999px;
+  background: var(--ct-gold);
+  color: #fff;
+  font-family: var(--ct-sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.ct-btn:hover:not(:disabled) { background: var(--ct-gold-dark); transform: translateY(-1px); }
+.ct-btn:disabled { opacity: 0.75; cursor: progress; }
+
+.ct-success {
+  border: 0;
+  border-radius: 10px;
+  background: #e9f4ec;
+  color: #1f6b3a;
+}
+
+@media (max-width: 575.98px) {
+  .ct-number { font-size: 1.2rem; }
+  .ct-search { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-main * { transition: none !important; }
+}
+
+/* =========================================================
+   LOCK THE COLOUR: same white header before AND after scroll
+   !important + extra specificity beats whatever class
+   header.js adds on scroll (.scrolled, .is-scrolled, .sticky ...)
+   ========================================================= */
+html body header.peninsula-header.header-solid,
+html body header.peninsula-header.header-solid.scrolled,
+html body header.peninsula-header.header-solid.is-scrolled,
+html body header.peninsula-header.header-solid.sticky,
+html body header.peninsula-header.header-solid.header-scrolled {
+  background: #fff !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09) !important;
+  border-top: 2px solid var(--hd-purple) !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+html body header.peninsula-header.header-solid .peninsula-nav,
+html body header.peninsula-header.header-solid .peninsula-nav > .container-fluid {
+  background: transparent !important;
+  color: var(--hd-ink) !important;
+}
+
+html body header.peninsula-header.header-solid .nav-link-custom,
+html body header.peninsula-header.header-solid .menu,
+html body header.peninsula-header.header-solid .language-toggle {
+  color: var(--hd-ink) !important;
+}
+html body header.peninsula-header.header-solid .nav-link-custom:hover {
+  color: var(--hd-gold) !important;
+}
+html body header.peninsula-header.header-solid .btn-reserve {
+  background: var(--hd-gold) !important;
+  border-color: var(--hd-gold) !important;
+  color: #fff !important;
+}
+html body header.peninsula-header.header-solid .btn-reserve:hover {
+  background: #fff !important;
+  color: var(--hd-gold) !important;
+}
+html body header.peninsula-header.header-solid .hamburger-icon span {
+  background: var(--hd-gold) !important;
+}
+
+/* =========================================================
+   contact.css  -  load AFTER home.css, header.css, footer.css
+   Scoped to <body class="contact-page"> so other pages are untouched
+   ========================================================= */
+
+.contact-page {
+  --c-bg: #f2f2f2;
+  --c-ink: #1f1f1f;
+  --c-muted: #5b5b5b;
+  --c-gold: #7d6a4b;
+  --c-gold-line: #a1865a;
+  --c-card: #ffffff;
+  --header-h: 88px; /* height of the fixed header; tweak if yours differs */
+  --f-serif: "EB Garamond", Georgia, serif;
+  --f-sans: "Jost", system-ui, sans-serif;
+
+  background: var(--c-bg);
+  font-family: var(--f-sans);
+  color: var(--c-ink);
+}
+
+/* ---------- 1. HEADER: always solid white on this page ---------- */
+.contact-page .peninsula-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  background: #fff;
+  border-top: 3px solid #6b4fb3;           /* thin purple accent line */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.contact-page .peninsula-nav {
+  background: transparent;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.contact-page .peninsula-nav .container-fluid {
+  color: var(--c-ink) !important;          /* beats Bootstrap .text-white */
+}
+
+/* nav text + icons -> dark */
+.contact-page .peninsula-header .nav-link-custom,
+.contact-page .peninsula-header .menu,
+.contact-page .peninsula-header .language-toggle {
+  color: var(--c-ink);
+  font-family: var(--f-sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.contact-page .peninsula-header .nav-link-custom:hover {
+  color: var(--c-gold);
+}
+.contact-page .hamburger-icon span {
+  background: var(--c-gold);
+}
+
+/* the thin divider between "Contact us" and the language switcher */
+.contact-page .nav-side-right {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+.contact-page .nav-side-right > a.nav-link-custom {
+  padding-right: 1.75rem;
+  border-right: 1px solid #cfcfcf;
+  line-height: 1;
+}
+
+/* Reserve button */
+.contact-page .btn-reserve {
+  background: var(--c-gold);
+  color: #fff;
+  border: 1px solid var(--c-gold);
+  border-radius: 0;
+  padding: 0.85rem 1.6rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.contact-page .btn-reserve:hover {
+  background: #fff;
+  color: var(--c-gold);
+}
+
+/* mobile action bar (Contact us | Reserve) on white */
+.contact-page .mobile-actions {
+  background: #fff;
+  border-top: 1px solid #e6e6e6;
+}
+.contact-page .mobile-actions a {
+  color: var(--c-ink);
+}
+
+/* ---------- 2. PAGE LAYOUT ---------- */
+.contact-main {
+  padding-top: var(--header-h);
+}
+
+.contact-hero {
+  padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+}
+.contact-eyebrow {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+.contact-title {
+  margin: 0;
+  font-family: var(--f-serif);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000;
+}
+.contact-rule {
+  display: block;
+  width: 172px;
+  height: 1px;
+  margin: 1.6rem auto 0;
+  background: var(--c-gold-line);
+  border: 0;
+  opacity: 1;
+}
+
+/* ---------- 3. TOLL-FREE NUMBERS ---------- */
+.tollfree-heading {
+  margin: 0 0 2.25rem;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  color: #404040;
+}
+
+.region-block {
+  margin-bottom: 2.5rem;
+}
+.region-name {
+  margin: 0 0 1.1rem;
+  font-family: var(--f-sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+.region-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.region-list li {
+  padding: 0.28rem 0;
+  font-family: var(--f-serif);
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--c-ink);
+}
+.region-list a {
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.region-list a:hover,
+.region-list a:focus-visible {
+  color: var(--c-gold);
+  border-color: var(--c-gold-line);
+}
+.region-list small {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--c-muted);
+}
+
+/* ---------- 4. MESSAGE CARD ---------- */
+.message-card {
+  background: var(--c-card);
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+}
+@media (min-width: 992px) {
+  .message-card {
+    position: sticky;
+    top: calc(var(--header-h) + 1.5rem);
+  }
+}
+.message-card h3 {
+  margin: 0 0 1.4rem;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+.message-card p {
+  margin: 0 0 2rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  font-weight: 300;
+  color: #2b2b2b;
+}
+.btn-outline-gold {
+  display: inline-block;
+  padding: 1rem 2.2rem;
+  border: 1px solid var(--c-gold-line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--c-gold);
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.btn-outline-gold:hover,
+.btn-outline-gold:focus-visible {
+  background: var(--c-gold);
+  color: #fff;
+}
+
+/* ---------- 5. MODAL FORM ---------- */
+.contact-modal .modal-content {
+  border: 0;
+  border-radius: 0;
+  padding: 0.75rem;
+}
+.contact-modal .modal-title {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+.contact-modal .form-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+.contact-modal .form-control,
+.contact-modal .form-select {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid #bdbdbd;
+  background: transparent;
+  padding-left: 0;
+  box-shadow: none;
+}
+.contact-modal .form-control:focus,
+.contact-modal .form-select:focus {
+  border-color: var(--c-gold);
+}
+
+/* ---------- 6. RESPONSIVE ---------- */
+@media (max-width: 991.98px) {
+  /* tablet/mobile: header = top bar + the Contact/Reserve bar */
+  .contact-page { --header-h: 130px; }
+}
+@media (max-width: 575.98px) {
+  .region-list li { font-size: 1.1rem; }
+  .region-list a { white-space: normal; }
+}

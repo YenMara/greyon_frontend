@@ -1,0 +1,1288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- your css (load last so it wins over Bootstrap) -->
+    <link rel="stylesheet" href="./asset/CSS/home.css" />
+    <link rel="stylesheet" href="./asset/CSS/header.css" />
+    <link rel="stylesheet" href="./asset/CSS/footer.css" />
+    <link rel="stylesheet" href="./asset/CSS/contactUs.css" />
+  </head>
+
+  <body>
+    <!-- ======= Header Section ===== -->
+    <header class="peninsula-header">
+      <!-- px-0 px-lg-3: the mobile action bar must run edge to edge below 992px -->
+      <nav class="peninsula-nav navbar navbar-expand-lg px-0 px-lg-3">
+        <div
+          class="container-fluid d-flex align-items-center justify-content-between text-white py-3 px-4"
+        >
+          <!-- LEFT -->
+          <div class="nav-side nav-side-left">
+            <button
+              class="btn nav-link-custom"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#mainMenu"
+              aria-controls="mainMenu"
+              aria-label="Open menu"
+            >
+              <span class="hamburger-icon"
+                ><span></span><span></span><span></span
+              ></span>
+              <span class="menu">Menu</span>
+            </button>
+          </div>
+
+          <!-- CENTER -->
+          <div class="brand">
+            <a
+              href="index.html"
+              class="text-decoration-none"
+              aria-label="Greyon home"
+            >
+              <img
+                src="./asset/img/greyon_logo_white.png"
+                data-logo-default="./asset/img/greyon_logo_white.png"
+                data-logo-scrolled="./asset/img/greyon_logo.png"
+                alt="Greyon logo"
+                class="brand-logo"
+              />
+            </a>
+          </div>
+
+          <!-- RIGHT (desktop only, hidden below 992px) -->
+          <div class="nav-side nav-side-right">
+            <a href="#" class="nav-link-custom d-none d-lg-inline-flex"
+              >Contact us</a
+            >
+            <div class="language-switcher d-none d-lg-block">
+              <button
+                class="nav-link-custom language-toggle"
+                id="languageToggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="languageMenu"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  width="16"
+                  height="16"
+                  aria-hidden="true"
+                >
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                  >
+                    <circle cx="50" cy="50" r="40" />
+                    <line x1="10" y1="50" x2="90" y2="50" />
+                    <ellipse cx="50" cy="50" rx="18" ry="40" />
+                  </g>
+                </svg>
+                <span>English</span>
+              </button>
+              <div class="language-menu" id="languageMenu" role="menu" hidden>
+                <a href="#" role="menuitem" data-language="English">English</a>
+                <a href="#" role="menuitem" data-language="中文">中文</a>
+                <a href="#" role="menuitem" data-language="日本語">日本語</a>
+              </div>
+            </div>
+            <button
+              class="btn btn-reserve d-none d-lg-inline-block"
+              type="button"
+            >
+              Reserve
+            </button>
+          </div>
+        </div>
+
+        <!-- NEW: Contact us | Reserve bar (tablet + mobile only, controlled by CSS) -->
+        <div class="mobile-actions">
+          <a href="#">Contact us</a>
+          <button type="button">Reserve</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ===== SLIDE-OUT MENU ===== -->
+      <section>
+        <div
+          class="offcanvas offcanvas-start peninsula-menu"
+          tabindex="-1"
+          id="mainMenu"
+          aria-labelledby="mainMenuLabel"
+        >
+          <div class="offcanvas-header pb-0">
+            <span class="menu-brand" id="mainMenuLabel">Greyon</span>
+            <button
+              type="button"
+              class="btn-close-custom"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close menu"
+            >
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="menu-columns">
+            <!-- NEW: back + title row (tablet/mobile only, shown when "Our Hotels" is open) -->
+            <div class="menu-subhead">
+              <button
+                type="button"
+                class="menu-back"
+                id="menuBack"
+                aria-label="Back to menu"
+              >
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                <span>Back</span>
+              </button>
+              <h2 class="menu-subtitle">Our Hotels</h2>
+            </div>
+
+            <!-- ===== COLUMN 1: main nav ===== -->
+            <div class="menu-col menu-col-main">
+              <div class="offcanvas-body">
+                <ul class="menu-list">
+                  <li>
+                    <a href="#" class="hotels-toggle" id="hotelsToggle">
+                      <span>Our Hotels</span>
+                      <i
+                        class="fa-solid fa-chevron-right brave-our-hotel"
+                        aria-hidden="true"
+                      ></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="experience.html"><span>The Experience</span></a>
+                  </li>
+                  <li>
+                    <a href="offer.html"><span>Offers</span></a>
+                  </li>
+                  <li>
+                    <a href="meeting&celebration.html"
+                      ><span>Meetings &amp; Celebrations</span></a
+                    >
+                  </li>
+                  <li>
+                    <a href="wellness.html"><span>Wellness</span></a>
+                  </li>
+                  <li>
+                    <a href="signature-events.html"
+                      ><span>Signature Events</span></a
+                    >
+                  </li>
+                  <li>
+                    <a href="perspectives.html"><span>Perspectives</span></a>
+                  </li>
+                  <li>
+                    <a href="sustainability.html"
+                      ><span>Sustainability</span></a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div class="menu-footer">
+                <a href="#">
+                  <span>Global homepage</span>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </a>
+                <a href="#" id="selectHotelLink">
+                  <span>Select a hotel</span>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="#"
+                  class="menu-footer-lang"
+                  id="mobileLanguageToggle"
+                  aria-expanded="false"
+                  aria-controls="mobileLanguageMenu"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 100 100"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
+                  >
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="5"
+                      stroke-linecap="round"
+                    >
+                      <circle cx="50" cy="50" r="40" />
+                      <line x1="10" y1="50" x2="90" y2="50" />
+                      <ellipse cx="50" cy="50" rx="18" ry="40" />
+                    </g>
+                  </svg>
+                  <span>English</span>
+                </a>
+                <div
+                  class="language-menu mobile-language-menu"
+                  id="mobileLanguageMenu"
+                  role="menu"
+                  hidden
+                >
+                  <a href="#" role="menuitem" data-language="English"
+                    >English</a
+                  >
+                  <a href="#" role="menuitem" data-language="中文">中文</a>
+                  <a href="#" role="menuitem" data-language="日本語">日本語</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== COLUMN 2: regions ===== -->
+            <div class="menu-col menu-col-regions">
+              <ul class="region-list">
+                <li>
+                  <a href="#" class="region-link active" data-region="all">
+                    <span>All Regions</span>
+                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="region-link" data-region="city">
+                    <span>City</span>
+                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="region-link" data-region="province">
+                    <span>Province</span>
+                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- ===== COLUMN 3: hotel list ===== -->
+            <div class="menu-col menu-col-hotels">
+              <ul class="hotel-list">
+                <li class="hotel-item" data-region="city">
+                  <a href="">
+                    <div class="hotel-thumb">
+                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
+                    </div>
+                    <div class="hotel-copy">
+                      <h3>Greyon Boeung Kang Kong</h3>
+                      <p class="mt-2">A landmark on the eastern skyline</p>
+                    </div>
+                  </a>
+                </li>
+                <li class="hotel-item" data-region="city">
+                  <a href="">
+                    <div class="hotel-thumb">
+                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
+                    </div>
+                    <div class="hotel-copy">
+                      <h3>Greyon Riverside</h3>
+                      <p class="mt-2">Glamour redefined on the water</p>
+                    </div>
+                  </a>
+                </li>
+                <li class="hotel-item" data-region="city">
+                  <a href="">
+                    <div class="hotel-thumb">
+                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
+                    </div>
+                    <div class="hotel-copy">
+                      <h3>Greyon Koh Pich</h3>
+                      <p class="mt-2">Heart of the city, timeless elegance</p>
+                    </div>
+                  </a>
+                </li>
+                <li class="hotel-item" data-region="city">
+                  <a href="">
+                    <div class="hotel-thumb thumb-4">
+                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
+                    </div>
+                    <div class="hotel-copy">
+                      <h3>Greyon ToulKork</h3>
+                      <p class="mt-2">
+                        A shining landmark facing the palace grounds
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li class="hotel-item" data-region="province">
+                  <a href="">
+                    <div class="hotel-thumb thumb-5">
+                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
+                    </div>
+                    <div class="hotel-copy">
+                      <h3>Greyon Kompot</h3>
+                      <p class="mt-2">The avenue's most glamorous address</p>
+                    </div>
+                  </a>
+                </li>
+                <li class="hotel-item" data-region="province">
+                  <a href="">
+                    <div class="hotel-thumb thumb-6">
+                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
+                    </div>
+                    <div class="hotel-copy">
+                      <h3>Greyon Kep</h3>
+                      <p class="mt-2">
+                        Far Eastern graciousness meets Midwestern hospitality
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li class="hotel-item" data-region="province">
+                  <a href="">
+                    <div class="hotel-thumb thumb-7">
+                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
+                    </div>
+                    <div class="hotel-copy">
+                      <h3>Greyon Preah Sihanuk</h3>
+                      <p class="mt-2">
+                        An exclusive oasis in the city of angels
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li class="hotel-item" data-region="province">
+                  <a href="">
+                    <div class="hotel-thumb thumb-8">
+                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
+                    </div>
+                    <div class="hotel-copy">
+                      <h3>Greyon PoitPat</h3>
+                      <p class="mt-2">
+                        Stylish grandeur in the heart of the city
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li class="hotel-item" data-region="province">
+                  <a href="">
+                    <div class="hotel-thumb thumb-9">
+                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
+                    </div>
+                    <div class="hotel-copy">
+                      <h3>Greyon Battambong</h3>
+                      <p class="mt-2">A quiet elegance beside the river</p>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== RESERVE DRAWER ===== -->
+      <div
+        class="offcanvas offcanvas-end reserve-drawer"
+        tabindex="-1"
+        id="reserveDrawer"
+        aria-labelledby="reserveDrawerLabel"
+      >
+        <div class="offcanvas-header">
+          <h2 class="reserve-drawer-title" id="reserveDrawerLabel">Reserve</h2>
+          <button
+            type="button"
+            class="btn-close-custom"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          >
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="offcanvas-body reserve-drawer-body">
+          <form id="reserveDrawerForm" autocomplete="off">
+            <!-- Hotels -->
+            <div class="rd-field">
+              <button
+                type="button"
+                class="rd-trigger"
+                aria-expanded="false"
+                aria-controls="rdHotelPanel"
+              >
+                <span class="rd-col">
+                  <span class="rd-label">Hotels</span>
+                  <span class="rd-value" id="rdHotelValue">Select a hotel</span>
+                </span>
+                <svg
+                  class="rd-chevron"
+                  viewBox="0 0 16 9"
+                  width="14"
+                  height="8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M1 1l7 7 7-7" />
+                </svg>
+              </button>
+              <div class="rd-panel" id="rdHotelPanel" hidden>
+                <ul class="rd-hotel-list" id="rdHotelList"></ul>
+              </div>
+            </div>
+
+            <!-- Dates -->
+            <div class="rd-field">
+              <button
+                type="button"
+                class="rd-trigger"
+                aria-expanded="false"
+                aria-controls="rdDatesPanel"
+              >
+                <span class="rd-col">
+                  <span class="rd-label">Dates</span>
+                  <span class="rd-value" id="rdDatesValue"></span>
+                </span>
+                <svg
+                  class="rd-chevron"
+                  viewBox="0 0 16 9"
+                  width="14"
+                  height="8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M1 1l7 7 7-7" />
+                </svg>
+              </button>
+              <div class="rd-panel" id="rdDatesPanel" hidden>
+                <div class="rd-dates-row">
+                  <label>
+                    <span>Check-in</span>
+                    <input type="date" id="rdCheckIn" name="checkin" />
+                  </label>
+                  <label>
+                    <span>Check-out</span>
+                    <input type="date" id="rdCheckOut" name="checkout" />
+                  </label>
+                </div>
+                <p class="rd-nights" id="rdNights">1 Night</p>
+              </div>
+            </div>
+
+            <!-- Guests -->
+            <div class="rd-field">
+              <button
+                type="button"
+                class="rd-trigger"
+                aria-expanded="false"
+                aria-controls="rdGuestsPanel"
+              >
+                <span class="rd-col">
+                  <span class="rd-label">Guests</span>
+                  <span class="rd-value" id="rdGuestsValue"></span>
+                </span>
+                <svg
+                  class="rd-chevron"
+                  viewBox="0 0 16 9"
+                  width="14"
+                  height="8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M1 1l7 7 7-7" />
+                </svg>
+              </button>
+              <div class="rd-panel" id="rdGuestsPanel" hidden>
+                <div class="rd-rooms" id="rdRooms"></div>
+                <div class="rd-guests-foot">
+                  <p class="rd-note">Max 4 guests per room, Max 8 rooms</p>
+                  <button type="button" class="rd-add-room" id="rdAddRoom">
+                    Add room
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Special codes -->
+            <div class="rd-field">
+              <button
+                type="button"
+                class="rd-trigger"
+                aria-expanded="false"
+                aria-controls="rdCodesPanel"
+              >
+                <span class="rd-col">
+                  <span class="rd-label">Special codes</span>
+                  <span class="rd-value rd-value--accent" id="rdCodesValue"
+                    >Add Special Codes</span
+                  >
+                </span>
+              </button>
+              <div class="rd-panel" id="rdCodesPanel" hidden>
+                <div class="rd-code-option">
+                  <label class="rd-radio">
+                    <input
+                      type="radio"
+                      name="rdCodeType"
+                      value="promo"
+                      checked
+                    />
+                    <span class="rd-radio-dot"></span>
+                    <span>Promo Code</span>
+                  </label>
+                  <input
+                    class="rd-code-input"
+                    type="text"
+                    id="rdPromoCode"
+                    placeholder="Enter Promo Code"
+                    maxlength="20"
+                  />
+                </div>
+                <div class="rd-code-option">
+                  <label class="rd-radio">
+                    <input type="radio" name="rdCodeType" value="group" />
+                    <span class="rd-radio-dot"></span>
+                    <span>Group Code</span>
+                  </label>
+                  <input
+                    class="rd-code-input"
+                    type="text"
+                    id="rdGroupCode"
+                    placeholder="Enter Group Code"
+                    maxlength="20"
+                    disabled
+                  />
+                </div>
+                <div class="rd-code-divider"></div>
+                <div class="rd-code-option">
+                  <label class="rd-code-label" for="rdAdvisorId"
+                    >Travel Advisor ID</label
+                  >
+                  <input
+                    class="rd-code-input"
+                    type="text"
+                    id="rdAdvisorId"
+                    placeholder="Enter Travel Advisor ID"
+                    maxlength="20"
+                  />
+                </div>
+                <button type="button" class="rd-code-done" id="rdCodeDone">
+                  Done
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <p class="rd-info">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            Book direct for the best rates and offers and access to Peninsula
+            Time, a flexible check-in &amp; check-out programme
+          </p>
+        </div>
+
+        <div class="offcanvas-footer reserve-drawer-footer">
+          <button type="submit" form="reserveDrawerForm" class="rd-submit">
+            Reserve
+          </button>
+        </div>
+      </div>
+
+      <!-- ===== CONTACT US (paste inside <main>, replacing the old contact markup) ===== -->
+      <section class="mt-5">
+        <div class="contact-main">
+          <!-- 1. Title -->
+          <section class="ct-hero">
+            <div class="container">
+              <span class="ct-eyebrow">Get in touch</span>
+              <h1 class="ct-title">How can we help?</h1>
+              <p class="ct-lead">
+                Call, write or send us a message &mdash; choose whatever is most
+                convenient for you.
+              </p>
+            </div>
+          </section>
+
+          <!-- 2. Quick contact cards -->
+          <section class="ct-quick">
+            <div class="container">
+              <div class="row g-3 g-lg-4">
+                <div class="col-md-4">
+                  <a href="#tollfree" class="ct-quick-card">
+                    <span class="ct-quick-icon"
+                      ><i class="fa-solid fa-phone"></i
+                    ></span>
+                    <span class="ct-quick-body">
+                      <strong>Call us</strong>
+                      <small>Find your local toll-free number</small>
+                    </span>
+                    <i class="fa-solid fa-arrow-right ct-quick-arrow"></i>
+                  </a>
+                </div>
+                <div class="col-md-4">
+                  <a
+                    href="mailto:reservationgcsc@peninsula.com"
+                    class="ct-quick-card"
+                  >
+                    <span class="ct-quick-icon"
+                      ><i class="fa-regular fa-envelope"></i
+                    ></span>
+                    <span class="ct-quick-body">
+                      <strong>Email us</strong>
+                      <small>reservationgcsc@peninsula.com</small>
+                    </span>
+                    <i class="fa-solid fa-arrow-right ct-quick-arrow"></i>
+                  </a>
+                </div>
+                <div class="col-md-4">
+                  <a href="#message" class="ct-quick-card">
+                    <span class="ct-quick-icon"
+                      ><i class="fa-regular fa-comment-dots"></i
+                    ></span>
+                    <span class="ct-quick-body">
+                      <strong>Send a message</strong>
+                      <small>Fill in a short form below</small>
+                    </span>
+                    <i class="fa-solid fa-arrow-right ct-quick-arrow"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. Toll-free numbers (rendered by contact.js) -->
+          <section class="ct-section" id="tollfree">
+            <div class="container">
+              <div class="ct-section-head">
+                <div>
+                  <h2 class="ct-h2">Reservations toll-free numbers</h2>
+                  <p class="ct-sub mb-0">
+                    Search for your country or browse by region.
+                  </p>
+                </div>
+
+                <div class="ct-search">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input
+                    type="search"
+                    id="ctSearch"
+                    class="form-control"
+                    placeholder="Search country…"
+                    aria-label="Search country"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+
+              <!-- region filter -->
+              <div
+                class="ct-pills"
+                id="ctPills"
+                role="tablist"
+                aria-label="Filter by region"
+              >
+                <button class="ct-pill active" type="button" data-region="all">
+                  All
+                </button>
+                <button
+                  class="ct-pill"
+                  type="button"
+                  data-region="Asia Pacific"
+                >
+                  Asia Pacific
+                </button>
+                <button class="ct-pill" type="button" data-region="Europe">
+                  Europe
+                </button>
+                <button class="ct-pill" type="button" data-region="Americas">
+                  Americas
+                </button>
+                <button class="ct-pill" type="button" data-region="Middle East">
+                  Middle East
+                </button>
+              </div>
+
+              <div class="row g-3" id="ctNumbers" aria-live="polite"></div>
+
+              <div class="ct-empty d-none" id="ctEmpty">
+                <i class="fa-regular fa-face-frown"></i>
+                <p class="mb-1">
+                  No number found for &ldquo;<span id="ctEmptyTerm"></span
+                  >&rdquo;.
+                </p>
+                <small
+                  >Call our Global Customer Service on
+                  <a href="tel:+85229262888">+852 2926 2888</a>.</small
+                >
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. Message form -->
+          <section class="ct-section pt-0" id="message">
+            <div class="container">
+              <div class="ct-form-wrap">
+                <div class="row g-0">
+                  <!-- side info -->
+                  <div class="col-lg-4">
+                    <div class="ct-form-side">
+                      <h2 class="ct-h2 text-white">Send us a message</h2>
+                      <p>
+                        Prefer to write? Complete the form and our team will get
+                        back to you.
+                      </p>
+
+                      <ul class="ct-side-list">
+                        <li>
+                          <i class="fa-solid fa-phone"></i>
+                          <a href="tel:+85229262888">+852 2926 2888</a>
+                        </li>
+                        <li>
+                          <i class="fa-regular fa-envelope"></i>
+                          <a href="mailto:reservationgcsc@peninsula.com"
+                            >reservationgcsc@peninsula.com</a
+                          >
+                        </li>
+                        <li>
+                          <i class="fa-solid fa-location-dot"></i>
+                          <span>
+                            5/F, The Peninsula Hong Kong<br />
+                            Salisbury Road, Kowloon, Hong Kong SAR
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- form -->
+                  <div class="col-lg-8">
+                    <form
+                      class="ct-form needs-validation"
+                      id="ctForm"
+                      novalidate
+                    >
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <div class="form-floating">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="ctName"
+                              placeholder="Full name"
+                              required
+                            />
+                            <label for="ctName">Full name *</label>
+                            <div class="invalid-feedback">
+                              Please enter your name.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-floating">
+                            <input
+                              type="email"
+                              class="form-control"
+                              id="ctEmail"
+                              placeholder="Email"
+                              required
+                            />
+                            <label for="ctEmail">Email *</label>
+                            <div class="invalid-feedback">
+                              Please enter a valid email.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-floating">
+                            <input
+                              type="tel"
+                              class="form-control"
+                              id="ctPhone"
+                              placeholder="Phone"
+                            />
+                            <label for="ctPhone">Phone (optional)</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-floating">
+                            <select class="form-select" id="ctTopic" required>
+                              <option value="" selected disabled>
+                                Choose…
+                              </option>
+                              <option>Reservations</option>
+                              <option>Meetings &amp; celebrations</option>
+                              <option>Existing booking</option>
+                              <option>Feedback</option>
+                              <option>Other</option>
+                            </select>
+                            <label for="ctTopic">Topic *</label>
+                            <div class="invalid-feedback">
+                              Please choose a topic.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-floating">
+                            <textarea
+                              class="form-control"
+                              id="ctMsg"
+                              placeholder="Message"
+                              style="height: 140px"
+                              required
+                            ></textarea>
+                            <label for="ctMsg">Your message *</label>
+                            <div class="invalid-feedback">
+                              Please write a short message.
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="col-12 d-flex flex-wrap align-items-center justify-content-between gap-3"
+                        >
+                          <small class="text-muted">* Required fields</small>
+                          <button type="submit" class="ct-btn" id="ctSubmit">
+                            <span class="ct-btn-label">Send message</span>
+                            <span
+                              class="spinner-border spinner-border-sm d-none"
+                              aria-hidden="true"
+                            ></span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div
+                        class="alert ct-success d-none mt-3 mb-0"
+                        id="ctSuccess"
+                        role="status"
+                      >
+                        <i class="fa-solid fa-circle-check me-2"></i>
+                        Thank you &mdash; your message has been sent.
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- toast for "number copied" -->
+        <div class="ct-toast" id="ctToast" role="status" aria-live="polite">
+          Number copied
+        </div>
+      </section>
+    </main>
+
+    <!-- ==== Footer ==== -->
+    <footer class="site-footer">
+      <!-- ---------- Stay Connected strip ---------- -->
+      <div class="footer-connect">
+        <div class="container">
+          <div class="fc-row">
+            <h2 class="fc-title">Stay Connected</h2>
+            <form class="fc-form" id="footerNewsletterForm" novalidate>
+              <label class="visually-hidden" for="footerEmail"
+                >Email address</label
+              >
+              <input
+                type="email"
+                class="fc-input"
+                id="footerEmail"
+                name="email"
+                placeholder="Enter your email address"
+                autocomplete="email"
+                required
+              />
+              <button type="submit" class="fc-submit" aria-label="Sign up">
+                <svg
+                  width="22"
+                  height="14"
+                  viewBox="0 0 22 14"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M1 7h19M13 1l7 6-7 6" />
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- Link columns ---------- -->
+      <div class="footer-main">
+        <div class="container">
+          <div class="footer-cols">
+            <div class="footer-col">
+              <h3 class="fcol-title">Global Customer Service</h3>
+              <address class="fcol-address">
+                5/F, The Peninsula Hong Kong<br />
+                Salisbury Road, Kowloon<br />
+                Hong Kong, SAR
+              </address>
+              <a href="tel:+85229262888" class="fcol-accent-link"
+                >+852 2926 2888</a
+              >
+              <a href="#" class="fcol-accent-link"
+                >Worldwide toll free numbers</a
+              >
+              <a
+                href="mailto:reservationgcsc@peninsula.com"
+                class="fcol-accent-link"
+                >reservationgcsc@peninsula.com</a
+              >
+
+              <div class="fcol-social">
+                <a
+                  href="#"
+                  class="fcol-social-link text-decoration-none"
+                  aria-label="Instagram"
+                >
+                  <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="#"
+                  class="fcol-social-link text-decoration-none"
+                  aria-label="Facebook"
+                >
+                  <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="#"
+                  class="fcol-social-link text-decoration-none"
+                  aria-label="WeChat"
+                >
+                  <i class="fa-brands fa-weixin" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="#"
+                  class="fcol-social-link text-decoration-none"
+                  aria-label="X (Twitter)"
+                >
+                  <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="#"
+                  class="fcol-social-link text-decoration-none"
+                  aria-label="YouTube"
+                >
+                  <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="footer-col">
+              <h3 class="fcol-title">The Peninsula Hotels</h3>
+              <ul class="fcol-list">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Find Your Reservations</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Careers</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h3 class="fcol-title">Media</h3>
+              <ul class="fcol-list">
+                <li><a href="#">Newsroom</a></li>
+                <li><a href="#">Press Contacts</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h3 class="fcol-title">Corporate</h3>
+              <ul class="fcol-list">
+                <li><a href="#">Sustainable Luxury</a></li>
+                <li><a href="#">Data Privacy And Security Policy</a></li>
+                <li><a href="#">Website Conditions Of Use</a></li>
+                <li>
+                  <a href="#">Accessibility Policy Statement (US Properties)</a>
+                </li>
+                <li>
+                  <a href="#">The Hongkong And Shanghai Hotels, Limited</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- Bottom bar ---------- -->
+      <div class="footer-bottom">
+        <div class="container">
+          <ul class="fb-legal">
+            <li><a href="#">Data Privacy and Security Policy</a></li>
+            <li><a href="#">Website Conditions of Use</a></li>
+            <li>
+              <a href="#">Accessibility Policy Statement (US Properties)</a>
+            </li>
+            <li>
+              <a href="#" id="manageCookiePrefs">Manage Cookie Preferences</a>
+            </li>
+          </ul>
+
+          <div class="fb-row">
+            <div class="fb-lang">
+              <span class="fb-lang-label">Language</span>
+              <a href="#" class="active" data-language="English">English</a>
+              <a href="#" data-language="简体中文">简体中文</a>
+              <a href="#" data-language="日本語">日本語</a>
+              <a href="#" data-language="français">français</a>
+            </div>
+
+            <p class="fb-copy">
+              &copy; <span id="footerYear">2026</span> HSH Management Services
+              Limited. (The Peninsula Hotels) All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS bundle (required for the offcanvas) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="./asset/JS/header.js"></script>
+    <script src="./asset/JS/footer.js"></script>
+    <script src="./asset/JS/home.js"></script>
+
+    <script>
+      /* contact.js - load after the Bootstrap bundle and header.js */
+      (function () {
+        "use strict";
+
+        /* ---------- data ---------- */
+        var NUMBERS = [
+          // Asia Pacific
+          { r: "Asia Pacific", c: "AU", n: "Australia", p: "1 800 116 888" },
+          { r: "Asia Pacific", c: "CN", n: "China", p: "4001 200 618" },
+          { r: "Asia Pacific", c: "HK", n: "Hong Kong", p: "2926 2888" },
+          { r: "Asia Pacific", c: "IN", n: "India", p: "000 800 852 1388" },
+          { r: "Asia Pacific", c: "JP", n: "Japan", p: "0120 348 288" },
+          {
+            r: "Asia Pacific",
+            c: "PH",
+            n: "Philippines",
+            p: "1 800 89180147",
+            note: "Mobile dialing from Globelines, Globelines Payphones, Globe Handyphone and Touch Mobile",
+          },
+          { r: "Asia Pacific", c: "SG", n: "Singapore", p: "800 8526288" },
+          {
+            r: "Asia Pacific",
+            c: "KR",
+            n: "South Korea",
+            p: "00798 8521 6388",
+          },
+          { r: "Asia Pacific", c: "TW", n: "Taiwan", p: "00801856908" },
+          { r: "Asia Pacific", c: "TH", n: "Thailand", p: "1800011888" },
+          // Europe
+          { r: "Europe", c: "FR", n: "France", p: "0801 130 888" },
+          { r: "Europe", c: "DE", n: "Germany", p: "0800 182 6838" },
+          { r: "Europe", c: "IT", n: "Italy", p: "800 826 988" },
+          { r: "Europe", c: "ES", n: "Spain", p: "900 752 168" },
+          { r: "Europe", c: "CH", n: "Switzerland", p: "800 800128" },
+          { r: "Europe", c: "TR", n: "T\u00fcrkiye", p: "00 80049240880005" },
+          { r: "Europe", c: "GB", n: "United Kingdom", p: "08007830388" },
+          // Americas
+          { r: "Americas", c: "AR", n: "Argentina", p: "0800 345 1806" },
+          { r: "Americas", c: "BR", n: "Brazil", p: "0800 762 0199" },
+          { r: "Americas", c: "CA", n: "Canada", p: "1866 308 8881" },
+          { r: "Americas", c: "MX", n: "Mexico", p: "800 872 1990" },
+          { r: "Americas", c: "US", n: "USA", p: "1 866 382 8388" },
+          // Middle East
+          { r: "Middle East", c: "BH", n: "Bahrain", p: "6500 6972" },
+          { r: "Middle East", c: "SA", n: "Saudi Arabia", p: "800 850 1659" },
+          { r: "Middle East", c: "AE", n: "UAE", p: "800 012 0403" },
+        ];
+
+        var listEl = document.getElementById("ctNumbers");
+        if (!listEl) return;
+
+        var searchEl = document.getElementById("ctSearch");
+        var pillsEl = document.getElementById("ctPills");
+        var emptyEl = document.getElementById("ctEmpty");
+        var emptyTerm = document.getElementById("ctEmptyTerm");
+        var toastEl = document.getElementById("ctToast");
+        var region = "all";
+
+        /* ---------- helpers ---------- */
+        function esc(s) {
+          return String(s).replace(/[&<>"']/g, function (m) {
+            return {
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            }[m];
+          });
+        }
+        function telHref(p) {
+          return "tel:" + p.replace(/[^\d+]/g, "");
+        }
+        function norm(s) {
+          return s
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+        }
+
+        /* ---------- render ---------- */
+        function render() {
+          var q = norm(searchEl.value.trim());
+          var items = NUMBERS.filter(function (x) {
+            var okRegion = region === "all" || x.r === region;
+            var okText =
+              !q || norm(x.n).indexOf(q) > -1 || norm(x.c).indexOf(q) === 0;
+            return okRegion && okText;
+          });
+
+          listEl.innerHTML = items
+            .map(function (x) {
+              return (
+                '<div class="col-sm-6 col-lg-4"><div class="ct-num">' +
+                '<span class="ct-code" aria-hidden="true">' +
+                esc(x.c) +
+                "</span>" +
+                '<div class="ct-num-body">' +
+                '<span class="ct-country">' +
+                esc(x.n) +
+                "</span>" +
+                '<a class="ct-number" href="' +
+                telHref(x.p) +
+                '">' +
+                esc(x.p) +
+                "</a>" +
+                (x.note
+                  ? '<span class="ct-note">' + esc(x.note) + "</span>"
+                  : "") +
+                "</div>" +
+                '<div class="ct-actions">' +
+                '<button type="button" class="ct-icon-btn" data-copy="' +
+                esc(x.p) +
+                '" aria-label="Copy number for ' +
+                esc(x.n) +
+                '"><i class="fa-regular fa-copy"></i></button>' +
+                '<a class="ct-icon-btn" href="' +
+                telHref(x.p) +
+                '" aria-label="Call ' +
+                esc(x.n) +
+                '"><i class="fa-solid fa-phone"></i></a>' +
+                "</div>" +
+                "</div></div>"
+              );
+            })
+            .join("");
+
+          var none = items.length === 0;
+          emptyEl.classList.toggle("d-none", !none);
+          if (none) emptyTerm.textContent = searchEl.value.trim();
+        }
+
+        /* ---------- events ---------- */
+        searchEl.addEventListener("input", render);
+
+        pillsEl.addEventListener("click", function (e) {
+          var btn = e.target.closest(".ct-pill");
+          if (!btn) return;
+          region = btn.getAttribute("data-region");
+          pillsEl.querySelectorAll(".ct-pill").forEach(function (b) {
+            b.classList.toggle("active", b === btn);
+          });
+          render();
+        });
+
+        var toastTimer;
+        function toast(msg) {
+          toastEl.textContent = msg;
+          toastEl.classList.add("show");
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(function () {
+            toastEl.classList.remove("show");
+          }, 1800);
+        }
+
+        listEl.addEventListener("click", function (e) {
+          var btn = e.target.closest("[data-copy]");
+          if (!btn) return;
+          var text = btn.getAttribute("data-copy");
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () {
+              toast("Number copied");
+            });
+          } else {
+            var t = document.createElement("textarea");
+            t.value = text;
+            document.body.appendChild(t);
+            t.select();
+            document.execCommand("copy");
+            document.body.removeChild(t);
+            toast("Number copied");
+          }
+        });
+
+        /* ---------- form ---------- */
+        var form = document.getElementById("ctForm");
+        if (form) {
+          var submitBtn = document.getElementById("ctSubmit");
+          var spinner = submitBtn.querySelector(".spinner-border");
+          var successEl = document.getElementById("ctSuccess");
+
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            successEl.classList.add("d-none");
+            if (!form.checkValidity()) {
+              form.classList.add("was-validated");
+              return;
+            }
+            submitBtn.disabled = true;
+            spinner.classList.remove("d-none");
+
+            // TODO: replace this timeout with your real request, e.g.
+            // fetch("/api/contact", { method: "POST", body: new FormData(form) })
+            setTimeout(function () {
+              submitBtn.disabled = false;
+              spinner.classList.add("d-none");
+              form.reset();
+              form.classList.remove("was-validated");
+              successEl.classList.remove("d-none");
+            }, 900);
+          });
+        }
+
+        render();
+      })();
+    </script>
+  </body>
+</html>
