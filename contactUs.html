@@ -76,7 +76,7 @@
 
           <!-- RIGHT (desktop only, hidden below 992px) -->
           <div class="nav-side nav-side-right">
-            <a href="#" class="nav-link-custom d-none d-lg-inline-flex"
+            <a href="contactUs.html" class="nav-link-custom d-none d-lg-inline-flex"
               >Contact us</a
             >
             <div class="language-switcher d-none d-lg-block">
@@ -124,7 +124,7 @@
 
         <!-- NEW: Contact us | Reserve bar (tablet + mobile only, controlled by CSS) -->
         <div class="mobile-actions">
-          <a href="#">Contact us</a>
+          <a href="contactUs.html">Contact us</a>
           <button type="button">Reserve</button>
         </div>
       </nav>
@@ -399,6 +399,165 @@
         </div>
       </section>
 
+            <!-- ===== SELECT A HOTEL PANEL ===== -->
+      <section>
+        <div
+          class="offcanvas offcanvas-start select-hotel-menu"
+          tabindex="-1"
+          id="hotelSelectMenu"
+          aria-label="Select a hotel"
+        >
+          <!-- Back (left) + Close (right) -->
+          <div class="sh-top">
+            <button
+              type="button"
+              class="sh-back"
+              id="shBack"
+              aria-label="Back to menu"
+            >
+              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+              <span>Back</span>
+            </button>
+            <button
+              type="button"
+              class="btn-close-custom sh-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close menu"
+            >
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="sh-body">
+            <!-- LEFT: regions -->
+            <ul class="sh-regions" id="shRegions">
+              <li>
+                <a href="#" class="sh-region active" data-region="all"
+                  ><span>All Regions</span
+                  ><i class="fa-solid fa-chevron-right" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" class="sh-region" data-region="asia"
+                  ><span>Asia</span
+                  ><i class="fa-solid fa-chevron-right" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" class="sh-region" data-region="europe"
+                  ><span>Europe</span
+                  ><i class="fa-solid fa-chevron-right" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" class="sh-region" data-region="americas"
+                  ><span>Americas</span
+                  ><i class="fa-solid fa-chevron-right" aria-hidden="true"></i
+                ></a>
+              </li>
+            </ul>
+
+            <!-- RIGHT: hotels (scrolls) -->
+            <ul class="sh-hotels" id="shHotels">
+              <li class="sh-hotel" data-region="asia">
+                <a href="#">
+                  <span class="sh-thumb"
+                    ><img src="./asset/img/Poolside Lunch-min.jpg" alt=""
+                  /></span>
+                  <span class="sh-copy"
+                    ><strong>The Greyon Hong Kong</strong
+                    ><em>The Grande Dame of the Far East</em></span
+                  >
+                </a>
+              </li>
+              <li class="sh-hotel" data-region="asia">
+                <a href="#">
+                  <span class="sh-thumb"
+                    ><img src="./asset/img/Poolside Lunch-min.jpg" alt=""
+                  /></span>
+                  <span class="sh-copy"
+                    ><strong>The Greyon Shanghai</strong
+                    ><em>Glamour redefined on The Bund</em></span
+                  >
+                </a>
+              </li>
+              <li class="sh-hotel" data-region="asia">
+                <a href="#">
+                  <span class="sh-thumb"
+                    ><img src="./asset/img/Poolside Lunch-min.jpg" alt=""
+                  /></span>
+                  <span class="sh-copy"
+                    ><strong>The Greyon Beijing</strong
+                    ><em>Heart of the Capital, Timeless Elegance</em></span
+                  >
+                </a>
+              </li>
+              <li class="sh-hotel" data-region="asia">
+                <a href="#">
+                  <span class="sh-thumb"
+                    ><img src="./asset/img/Poolside Lunch-min.jpg" alt=""
+                  /></span>
+                  <span class="sh-copy"
+                    ><strong>The Greyon Tokyo</strong
+                    ><em
+                      >A shining landmark located opposite the Imperial
+                      Palace</em
+                    ></span
+                  >
+                </a>
+              </li>
+              <li class="sh-hotel" data-region="americas">
+                <a href="#">
+                  <span class="sh-thumb"
+                    ><img src="./asset/img/Poolside Lunch-min.jpg" alt=""
+                  /></span>
+                  <span class="sh-copy"
+                    ><strong>The Greyon New York</strong
+                    ><em>Fifth Avenue’s most glamorous address</em></span
+                  >
+                </a>
+              </li>
+              <li class="sh-hotel" data-region="americas">
+                <a href="#">
+                  <span class="sh-thumb"
+                    ><img src="./asset/img/Poolside Lunch-min.jpg" alt=""
+                  /></span>
+                  <span class="sh-copy"
+                    ><strong>The Greyon Chicago</strong
+                    ><em
+                      >Far Eastern graciousness meets Midwestern hospitality</em
+                    ></span
+                  >
+                </a>
+              </li>
+              <li class="sh-hotel" data-region="americas">
+                <a href="#">
+                  <span class="sh-thumb"
+                    ><img src="./asset/img/Poolside Lunch-min.jpg" alt=""
+                  /></span>
+                  <span class="sh-copy"
+                    ><strong>The Greyon Beverly Hills</strong
+                    ><em>An exclusive oasis in The City of Angels</em></span
+                  >
+                </a>
+              </li>
+              <li class="sh-hotel" data-region="europe">
+                <a href="#">
+                  <span class="sh-thumb"
+                    ><img src="./asset/img/Poolside Lunch-min.jpg" alt=""
+                  /></span>
+                  <span class="sh-copy"
+                    ><strong>The Greyon London</strong
+                    ><em>Stylish Grandeur in the Heart of Belgravia</em></span
+                  >
+                </a>
+              </li>
+              <!-- copy one <li class="sh-hotel"> to add a hotel; set data-region to asia / europe / americas -->
+            </ul>
+          </div>
+        </div>
+      </section>
+      
       <!-- ===== RESERVE DRAWER ===== -->
       <div
         class="offcanvas offcanvas-end reserve-drawer"
