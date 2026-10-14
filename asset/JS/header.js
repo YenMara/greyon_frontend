@@ -95,3 +95,52 @@ menuBack.addEventListener('click', () => {
   mainMenu.classList.remove('hotels-open');
   hotelsToggle.classList.remove('active');
 });
+(function () {
+  const mainMenuElement = document.getElementById('mainMenu');
+  const hotelMenuElement = document.getElementById('hotelSelectMenu');
+  const openLink = document.getElementById('selectHotelLink');
+  const backButton = document.getElementById('shBack');
+
+  if (!mainMenuElement || !hotelMenuElement || !openLink || !backButton) return;
+
+  const mainMenuInstance = bootstrap.Offcanvas.getOrCreateInstance(mainMenuElement);
+  const hotelMenuInstance = bootstrap.Offcanvas.getOrCreateInstance(hotelMenuElement);
+  const hotelRegionLinks = document.querySelectorAll('#shRegions .sh-region');
+  const selectHotelItems = document.querySelectorAll('#shHotels .sh-hotel');
+
+  function swapOffcanvas(fromInstance, fromElement, toInstance) {
+    fromElement.addEventListener(
+      'hide.bs.offcanvas',
+      () => toInstance.show(),
+      { once: true },
+    );
+    fromInstance.hide();
+  }
+
+  openLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    swapOffcanvas(mainMenuInstance, mainMenuElement, hotelMenuInstance);
+  });
+
+  backButton.addEventListener('click', () => {
+    swapOffcanvas(hotelMenuInstance, hotelMenuElement, mainMenuInstance);
+  });
+
+  function filterHotels(region) {
+    hotelRegionLinks.forEach((link) => {
+      link.classList.toggle('active', link.dataset.region === region);
+    });
+    selectHotelItems.forEach((item) => {
+      item.hidden = region !== 'all' && item.dataset.region !== region;
+    });
+  }
+
+  hotelRegionLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      filterHotels(link.dataset.region);
+    });
+  });
+
+  hotelMenuElement.addEventListener('show.bs.offcanvas', () => filterHotels('all'));
+})();

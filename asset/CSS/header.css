@@ -205,13 +205,15 @@
 
 /* Slide-out menu */
 .peninsula-menu {
-  width: 520px;
+  --menu-inline-padding: 2.75rem;
+  --bs-offcanvas-transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+  width: 480px;
   max-width: 92vw;
   background: #fff;
   color: var(--peninsula-charcoal);
   border: 0;
   padding: 0;
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1), width 0.15s cubic-bezier(0.22, 1, 0.36, 1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -239,16 +241,22 @@
   width: 420px;
   min-width: 0;
   max-width: 92vw;
-  padding: 0 2.75rem 2rem;
+  padding: 0 var(--menu-inline-padding) 2rem;
   display: flex;
   flex-direction: column;
 }
 
 .peninsula-menu .offcanvas-header {
-  width: 100%;
+  width: 420px;
+  max-width: 92vw;
   flex: 0 0 auto;
-  padding: 0 1.2rem 3.5rem 0;
+  padding: 0 var(--menu-inline-padding) 3.5rem 0;
   align-items: flex-start;
+}
+
+.peninsula-menu.hotels-open .offcanvas-header {
+  width: 100%;
+  max-width: 100%;
 }
 
 .menu-brand {
@@ -274,6 +282,57 @@
   line-height: 1;
   margin-left: auto;
   padding-top: 40px;
+}
+
+@media (max-width: 991.98px) {
+  .peninsula-menu {
+    --menu-inline-padding: 2rem;
+  }
+
+  .peninsula-menu .offcanvas-header {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    align-items: center;
+    width: 100%;
+    max-width: none;
+    padding: 1.25rem var(--menu-inline-padding) 0;
+    margin-bottom: 1.75rem;
+  }
+
+  .peninsula-menu .btn-close-custom {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem;
+  }
+
+  .peninsula-menu .menu-brand {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 0;
+    font-size: 1.15rem;
+    letter-spacing: 0.14em;
+    text-align: center;
+    color: var(--peninsula-charcoal);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .peninsula-menu {
+    --menu-inline-padding: 1.5rem;
+  }
+
+  .peninsula-menu .menu-col-main {
+    padding-right: var(--menu-inline-padding);
+    padding-left: var(--menu-inline-padding);
+  }
 }
 
 .hotels-toggle {
@@ -492,6 +551,7 @@
   }
 
   .menu-columns {
+        background-color:red!important;
     flex-direction: column;
     overflow-y: auto;
   }
@@ -514,14 +574,17 @@
     display: grid;
     grid-template-columns: 44px 1fr 44px;
     align-items: center;
-    padding: 1.25rem 2rem 0;
+    width: 100%;
+    max-width: none;
+    padding: 1.25rem var(--menu-inline-padding) 0;
     margin-bottom: 1.75rem;
   }
 
   .peninsula-menu .btn-close-custom {
-    grid-column: 1;
+    grid-column: 3;
     grid-row: 1;
-    justify-self: start;
+    justify-self: end;
+    justify-content: flex-end;
     display: flex;
     align-items: center;
     width: 44px;
@@ -649,3 +712,195 @@
     transition: none !important;
   }
 }
+
+/* 2) CSS  – add to the bottom of home.css (or header.css) */
+.offcanvas-start.peninsula-menu {
+  --bs-offcanvas-width: 440px;
+}
+
+.offcanvas-start.select-hotel-menu {
+  --bs-offcanvas-width: 520px;
+}
+
+.offcanvas-start.peninsula-menu.hotels-open,
+.offcanvas-start.select-hotel-menu {
+  --bs-offcanvas-width: min(1400px, 96vw);
+  max-width: 96vw;
+}
+
+.offcanvas-start.select-hotel-menu {
+  --bs-offcanvas-width: min(1100px, 90vw);
+  max-width: 90vw;
+}
+
+.select-hotel-menu {
+  --bs-offcanvas-transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+  width: min(900px, 92vw);
+  max-width: 92vw;
+  color: var(--peninsula-charcoal);
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1), width 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+}
+ 
+/* ---------- Back / Close row ---------- */
+.sh-top {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.2rem 3.4rem 0 3.6rem;
+}
+.sh-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: #555;
+  font-family: "Jost", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.sh-back i { color: var(--peninsula-gold); font-size: .85rem; }
+.sh-back:hover { color: var(--peninsula-gold); }
+ 
+.select-hotel-menu .sh-close {
+  margin: 0;
+  padding: 0;
+  font-size: 1.4rem;
+  margin-top: 1rem;               /* sits slightly lower than Back, like the reference */
+}
+ 
+/* ---------- Two columns ---------- */
+.sh-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  margin-top: 3.4rem;
+  padding-bottom: 2rem;
+}
+ 
+/* regions */
+.sh-regions {
+  flex: 0 0 300px;
+  margin: 0;
+  padding: 0 1.8rem 0 3.6rem;
+  list-style: none;
+  border-right: 1px solid var(--peninsula-rule);
+}
+.sh-regions li + li { margin-top: 2rem; }
+.sh-region {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--peninsula-charcoal);
+  font-family: "Jost", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.sh-region i { font-size: .8rem; color: var(--peninsula-gold); }
+.sh-region.active,
+.sh-region:hover { color: var(--peninsula-gold); }
+ 
+/* hotels */
+.sh-hotels {
+  flex: 0 1 560px;
+  min-width: 0;
+  margin: 0;
+  padding: 0 1.6rem 0 1.9rem;
+  list-style: none;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #b3a78f transparent;
+}
+.sh-hotel[hidden] { display: none; }
+.sh-hotel + .sh-hotel { margin-top: 1.1rem; }
+.sh-hotel a {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  color: inherit;
+  text-decoration: none;
+}
+.sh-thumb {
+  flex: 0 0 90px;
+  width: 90px;
+  height: 56px;
+  overflow: hidden;
+  background: #d9d3c7;
+}
+.sh-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+ 
+.sh-copy { min-width: 0; }
+.sh-copy strong {
+  display: block;
+  font-family: "Jost", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.25;
+  color: #2b2b2b;
+  transition: color .2s ease;
+}
+.sh-copy em {
+  display: block;
+  margin-top: .3rem;
+  font-family: "Jost", sans-serif;
+  font-size: .85rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.3;
+  color: #6b665c;
+}
+.sh-hotel a:hover strong,
+.sh-hotel a:focus-visible strong { color: var(--peninsula-gold); }
+ 
+/* ---------- Phones / small tablets: regions become a tab row ---------- */
+@media (max-width: 767.98px) {
+  .offcanvas-start.peninsula-menu,
+  .offcanvas-start.select-hotel-menu {
+    --bs-offcanvas-width: 100vw;
+  }
+
+  .offcanvas-start.select-hotel-menu {
+    width: 100vw;
+    max-width: 100vw;
+  }
+  .sh-top { padding: 1.4rem 1.5rem 0; }
+  .sh-body { flex-direction: column; margin-top: 1.5rem; }
+  .sh-regions {
+    flex: 0 0 auto;
+    display: flex;
+    overflow-x: auto;
+    padding: 0 1.5rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--peninsula-charcoal);
+    scrollbar-width: none;
+  }
+  .sh-regions li { flex: 1 0 auto; }
+  .sh-regions li + li { margin-top: 0; }
+  .sh-region { justify-content: center; padding: .8rem 1rem; font-size: 1.05rem; white-space: nowrap; position: relative; }
+  .sh-region i { display: none; }
+  .sh-region.active { color: var(--peninsula-charcoal); }
+  .sh-region.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--peninsula-gold); }
+  .sh-hotels {
+    flex: 1 1 auto;
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .select-hotel-menu {
+    transition: none;
+  }
+}
+ 
+ 
