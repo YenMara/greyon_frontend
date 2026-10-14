@@ -1,0 +1,175 @@
+:root {
+      --gold: #c4a57b;
+      --ink: #000;
+      --paper: #f3f3f3;
+    }
+    body { font-family: 'Jost', sans-serif; background: var(--paper); }
+    .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .tracked { letter-spacing: .12em; text-transform: uppercase; }
+    .tracked-font{
+      font-size: 0.5rem!important;
+    }
+
+    /* Nav is fixed so it can stay on screen while scrolling */
+.hero-nav {
+  position: fixed;
+  top: 54px;               /* = .topbar height; JS reduces this to 0 as you scroll */
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  transition: background-color .3s ease, box-shadow .3s ease;
+}
+
+/* Scrolled state: white bar, dark text */
+.hero-nav.scrolled {
+  background: #fff;
+  border-bottom-color: transparent;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .12);
+}
+.hero-nav.scrolled a,
+.hero-nav.scrolled .main-nav .nav-link {
+  color: #444;
+}
+.hero-nav.scrolled .main-nav .nav-link:hover,
+.hero-nav.scrolled .main-nav .nav-link:focus-visible,
+.hero-nav.scrolled .utility a:hover {
+  color: var(--gold);
+}
+.hero-nav.scrolled .utility .sep {
+  background: #bbb;
+}
+
+/* Mobile hamburger turns dark on the white bar */
+.hero-nav.scrolled .navbar-toggler {
+  filter: invert(1);
+}
+
+/* Smaller nav padding once scrolled (optional) */
+.hero-nav.scrolled .main-nav .nav-link {
+  padding-top: .9rem;
+  padding-bottom: .9rem;
+}
+ 
+    /* Top bar */
+    .topbar { background: var(--ink); height: 54px; }
+    .topbar .brand { color: var(--gold); font-size: 1rem; letter-spacing: .06em; }
+    .topbar .lang { color: #fff; font-size: 1rem; }
+ 
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 100vh;
+      color: #fff;
+      background-color: #10150f;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.15) 35%, rgba(0,0,0,.55) 100%),
+        url('../img/events.jpg') center / cover no-repeat;
+    }
+    .hero-nav { border-bottom: 1px solid rgba(255,255,255,.3); }
+    .hero-nav a { color: #fff; text-decoration: none; }
+    .logo { text-align: center; line-height: 1; }
+    .logo .name { font-size: 2.1rem; letter-spacing: .08em; border-bottom: 1px solid #fff; padding-bottom: 4px; }
+    .logo .sub { font-size: .8rem; letter-spacing: .3em; margin-top: 8px; }
+    .utility a { font-size: 1.1rem; }
+    .utility .sep { display: inline-block; width: 2px; height: 14px; background: rgba(255,255,255,.7); margin: 0 1.5rem; }
+    .main-nav .nav-link { color: #fff; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1rem; letter-spacing: .1em; text-transform: uppercase; padding: 1.4rem 1rem; }
+    .main-nav .nav-link:hover, .main-nav .nav-link:focus-visible { color: var(--gold); }
+ 
+    /* Hero copy */
+    .hero-copy { position: absolute; left: 0; right: 0; bottom: 260px; }
+    .hero-copy h1 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 55px; line-height: 1.15; max-width: 12em; }
+    .explore { color: #fff; text-decoration: none; letter-spacing: .08em; font-size: 1.15rem; }
+    .explore i { font-size: 1.6rem; vertical-align: middle; margin-left: .5rem; }
+ 
+    /* Pause button */
+    .pause-btn { background: none; border: 0; color: #fff; font-size: 2.2rem; line-height: 1; }
+ 
+    /* Slide tabs */
+    .slides { position: absolute; left: 0; right: 0; bottom: 60px; }
+    .slides-inner { border-top: 1px solid rgba(255,255,255,.35); padding-top: 2rem; }
+    .slide-tab { position: relative; background: none; border: 0; border-left: 1px solid rgba(255,255,255,.35); color: #fff; text-align: left; padding: 0 1.5rem; height: 120px; letter-spacing: .12em; text-transform: uppercase; font-size: 1.15rem; }
+    .slide-tab:first-child { border-left: 0; padding-left: 0; }
+    .slide-tab .hex { display: block; width: 32px; height: 32px; margin-bottom: 1.2rem; color: var(--gold); }
+    .slide-tab .hex polygon { fill: none; stroke: currentColor; stroke-width: 1.5; }
+    .slide-tab.active .hex polygon { fill: currentColor; }
+    .slide-tab .progress-bar-gold { position: absolute; left: 0; bottom: -20px; height: 28px; width: 0; background: rgba(196,165,123,.55); }
+    .slide-tab.active .progress-bar-gold { animation: fill 6s linear forwards; }
+    @keyframes fill { to { width: 100%; } }
+    @media (prefers-reduced-motion: reduce) { .slide-tab.active .progress-bar-gold { animation: none; width: 100%; } }
+ 
+    /* Light section divider */
+    .divider { width: 180px; border-top: 1px solid #8a6f55; margin: 70px auto; }
+ 
+    @media (max-width: 991.98px) {
+      .slides { display: none; }
+      .hero-copy { bottom: 80px; }
+    }
+
+
+    /* section1 */
+    .events-collage { background: var(--paper); padding-top: 90px !important; padding-bottom: 90px !important; }
+ 
+  /* Shared tile look */
+  .tile { position: absolute; display: block; overflow: hidden; color: #fff; text-decoration: none; z-index: 2; }
+  .tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tile::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.45); transition: background .3s; }   /* dark overlay */
+  .tile::after  { content: ""; position: absolute; inset: 10%; border: 1px solid var(--gold); pointer-events: none; }   /* gold inner outline */
+  .tile:hover::before { background: rgba(0,0,0,.25); }
+  .tile-label {
+    position: absolute; inset: 0; z-index: 1;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: 0 14%;
+    font-family: 'Jost', sans-serif; font-size: clamp(.8rem, 1.1vw, 1.05rem);
+    letter-spacing: .08em; text-transform: uppercase; line-height: 1.2;
+  }
+ 
+  /* Desktop collage: everything is a % of one box, so it scales with the container */
+  .collage { position: relative; width: 100%; aspect-ratio: 1823 / 790; }
+ 
+  .collage-frame {                               /* the big pale square outline */
+    position: absolute; z-index: 1;
+    left: 51.6%; top: 0; width: 43.1%; height: 99%;
+    border: 7px solid #e8e8e7;
+  }
+  .collage-text {                                /* italic tagline, intentionally spills past the frame */
+    position: absolute; z-index: 3;
+    left: 58.7%; top: 40%; margin: 0;
+    font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 400;
+    font-size: clamp(1.3rem, 2.4vw, 2.3rem); line-height: 1.25; color: #444;
+    white-space: nowrap;
+  }
+ 
+  /* Tile positions + sizes (all 16:9-ish except tile 3, which is wider) */
+  .tile-1 { left: 0;     top: 1%;    width: 22.5%; height: 34.6%; }
+  .tile-2 { left: 25.8%; top: 15.3%; width: 22.5%; height: 34.6%; }
+  .tile-3 { left: 8.6%;  top: 58.5%; width: 31.2%; height: 39.9%; }
+  .tile-4 { left: 43.1%; top: 58.5%; width: 22.5%; height: 34.6%; }   /* overlaps the frame */
+ 
+  /* Mobile tiles sit in normal flow */
+  .tile-m { position: relative; aspect-ratio: 3 / 2; }
+  .collage-text-mobile { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 400; font-size: 1.6rem; color: #444; }
+
+  /* section2 */
+    .experience { background: var(--paper); padding-top: 80px !important; padding-bottom: 100px !important; }
+ 
+  /* Heading */
+  .experience-kicker { font-family: 'Jost', sans-serif; font-size: .95rem; color: #555; margin: 0 0 .4rem; }
+  .experience-title  { font-weight: 500; font-size: clamp(2rem, 4vw, 3.2rem); color: #111; margin: 0; letter-spacing: .08em; }
+  .experience-rule   { width: 90px; border-top: 1px solid #8a6f55; margin: 2rem auto 5rem; }
+ 
+  /* Square photo tiles */
+  .exp-tile { display: block; aspect-ratio: 1 / 1; overflow: hidden; background: #ddd; }
+  .exp-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+  .exp-tile:hover img, .exp-tile:focus-visible img { transform: scale(1.04); }
+ 
+  /* Load more button */
+  .load-more {
+    display: inline-flex; align-items: center; gap: .9rem;
+    background: transparent; color: #6b5a44;
+    border: 1px solid #8a6f55; padding: 1.2rem 3rem;
+    font-family: 'Jost', sans-serif; font-size: 1.05rem;
+    transition: background .25s, color .25s;
+  }
+  .load-more i { font-size: 1.5rem; }
+  .load-more:hover, .load-more:focus-visible { background: #8a6f55; color: #fff; }
+  .load-more[hidden] { display: none; }

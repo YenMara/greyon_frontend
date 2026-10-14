@@ -30,937 +30,386 @@
     <link rel="stylesheet" href="./asset/CSS/header.css" />
     <link rel="stylesheet" href="./asset/CSS/footer.css" />
     <link rel="stylesheet" href="./asset/CSS/experience.css" />
+    <link rel="stylesheet" href="./asset/CSS/signatureEvents.css" />
   </head>
 
   <body>
-    <!-- ===== Header Section ====== -->
-    <header class="peninsula-header">
-      <!-- px-0 px-lg-3: the mobile action bar must run edge to edge below 992px -->
-      <nav class="peninsula-nav navbar navbar-expand-lg px-0 px-lg-3">
-        <div
-          class="container-fluid d-flex align-items-center justify-content-between text-white py-3 px-4"
-        >
-          <!-- LEFT -->
-          <div class="nav-side nav-side-left">
-            <button
-              class="btn nav-link-custom"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#mainMenu"
-              aria-controls="mainMenu"
-              aria-label="Open menu"
-            >
-              <span class="hamburger-icon"
-                ><span></span><span></span><span></span
-              ></span>
-              <span class="menu">Menu</span>
-            </button>
-          </div>
-
-          <!-- CENTER -->
-          <div class="brand">
-            <a href="index.html" class="text-decoration-none" aria-label="Greyon home">
-              <img
-                src="./asset/img/greyon_logo_white.png"
-                data-logo-default="./asset/img/greyon_logo_white.png"
-                data-logo-scrolled="./asset/img/greyon_logo.png"
-                alt="Greyon logo"
-                class="brand-logo"
-              />
-            </a>
-          </div>
-
-          <!-- RIGHT (desktop only, hidden below 992px) -->
-          <div class="nav-side nav-side-right">
-            <a href="#" class="nav-link-custom d-none d-lg-inline-flex"
-              >Contact us</a
-            >
-            <div class="language-switcher d-none d-lg-block">
-              <button
-                class="nav-link-custom language-toggle"
-                id="languageToggle"
-                type="button"
-                aria-expanded="false"
-                aria-controls="languageMenu"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 100 100"
-                  width="16"
-                  height="16"
-                  aria-hidden="true"
-                >
-                  <g
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="5"
-                    stroke-linecap="round"
-                  >
-                    <circle cx="50" cy="50" r="40" />
-                    <line x1="10" y1="50" x2="90" y2="50" />
-                    <ellipse cx="50" cy="50" rx="18" ry="40" />
-                  </g>
-                </svg>
-                <span>English</span>
-              </button>
-              <div class="language-menu" id="languageMenu" role="menu" hidden>
-                <a href="#" role="menuitem" data-language="English">English</a>
-                <a href="#" role="menuitem" data-language="中文">中文</a>
-                <a href="#" role="menuitem" data-language="日本語">日本語</a>
-              </div>
-            </div>
-            <button
-              class="btn btn-reserve d-none d-lg-inline-block"
-              type="button"
-            >
-              Reserve
-            </button>
-          </div>
-        </div>
-
-        <!-- NEW: Contact us | Reserve bar (tablet + mobile only, controlled by CSS) -->
-        <div class="mobile-actions">
-          <a href="#">Contact us</a>
-          <button type="button">Reserve</button>
-        </div>
-      </nav>
-    </header>
-
-    <main>
-      <!-- ===== Hero Section ====== -->
-      <section id="one" class="hero border-bottom">
-        <div class="experience-hero-title">Signature Events</div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="./asset/img/PIT hero.jpg" alt="" />
-            <div class="hero-caption">
-              <h2>Suite Living, Perfected</h2>
-              <a href="#"
-                >Stay exceptionally
-                <svg
-                  width="28"
-                  height="12"
-                  viewBox="0 0 28 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M1 6h26M22 1l5 5-5 5" /></svg
-              ></a>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="./asset/img/PIT hero.jpg" alt="" />
-            <div class="hero-caption">
-              <h2>A considered stay, beautifully remembered</h2>
-              <a href="#"
-                >Discover more
-                <svg
-                  width="28"
-                  height="12"
-                  viewBox="0 0 28 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M1 6h26M22 1l5 5-5 5" /></svg
-              ></a>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="./asset/img/PIT hero.jpg" alt="" />
-            <div class="hero-caption">
-              <h2>Timeless places for modern journeys</h2>
-              <a href="#"
-                >Explore our hotels
-                <svg
-                  width="28"
-                  height="12"
-                  viewBox="0 0 28 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M1 6h26M22 1l5 5-5 5" /></svg
-              ></a>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="./asset/img/PIT hero.jpg" alt="" />
-            <div class="hero-caption">
-              <h2>Timeless places for modern journeys</h2>
-              <a href="#"
-                >Explore our hotels
-                <svg
-                  width="28"
-                  height="12"
-                  viewBox="0 0 28 12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M1 6h26M22 1l5 5-5 5" /></svg
-              ></a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== SLIDE-OUT MENU ===== -->
-      <section>
-        <div
-          class="offcanvas offcanvas-start peninsula-menu"
-          tabindex="-1"
-          id="mainMenu"
-          aria-labelledby="mainMenuLabel"
-        >
-          <div class="offcanvas-header pb-0">
-            <span class="menu-brand" id="mainMenuLabel">Greyon</span>
-            <button
-              type="button"
-              class="btn-close-custom"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close menu"
-            >
-              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-            </button>
-          </div>
-          <div class="menu-columns">
-            <!-- NEW: back + title row (tablet/mobile only, shown when "Our Hotels" is open) -->
-            <div class="menu-subhead">
-              <button
-                type="button"
-                class="menu-back"
-                id="menuBack"
-                aria-label="Back to menu"
-              >
-                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-                <span>Back</span>
-              </button>
-              <h2 class="menu-subtitle">Our Hotels</h2>
-            </div>
-
-            <!-- ===== COLUMN 1: main nav ===== -->
-            <div class="menu-col menu-col-main">
-              <div class="offcanvas-body">
-                <ul class="menu-list">
-                  <li>
-                    <a href="#" class="hotels-toggle" id="hotelsToggle">
-                      <span>Our Hotels</span>
-                      <i
-                        class="fa-solid fa-chevron-right brave-our-hotel"
-                        aria-hidden="true"
-                      ></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="experience.html"><span>The Experience</span></a>
-                  </li>
-                  <li>
-                    <a href="offer.html"><span>Offers</span></a>
-                  </li>
-                  <li>
-                    <a href="meeting&celebration.html"><span>Meetings &amp; Celebrations</span></a>
-                  </li>
-                  <li>
-                    <a href="wellness.html"><span>Wellness</span></a>
-                  </li>
-                  <li>
-                    <a href="signature-events.html"><span>Signature Events</span></a>
-                  </li>
-                  <li>
-                    <a href="perspectives.html"><span>Perspectives</span></a>
-                  </li>
-                  <li>
-                    <a href="sustainability.html"><span>Sustainability</span></a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="menu-footer">
-                <a href="#">
-                  <span>Global homepage</span>
-                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-                </a>
-                <a href="#" id="selectHotelLink">
-                  <span>Select a hotel</span>
-                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-                </a>
-                <a
-                  href="#"
-                  class="menu-footer-lang"
-                  id="mobileLanguageToggle"
-                  aria-expanded="false"
-                  aria-controls="mobileLanguageMenu"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 100 100"
-                    width="16"
-                    height="16"
-                    aria-hidden="true"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="5"
-                      stroke-linecap="round"
-                    >
-                      <circle cx="50" cy="50" r="40" />
-                      <line x1="10" y1="50" x2="90" y2="50" />
-                      <ellipse cx="50" cy="50" rx="18" ry="40" />
-                    </g>
-                  </svg>
-                  <span>English</span>
-                </a>
-                <div
-                  class="language-menu mobile-language-menu"
-                  id="mobileLanguageMenu"
-                  role="menu"
-                  hidden
-                >
-                  <a href="#" role="menuitem" data-language="English"
-                    >English</a
-                  >
-                  <a href="#" role="menuitem" data-language="中文">中文</a>
-                  <a href="#" role="menuitem" data-language="日本語">日本語</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- ===== COLUMN 2: regions ===== -->
-            <div class="menu-col menu-col-regions">
-              <ul class="region-list">
-                <li>
-                  <a href="#" class="region-link active" data-region="all">
-                    <span>All Regions</span>
-                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="region-link" data-region="city">
-                    <span>City</span>
-                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="region-link" data-region="province">
-                    <span>Province</span>
-                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <!-- ===== COLUMN 3: hotel list ===== -->
-            <div class="menu-col menu-col-hotels">
-              <ul class="hotel-list">
-                <li class="hotel-item" data-region="city">
-                  <a href="">
-                    <div class="hotel-thumb">
-                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
-                    </div>
-                    <div class="hotel-copy">
-                      <h3>Greyon Boeung Kang Kong</h3>
-                      <p class="mt-2">A landmark on the eastern skyline</p>
-                    </div>
-                  </a>
-                </li>
-                <li class="hotel-item" data-region="city">
-                  <a href="">
-                    <div class="hotel-thumb">
-                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
-                    </div>
-                    <div class="hotel-copy">
-                      <h3>Greyon Riverside</h3>
-                      <p class="mt-2">Glamour redefined on the water</p>
-                    </div>
-                  </a>
-                </li>
-                <li class="hotel-item" data-region="city">
-                  <a href="">
-                    <div class="hotel-thumb">
-                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
-                    </div>
-                    <div class="hotel-copy">
-                      <h3>Greyon Koh Pich</h3>
-                      <p class="mt-2">Heart of the city, timeless elegance</p>
-                    </div>
-                  </a>
-                </li>
-                <li class="hotel-item" data-region="city">
-                  <a href="">
-                    <div class="hotel-thumb thumb-4">
-                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
-                    </div>
-                    <div class="hotel-copy">
-                      <h3>Greyon ToulKork</h3>
-                      <p class="mt-2">
-                        A shining landmark facing the palace grounds
-                      </p>
-                    </div>
-                  </a>
-                </li>
-                <li class="hotel-item" data-region="province">
-                  <a href="">
-                    <div class="hotel-thumb thumb-5">
-                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
-                    </div>
-                    <div class="hotel-copy">
-                      <h3>Greyon Kompot</h3>
-                      <p class="mt-2">The avenue's most glamorous address</p>
-                    </div>
-                  </a>
-                </li>
-                <li class="hotel-item" data-region="province">
-                  <a href="">
-                    <div class="hotel-thumb thumb-6">
-                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
-                    </div>
-                    <div class="hotel-copy">
-                      <h3>Greyon Kep</h3>
-                      <p class="mt-2">
-                        Far Eastern graciousness meets Midwestern hospitality
-                      </p>
-                    </div>
-                  </a>
-                </li>
-                <li class="hotel-item" data-region="province">
-                  <a href="">
-                    <div class="hotel-thumb thumb-7">
-                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
-                    </div>
-                    <div class="hotel-copy">
-                      <h3>Greyon Preah Sihanuk</h3>
-                      <p class="mt-2">
-                        An exclusive oasis in the city of angels
-                      </p>
-                    </div>
-                  </a>
-                </li>
-                <li class="hotel-item" data-region="province">
-                  <a href="">
-                    <div class="hotel-thumb thumb-8">
-                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
-                    </div>
-                    <div class="hotel-copy">
-                      <h3>Greyon PoitPat</h3>
-                      <p class="mt-2">
-                        Stylish grandeur in the heart of the city
-                      </p>
-                    </div>
-                  </a>
-                </li>
-                <li class="hotel-item" data-region="province">
-                  <a href="">
-                    <div class="hotel-thumb thumb-9">
-                      <img src="./asset/img/Poolside Lunch-min.jpg" alt="" />
-                    </div>
-                    <div class="hotel-copy">
-                      <h3>Greyon Battambong</h3>
-                      <p class="mt-2">A quiet elegance beside the river</p>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== RESERVE DRAWER ===== -->
-      <div
-        class="offcanvas offcanvas-end reserve-drawer"
-        tabindex="-1"
-        id="reserveDrawer"
-        aria-labelledby="reserveDrawerLabel"
-      >
-        <div class="offcanvas-header">
-          <h2 class="reserve-drawer-title" id="reserveDrawerLabel">Reserve</h2>
-          <button
-            type="button"
-            class="btn-close-custom"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
+    <!-- Top bar -->
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-between align-items-center">
+        <span class="brand serif tracked">The Greyon Hotels</span>
+        <div class="dropdown">
+          <a
+            class="lang text-decoration-none dropdown-toggle tracked"
+            href="#"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
           >
-            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-          </button>
+            <i class="bi bi-globe2 me-1"></i> English
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">English</a></li>
+            <li><a class="dropdown-item" href="#">中文</a></li>
+          </ul>
         </div>
+      </div>
+    </div>
 
-        <div class="offcanvas-body reserve-drawer-body">
-          <form id="reserveDrawerForm" autocomplete="off">
-            <!-- Hotels -->
-            <div class="rd-field">
-              <button
-                type="button"
-                class="rd-trigger"
-                aria-expanded="false"
-                aria-controls="rdHotelPanel"
-              >
-                <span class="rd-col">
-                  <span class="rd-label">Hotels</span>
-                  <span class="rd-value" id="rdHotelValue">Select a hotel</span>
-                </span>
-                <svg
-                  class="rd-chevron"
-                  viewBox="0 0 16 9"
-                  width="14"
-                  height="8"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M1 1l7 7 7-7" />
-                </svg>
-              </button>
-              <div class="rd-panel" id="rdHotelPanel" hidden>
-                <ul class="rd-hotel-list" id="rdHotelList"></ul>
-              </div>
-            </div>
-
-            <!-- Dates -->
-            <div class="rd-field">
-              <button
-                type="button"
-                class="rd-trigger"
-                aria-expanded="false"
-                aria-controls="rdDatesPanel"
-              >
-                <span class="rd-col">
-                  <span class="rd-label">Dates</span>
-                  <span class="rd-value" id="rdDatesValue"></span>
-                </span>
-                <svg
-                  class="rd-chevron"
-                  viewBox="0 0 16 9"
-                  width="14"
-                  height="8"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M1 1l7 7 7-7" />
-                </svg>
-              </button>
-              <div class="rd-panel" id="rdDatesPanel" hidden>
-                <div class="rd-dates-row">
-                  <label>
-                    <span>Check-in</span>
-                    <input type="date" id="rdCheckIn" name="checkin" />
-                  </label>
-                  <label>
-                    <span>Check-out</span>
-                    <input type="date" id="rdCheckOut" name="checkout" />
-                  </label>
-                </div>
-                <p class="rd-nights" id="rdNights">1 Night</p>
-              </div>
-            </div>
-
-            <!-- Guests -->
-            <div class="rd-field">
-              <button
-                type="button"
-                class="rd-trigger"
-                aria-expanded="false"
-                aria-controls="rdGuestsPanel"
-              >
-                <span class="rd-col">
-                  <span class="rd-label">Guests</span>
-                  <span class="rd-value" id="rdGuestsValue"></span>
-                </span>
-                <svg
-                  class="rd-chevron"
-                  viewBox="0 0 16 9"
-                  width="14"
-                  height="8"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M1 1l7 7 7-7" />
-                </svg>
-              </button>
-              <div class="rd-panel" id="rdGuestsPanel" hidden>
-                <div class="rd-rooms" id="rdRooms"></div>
-                <div class="rd-guests-foot">
-                  <p class="rd-note">Max 4 guests per room, Max 8 rooms</p>
-                  <button type="button" class="rd-add-room" id="rdAddRoom">
-                    Add room
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Special codes -->
-            <div class="rd-field">
-              <button
-                type="button"
-                class="rd-trigger"
-                aria-expanded="false"
-                aria-controls="rdCodesPanel"
-              >
-                <span class="rd-col">
-                  <span class="rd-label">Special codes</span>
-                  <span class="rd-value rd-value--accent" id="rdCodesValue"
-                    >Add Special Codes</span
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-nav">
+        <div class="container">
+          <div class="row align-items-center pt-4">
+            <div class="col-lg-4 d-none d-lg-block"></div>
+            <div class="col-6 col-lg-4 m-auto text-center logo-container">
+              <a href="#" class="logo d-block">
+                <div class="name serif tracked">
+                  <a
+                    href="index.html"
+                    class="text-decoration-none"
+                    aria-label="Greyon home"
                   >
-                </span>
-              </button>
-              <div class="rd-panel" id="rdCodesPanel" hidden>
-                <div class="rd-code-option">
-                  <label class="rd-radio">
-                    <input
-                      type="radio"
-                      name="rdCodeType"
-                      value="promo"
-                      checked
+                    <img
+                      src="./asset/img/greyon_logo_white.png"
+                      data-logo-default="./asset/img/greyon_logo_white.png"
+                      data-logo-scrolled="./asset/img/greyon_logo.png"
+                      alt="Greyon logo"
+                      class="brand-logo"
                     />
-                    <span class="rd-radio-dot"></span>
-                    <span>Promo Code</span>
-                  </label>
-                  <input
-                    class="rd-code-input"
-                    type="text"
-                    id="rdPromoCode"
-                    placeholder="Enter Promo Code"
-                    maxlength="20"
-                  />
+                  </a>
                 </div>
-                <div class="rd-code-option">
-                  <label class="rd-radio">
-                    <input type="radio" name="rdCodeType" value="group" />
-                    <span class="rd-radio-dot"></span>
-                    <span>Group Code</span>
-                  </label>
-                  <input
-                    class="rd-code-input"
-                    type="text"
-                    id="rdGroupCode"
-                    placeholder="Enter Group Code"
-                    maxlength="20"
-                    disabled
-                  />
-                </div>
-                <div class="rd-code-divider"></div>
-                <div class="rd-code-option">
-                  <label class="rd-code-label" for="rdAdvisorId"
-                    >Travel Advisor ID</label
-                  >
-                  <input
-                    class="rd-code-input"
-                    type="text"
-                    id="rdAdvisorId"
-                    placeholder="Enter Travel Advisor ID"
-                    maxlength="20"
-                  />
-                </div>
-                <button type="button" class="rd-code-done" id="rdCodeDone">
-                  Done
-                </button>
-              </div>
+                <!-- <div class="sub serif tracked">Signature Events</div> -->
+              </a>
             </div>
-          </form>
+            <div
+              class="col-6 col-lg-4 text-end utility d-none d-lg-block tracked-font"
+            >
+              <a href="#" class="tracked">Gallery</a><span class="sep"></span
+              ><a href="#" class="tracked">Contact Us</a
+              ><span class="sep"></span>
+            </div>
+          </div>
 
-          <p class="rd-info">
-            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-            Book direct for the best rates and offers and access to Peninsula
-            Time, a flexible check-in &amp; check-out programme
-          </p>
-        </div>
-
-        <div class="offcanvas-footer reserve-drawer-footer">
-          <button type="submit" form="reserveDrawerForm" class="rd-submit">
-            Reserve
-          </button>
+          <nav class="navbar navbar-expand-lg navbar-dark p-0">
+            <button
+              class="navbar-toggler ms-auto my-2"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#mainNav"
+              aria-controls="mainNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+              <ul class="navbar-nav main-nav w-100 justify-content-between">
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Events</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Tickets</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Sponsors</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Charities</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Media Room</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
       </div>
 
-      <!-- ==== Section1: What defines Greyon Signature Events ==== -->
-      <section class="peninsula-experience py-5">
+      <!-- Headline -->
+      <div class="hero-copy">
         <div class="container">
-          <!-- Intro Text -->
-          <div class="row justify-content-center text-center mb-5">
-            <div class="col-lg-7">
-              <h2 class="fst-italic mb-4 heading-serif">
-                Moments worth remembering
-              </h2>
-              <p class="text-secondary mb-4">
-                Every occasion has a story to tell. At Greyon, the most
-                remarkable events are those crafted with care — where every
-                detail, from the first invitation to the last farewell, is
-                thoughtfully considered.
-              </p>
-              <p class="text-secondary mb-4">
-                From intimate gatherings to grand celebrations, our signature
-                events bring people together in settings that inspire. Whether
-                it is a gala dinner under the stars, a wedding on the
-                terrace, or a conference that moves minds, our team is here
-                to make it unforgettable.
-              </p>
-              <p class="text-secondary mb-">
-                We invite you to explore our signature events and discover
-                the possibilities that await.
-              </p>
-            </div>
-          </div>
+          <h1 id="heroTitle">The Peninsula Presents An Eve on The Green</h1>
+          <a href="#" class="explore tracked d-inline-block mt-3"
+            >Explore <i class="bi bi-arrow-right"></i
+          ></a>
         </div>
-      </section>
+      </div>
 
-      <!-- ==== Section2: Signature Events carousel ===== -->
-      <section id="events" class="events" aria-labelledby="eventsHeading">
-        <h2 class="ev-title text-center" id="eventsHeading">
-          SIGNATURE EVENTS
-        </h2>
-
-        <!-- prev / counter / next (right edge lines up with the centre slide) -->
-        <div
-          class="ev-controls d-flex align-items-center justify-content-end"
-        >
-          <button
-            type="button"
-            class="ev-arrow"
-            id="evPrev"
-            aria-label="Previous event"
-          >
-            <svg
-              viewBox="0 0 28 12"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
+      <!-- Slide tabs -->
+      <div class="slides">
+        <div class="container">
+          <div class="d-flex justify-content-end mb-2">
+            <button
+              class="pause-btn"
+              id="pauseBtn"
+              aria-label="Pause slideshow"
             >
-              <path d="M27 6H1M6 1 1 6l5 5" />
-            </svg>
-          </button>
-          <span class="ev-counter" id="evCounter" aria-live="polite"
-            >01/04</span
-          >
-          <button
-            type="button"
-            class="ev-arrow"
-            id="evNext"
-            aria-label="Next event"
-          >
-            <svg
-              viewBox="0 0 28 12"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M1 6h26M22 1l5 5-5 5" />
-            </svg>
-          </button>
-        </div>
-
-        <div
-          class="ev-viewport"
-          role="region"
-          aria-roledescription="carousel"
-          aria-label="Signature events"
-        >
-          <div class="ev-track" id="evTrack">
-            <!-- Slide 1 -->
-            <article class="ev-slide">
-              <div class="ev-frame">
-                <div class="ev-media">
-                  <img src="./asset/img/events.jpg" alt="" loading="lazy" />
-                </div>
-                <div class="ev-copy">
-                  <p class="ev-eyebrow">Greyon Hotels</p>
-                  <h3 class="ev-name">The Greyon Gala</h3>
-                  <p class="ev-desc">
-                    An evening of elegance and purpose. The Greyon Gala brings
-                    together guests, partners and friends for a night of fine
-                    dining, live music and celebration in our grand ballrooms.
-                  </p>
-                  <a href="#" class="ev-more"
-                    >Learn more
-                    <svg
-                      viewBox="0 0 28 12"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M1 6h26M22 1l5 5-5 5" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Slide 2 -->
-            <article class="ev-slide">
-              <div class="ev-frame">
-                <div class="ev-media">
-                  <img
-                    src="./asset/img/experience_img1.jpg"
-                    alt=""
-                    loading="lazy"
-                  />
-                </div>
-                <div class="ev-copy">
-                  <p class="ev-eyebrow">Greyon Hotels</p>
-                  <h3 class="ev-name">Weddings & Celebrations</h3>
-                  <p class="ev-desc">
-                    Say "I do" against a backdrop of timeless architecture and
-                    glowing city lights. Our celebrations team designs weddings
-                    and private events that feel personal, effortless and
-                    yours.
-                  </p>
-                  <a href="#" class="ev-more"
-                    >Learn more
-                    <svg
-                      viewBox="0 0 28 12"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M1 6h26M22 1l5 5-5 5" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Slide 3 -->
-            <article class="ev-slide">
-              <div class="ev-frame">
-                <div class="ev-media">
-                  <img
-                    src="./asset/img/experience_img2.jpg"
-                    alt=""
-                    loading="lazy"
-                  />
-                </div>
-                <div class="ev-copy">
-                  <p class="ev-eyebrow">Greyon Hotels</p>
-                  <h3 class="ev-name">Corporate & Conferences</h3>
-                  <p class="ev-desc">
-                    From boardroom briefings to landmark summits, our flexible
-                    event spaces and dedicated planners turn every gathering
-                    into a signature occasion.
-                  </p>
-                  <a href="#" class="ev-more"
-                    >Learn more
-                    <svg
-                      viewBox="0 0 28 12"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M1 6h26M22 1l5 5-5 5" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Slide 4 -->
-            <article class="ev-slide">
-              <div class="ev-frame">
-                <div class="ev-media">
-                  <img
-                    src="./asset/img/experience_img3.jpg"
-                    alt=""
-                    loading="lazy"
-                  />
-                </div>
-                <div class="ev-copy">
-                  <p class="ev-eyebrow">Greyon Hotels</p>
-                  <h3 class="ev-name">Seasonal Experiences</h3>
-                  <p class="ev-desc">
-                    Curated throughout the year — holiday markets, rooftop
-                    cinema evenings and culinary residencies that capture the
-                    spirit of each season.
-                  </p>
-                  <a href="#" class="ev-more"
-                    >Learn more
-                    <svg
-                      viewBox="0 0 28 12"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M1 6h26M22 1l5 5-5 5" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </article>
+              <i class="bi bi-pause-circle"></i>
+            </button>
           </div>
-        </div>
-      </section>
-
-      <!-- ==== Stay Connected: newsletter signup === -->
-      <section id="six" class="stay-connected" aria-labelledby="scHeading">
-        <img class="sc-bg" src="./asset/img/section6-img.png" alt="" />
-        <div class="sc-shade" aria-hidden="true"></div>
-
-        <div class="container-fluid px-5 sc-inner">
-          <div class="row ms-3">
-            <div class="col-lg-8 col-xl-6">
-              <h2 class="sc-title" id="scHeading">Stay Connected</h2>
-              <p class="sc-text">
-                Sign up our newsletter for exclusive offers, travel inspiration,
-                and insider news about our luxurious experiences and
-                promotions.
-              </p>
-
-              <form class="sc-form" id="newsletterForm" novalidate>
-                <label class="visually-hidden" for="newsletterEmail"
-                  >Email address</label
+          <div class="slides-inner">
+            <div class="row row-cols-5 g-0" id="slideTabs">
+              <div class="col">
+                <button
+                  class="slide-tab w-100 active"
+                  data-title="The Peninsula Presents An Eve on The Green"
+                  data-image="./asset/img/events.jpg"
                 >
-                <input
-                  type="email"
-                  class="sc-input"
-                  id="newsletterEmail"
-                  name="email"
-                  placeholder="Enter your email address"
-                  autocomplete="email"
-                  required
-                />
-                <button type="submit" class="sc-submit">Sign up</button>
-              </form>
+                  <svg class="hex" viewBox="0 0 32 32">
+                    <polygon points="16,2 29,9 29,23 16,30 3,23 3,9" />
+                  </svg>
+                  The Peninsula Presents An Eve on The Green<span
+                    class="progress-bar-gold"
+                  ></span>
+                </button>
+              </div>
+              <div class="col">
+                <button
+                  class="slide-tab w-100"
+                  data-title="The Peninsula Motoring Series"
+                  data-image="./asset/img/motoring.jpg"
+                >
+                  <svg class="hex" viewBox="0 0 32 32">
+                    <polygon points="16,2 29,9 29,23 16,30 3,23 3,9" />
+                  </svg>
+                  The Peninsula Motoring Series<span
+                    class="progress-bar-gold"
+                  ></span>
+                </button>
+              </div>
+              <div class="col">
+                <button
+                  class="slide-tab w-100"
+                  data-title="The Quail Rally"
+                  data-image="./asset/img/experience_img3.jpg"
+                >
+                  <svg class="hex" viewBox="0 0 32 32">
+                    <polygon points="16,2 29,9 29,23 16,30 3,23 3,9" />
+                  </svg>
+                  The Quail Rally<span class="progress-bar-gold"></span>
+                </button>
+              </div>
+              <div class="col">
+                <button
+                  class="slide-tab w-100"
+                  data-title="The Quail Motofest"
+                  data-image="./asset/img/experience_img4.jpg"
+                >
+                  <svg class="hex" viewBox="0 0 32 32">
+                    <polygon points="16,2 29,9 29,23 16,30 3,23 3,9" />
+                  </svg>
+                  The Quail Motofest<span class="progress-bar-gold"></span>
+                </button>
+              </div>
+              <div class="col">
+                <button
+                  class="slide-tab w-100"
+                  data-title="The Quail Ride"
+                  data-image="./asset/img/ppr meeting.jpg"
+                >
+                  <svg class="hex" viewBox="0 0 32 32">
+                    <polygon points="16,2 29,9 29,23 16,30 3,23 3,9" />
+                  </svg>
+                  The Quail Ride<span class="progress-bar-gold"></span>
+                </button>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content below hero -->
+    <main>
+      <div class="divider"></div>
+
+      <!-- section1 -->
+      <section class="events-collage py-5">
+        <div class="container">
+          <!-- Desktop (lg+): absolutely positioned collage -->
+          <div class="collage d-none d-lg-block">
+            <div class="collage-frame"></div>
+
+            <a href="#" class="tile tile-1">
+              <img src="./asset/img/motoring.jpg" alt="" />
+              <span class="tile-label">Motorsports Gathering</span>
+            </a>
+            <a href="#" class="tile tile-2">
+              <img src="./asset/img/events.jpg" alt="" />
+              <span class="tile-label">Eve on the Green</span>
+            </a>
+            <a href="#" class="tile tile-3">
+              <img src="./asset/img/experience_img3.jpg" alt="" />
+              <span class="tile-label">The Quail Rally</span>
+            </a>
+            <a href="#" class="tile tile-4">
+              <img src="./asset/img/experience_img4.jpg" alt="" />
+              <span class="tile-label">Motofest</span>
+            </a>
+
+            <h2 class="collage-text">
+              Exceptional events for motorsports<br />enthusiasts around the
+              globe.
+            </h2>
+          </div>
+
+          <!-- Mobile / tablet: simple Bootstrap grid -->
+          <div class="d-lg-none">
+            <h2 class="collage-text-mobile text-center mb-4">
+              Exceptional events for motorsports enthusiasts around the globe.
+            </h2>
+            <div class="row g-3">
+              <div class="col-6">
+                <a href="#" class="tile tile-m"
+                  ><img src="./asset/img/motorsports.jpg" alt="" /><span
+                    class="tile-label"
+                    >Motorsports Gathering</span
+                  ></a
+                >
+              </div>
+              <div class="col-6">
+                <a href="#" class="tile tile-m"
+                  ><img src="./asset/img/events.jpg" alt="" /><span
+                    class="tile-label"
+                    >Eve on the Green</span
+                  ></a
+                >
+              </div>
+              <div class="col-6">
+                <a href="#" class="tile tile-m"
+                  ><img src="./asset/img/experience_img3.jpg" alt="" /><span
+                    class="tile-label"
+                    >The Quail Rally</span
+                  ></a
+                >
+              </div>
+              <div class="col-6">
+                <a href="#" class="tile tile-m"
+                  ><img src="./asset/img/experience_img4.jpg" alt="" /><span
+                    class="tile-label"
+                    >Motofest</span
+                  ></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- section2 -->
+      <section class="experience py-5" id="experience">
+        <div class="container">
+          <header class="experience-head text-center">
+            <p class="experience-kicker tracked">The Signature Event</p>
+            <h2 class="experience-title serif tracked">Experience</h2>
+            <div class="experience-rule"></div>
+          </header>
+
+          <div
+            class="row row-cols-2 row-cols-lg-4 g-3 g-lg-5"
+            id="experienceGrid"
+          >
+            <!-- ===== First 8 photos (visible) ===== -->
+            <div class="col">
+              <a href="./asset/img/exp1.jpg" class="exp-tile"
+                ><img
+                  src="./asset/img/events.jpg"
+                  alt="White Porsche being polished"
+                  loading="lazy"
+              /></a>
+            </div>
+            <div class="col">
+              <a href="./asset/img/exp2.jpg" class="exp-tile"
+                ><img
+                  src="./asset/img/experience_img3.jpg"
+                  alt="Vintage black sedan under tents"
+                  loading="lazy"
+              /></a>
+            </div>
+            <div class="col">
+              <a href="./asset/img/exp3.jpg" class="exp-tile"
+                ><img
+                  src="./asset/img/experience_img4.jpg"
+                  alt="Radiator Springs display"
+                  loading="lazy"
+              /></a>
+            </div>
+            <div class="col">
+              <a href="./asset/img/exp4.jpg" class="exp-tile"
+                ><img
+                  src="./asset/img/offer-img3.jpg"
+                  alt="Route 66 area with crowd"
+                  loading="lazy"
+              /></a>
+            </div>
+            <div class="col">
+              <a href="./asset/img/exp5.jpg" class="exp-tile"
+                ><img
+                  src="./asset/img/offer-img2.jpg"
+                  alt="Clock above a white car"
+                  loading="lazy"
+              /></a>
+            </div>
+            <div class="col">
+              <a href="./asset/img/exp6.jpg" class="exp-tile"
+                ><img
+                  src="./asset/img/offer-img1.jpg"
+                  alt="Red supercar reveal"
+                  loading="lazy"
+              /></a>
+            </div>
+            <div class="col">
+              <a href="./asset/img/exp7.jpg" class="exp-tile"
+                ><img
+                  src="./asset/img/global_offer_img4.jpg"
+                  alt="Row of red race cars"
+                  loading="lazy"
+              /></a>
+            </div>
+            <div class="col">
+              <a href="./asset/img/exp8.jpg" class="exp-tile"
+                ><img
+                  src="./asset/img/global_offer_img1.png"
+                  alt="Yellow and orange race car on the lawn"
+                  loading="lazy"
+              /></a>
+            </div>
+
+            <!-- ===== Hidden photos: shown by "Load more" (class d-none = hidden) ===== -->
+            <div class="col more d-none">
+              <a href="./asset/img/exp9.jpg" class="exp-tile"
+                ><img src="./asset/img/global_offer_img1.png" alt="Photo 9" loading="lazy"
+              /></a>
+            </div>
+            <div class="col more d-none">
+              <a href="./asset/img/exp10.jpg" class="exp-tile"
+                ><img src="./asset/img/global_offer_img1.png" alt="Photo 10" loading="lazy"
+              /></a>
+            </div>
+            <div class="col more d-none">
+              <a href="./asset/img/exp11.jpg" class="exp-tile"
+                ><img src="./asset/img/global_offer_img1.png" alt="Photo 11" loading="lazy"
+              /></a>
+            </div>
+            <div class="col more d-none">
+              <a href="./asset/img/exp12.jpg" class="exp-tile"
+                ><img src="./asset/img/global_offer_img1.png" alt="Photo 12" loading="lazy"
+              /></a>
+            </div>
+
+            <!-- To add a photo: copy one <div class="col more d-none"> line and change the file name -->
+          </div>
+
+          <div class="text-center mt-5">
+            <button type="button" class="load-more tracked" id="loadMoreBtn">
+              <i class="bi bi-arrow-counterclockwise"></i>
+              <span
+                >Load more (showing <span id="shownCount">8</span> of
+                <span id="totalCount">12</span>)</span
+              >
+            </button>
           </div>
         </div>
       </section>
@@ -1141,5 +590,6 @@
     <script src="./asset/JS/header.js"></script>
     <script src="./asset/JS/footer.js"></script>
     <script src="./asset/JS/home.js"></script>
+    <script src="./asset/JS/signature-events.js"></script>
   </body>
 </html>
