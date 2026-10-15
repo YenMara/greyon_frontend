@@ -396,9 +396,7 @@
       code: cleanCode(codeInputs[currentCodeType()]),
       advisorId: advisorInput.value.trim(),
     });
-    // TODO: send to your booking engine, e.g.
-    // window.location.href = `/booking?${params}`;
-    console.log('Reserve:', params.toString());
+    window.location.href = `./booking.html?${params.toString()}`;
   });
 })();
 
@@ -420,9 +418,9 @@
     wireAccordionRows(drawer);
     populateHotelList(drawer);
     setupDates(drawer);
-    setupGuests(drawer);
+    const getRooms = setupGuests(drawer);
     setupCodes(drawer);
-    wireSubmit(drawer);
+    wireSubmit(drawer, getRooms);
   }
 
   // Open the drawer from the existing "Reserve" buttons in the navbar,
@@ -628,6 +626,8 @@
       }
     }
 
+    return () => rooms;
+
     function stepperRow(label, value, min) {
       return (
         '<div class="rd-stepper-row"><span>' +
@@ -681,15 +681,40 @@
     if (trigger) trigger.setAttribute("aria-expanded", "false");
   }
 
-  function wireSubmit(drawer) {
+  function wireSubmit(drawer, getRooms) {
     const form = drawer.querySelector("#reserveDrawerForm");
     if (!form) return;
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      // Wire this up to your actual booking/search endpoint.
-      // For now it just closes the drawer once fields are chosen.
-      const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(drawer);
-      offcanvas.hide();
+      const hotel = drawer.querySelector("#rdHotelValue").textContent.trim();
+      if (!hotel || hotel === "Select a hotel") {
+        const trigger = drawer.querySelector('[aria-controls="rdHotelPanel"]');
+        trigger.click();
+        return;
+      }
+
+      const rooms = getRooms();
+      const codeType = drawer.querySelector(
+        'input[name="rdCodeType"]:checked'
+      ).value;
+      const codeInput = drawer.querySelector(
+        codeType === "promo" ? "#rdPromoCode" : "#rdGroupCode"
+      );
+      const params = new URLSearchParams({
+        hotel,
+        checkin: drawer.querySelector("#rdCheckIn").value,
+        checkout: drawer.querySelector("#rdCheckOut").value,
+        rooms: rooms.length,
+        adults: rooms.reduce((sum, room) => sum + room.adults, 0),
+        children: rooms.reduce((sum, room) => sum + room.children, 0),
+        roomGuests: rooms
+          .map((room) => `${room.adults}-${room.children}`)
+          .join(","),
+        codeType,
+        code: codeInput.value.trim(),
+        advisorId: drawer.querySelector("#rdAdvisorId").value.trim(),
+      });
+      window.location.href = `./booking.html?${params.toString()}`;
     });
   }
 })();

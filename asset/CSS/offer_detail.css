@@ -1,0 +1,240 @@
+.offer-detail {
+  --od-gold: var(--peninsula-gold, #867050);
+  --od-line: #e6e2d9;
+  padding: 8rem 0 5rem;            /* top space clears the fixed header */
+  background: #fff;
+  color: var(--peninsula-charcoal, #1c1c1c);
+}
+.offer-detail .od-wrap {
+  max-width: 1500px;
+  padding-left: clamp(1.25rem, 5vw, 6rem);
+  padding-right: clamp(1.25rem, 5vw, 6rem);
+}
+ 
+/* ---------- Heading + lead ---------- */
+.od-eyebrow {
+  margin: 0 0 .8rem;
+  font-family: "Jost", sans-serif;
+  font-size: .8rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--od-gold);
+}
+.od-title {
+  margin: 0 0 1.4rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 3.4vw, 3.4rem);
+  line-height: 1.1;
+}
+.od-lead {
+  max-width: 38rem;
+  margin: 0 0 3rem;
+  font-family: "Jost", sans-serif;
+  font-size: clamp(1rem, 1.1vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.75;
+  color: #444;
+}
+ 
+.od-h2 {
+  margin: 0 0 1.4rem;
+  padding-top: 2.2rem;
+  border-top: 1px solid var(--od-line);
+  font-family: "EB Garamond", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+}
+.od-sub {
+  margin: -.6rem 0 1.6rem;
+  font-family: "Jost", sans-serif;
+  font-weight: 300;
+  color: #6b665c;
+}
+ 
+/* ---------- Rate benefits: tiles with gold icons ---------- */
+.od-benefits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .9rem;
+  margin: 0 0 3rem;
+  padding: 0;
+  list-style: none;
+}
+.od-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  background: #faf9f6;
+  border: 1px solid var(--od-line);
+  font-family: "Jost", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.od-benefits li:hover { border-color: var(--peninsula-gold-light, #b99d6b); transform: translateY(-2px); }
+.od-benefits li:last-child:nth-child(odd) { grid-column: 1 / -1; }   /* odd one out spans the row */
+.od-ico { flex: 0 0 auto; width: 1.7rem; height: 1.7rem; color: var(--peninsula-gold-light, #b99d6b); }
+.od-ico svg { width: 100%; height: 100%; }
+ 
+/* ---------- Destinations ---------- */
+.od-dest {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.od-dest h3 {
+  margin: 0 0 .9rem;
+  font-family: "Jost", sans-serif;
+  font-size: .75rem;
+  font-weight: 400;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #8a8377;
+}
+.od-dest ul { margin: 0; padding: 0; list-style: none; }
+.od-dest li + li { margin-top: .55rem; }
+.od-dest a {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+  font-family: "Jost", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--od-gold);
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat;
+  transition: background-size .3s ease, color .2s ease;
+}
+.od-dest a:hover, .od-dest a:focus-visible { background-size: 100% 1px; color: var(--peninsula-gold-dark, #6e522f); }
+ 
+/* ---------- Terms (collapse) ---------- */
+.od-terms { border-top: 1px solid var(--od-line); border-bottom: 1px solid var(--od-line); }
+.od-terms-toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.3rem 0;
+  background: none;
+  border: 0;
+  font-family: "Jost", sans-serif;
+  font-size: .95rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--od-gold);
+  text-align: left;
+  cursor: pointer;
+}
+/* plus / minus drawn with CSS */
+.od-pm { position: relative; flex: 0 0 14px; height: 14px; }
+.od-pm::before, .od-pm::after {
+  content: ""; position: absolute; left: 0; top: 50%;
+  width: 100%; height: 1.5px; background: currentColor;
+  transition: transform .25s ease;
+}
+.od-pm::after { transform: rotate(90deg); }
+.od-terms-toggle:not(.collapsed) .od-pm::after { transform: rotate(0); }   /* + becomes − */
+ 
+.od-terms-list {
+  margin: 0;
+  padding: 0 0 1.6rem 1.2rem;
+  font-family: "Jost", sans-serif;
+  font-size: .95rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: #444;
+}
+.od-terms-list li { margin-bottom: .7rem; padding-left: .3rem; }
+.od-terms-list li::marker { color: var(--peninsula-gold-light, #b99d6b); }
+.od-terms-list a { color: var(--od-gold); }
+ 
+/* ---------- Sticky gallery ---------- */
+.od-sticky { position: sticky; top: 7rem; }
+ 
+.od-gallery { position: relative; background: #d9d3c7; }
+.od-gallery .carousel-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+}
+.od-gallery-ui {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+}
+.od-count {
+  display: grid;
+  place-items: center;
+  padding: 0 1.1rem;
+  font-family: "Jost", sans-serif;
+  font-size: .85rem;
+  letter-spacing: .1em;
+  color: #555;
+}
+.od-nav {
+  display: grid;
+  place-items: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  padding: 0;
+  background: #fff;
+  border: 0;
+  border-left: 1px solid var(--od-line);
+  color: var(--od-gold);
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease;
+}
+.od-nav svg { width: .55rem; height: 1rem; }
+.od-nav:hover { background: var(--od-gold); color: #fff; }
+.od-nav:focus-visible { outline: 2px solid var(--od-gold); outline-offset: -4px; }
+ 
+/* Booking call-to-action under the photo */
+.od-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1.2rem;
+  padding: 1.3rem 1.6rem;
+  background: #faf9f6;
+  border: 1px solid var(--od-line);
+}
+.od-cta-title { margin: 0 0 .15rem; font-family: "EB Garamond", Georgia, serif; font-size: 1.35rem; }
+.od-cta-text  { margin: 0; font-family: "Jost", sans-serif; font-size: .9rem; font-weight: 300; color: #6b665c; }
+.od-cta-btn {
+  flex: 0 0 auto;
+  padding: .85rem 2rem;
+  background: var(--od-gold);
+  border: 1px solid var(--od-gold);
+  color: #fff;
+  font-family: "Jost", sans-serif;
+  font-size: .85rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color .2s ease;
+}
+.od-cta-btn:hover { background: var(--peninsula-gold-dark, #6e522f); }
+ 
+/* ---------- Tablet / mobile ---------- */
+@media (max-width: 991.98px) {
+  .offer-detail { padding: 5rem 0 3.5rem; }
+  .od-sticky { position: static; }                /* photo scrolls normally, sits above the text */
+  .od-dest { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 575.98px) {
+  .od-benefits { grid-template-columns: 1fr; }
+  .od-dest { grid-template-columns: 1fr; gap: 1.5rem; }
+  .od-cta { flex-direction: column; align-items: stretch; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .od-benefits li, .od-dest a, .od-pm::before, .od-pm::after { transition: none; }
+}

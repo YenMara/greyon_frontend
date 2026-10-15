@@ -1,0 +1,229 @@
+.motoring-intro {
+  padding: 3.5rem 0 0;
+  background: #f9f9f9;
+  color: var(--peninsula-charcoal, #1c1c1c);
+  text-align: center;
+}
+ 
+.motoring-intro .mi-title {
+  margin: 0 0 1.2rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 2.6vw, 2.8rem);
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-wrap: balance;
+  color: #111;
+}
+ 
+.motoring-intro .mi-subtitle {
+  margin: 0 0 2rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: clamp(1.15rem, 1.7vw, 1.75rem);
+  font-weight: 300;
+  line-height: 1.35;
+  color: #333;
+  text-wrap: balance;
+}
+ 
+.motoring-intro .mi-text {
+  max-width: 46rem;
+  margin: 0 auto 1.3rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: clamp(1rem, 1.15vw, 1.2rem);
+  font-weight: 300;
+  line-height: 1.55;
+  color: #444;
+  text-wrap: pretty;
+}
+.motoring-intro .mi-text em { font-style: italic; }
+ 
+/* Brown gradient button with a thin gold border */
+.motoring-intro .mi-btn {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 1.15rem 2.9rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: clamp(.85rem, 1vw, 1rem);
+  font-weight: 400;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(180deg, #7a6a52 0%, #5f4f3a 100%);
+  border: 1px solid var(--peninsula-gold-light, #b99d6b);
+  transition: filter .2s ease, transform .2s ease;
+}
+.motoring-intro .mi-btn:hover { filter: brightness(1.12); transform: translateY(-1px); }
+.motoring-intro .mi-btn:focus-visible { outline: 2px solid var(--peninsula-gold-light, #b99d6b); outline-offset: 3px; }
+ 
+/* thin gold line that closes the section */
+.motoring-intro .mi-line {
+  display: block;
+  width: 1px;
+  height: 4.5rem;
+  margin: 4rem auto 0;
+  background: var(--peninsula-gold-light, #b99d6b);
+}
+ 
+@media (max-width: 767.98px) {
+  .motoring-intro { padding-top: 2.75rem; }
+  .motoring-intro .container { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .motoring-intro .mi-btn { display: block; padding: 1rem; }
+  .motoring-intro .mi-line { height: 3.5rem; margin-top: 3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motoring-intro .mi-btn { transition: none; }
+}
+
+
+/* section2 */
+.ms-destinations { background: #fff; color: var(--peninsula-charcoal, #1c1c1c); overflow: hidden; }
+ 
+/* ---------- One split block ---------- */
+.ms-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: clamp(32rem, 50vw, 48rem);
+}
+.ms-feature--reverse .ms-media { order: 2; }       /* image to the right */
+ 
+/* ---------- Photo ---------- */
+.ms-media { position: relative; overflow: hidden; background: #2a3324; }
+.ms-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);                          /* settles to 1 when revealed */
+  transition: transform 1.6s cubic-bezier(.2, .7, .2, 1);
+}
+.ms-feature.is-visible .ms-media img { transform: scale(1); }
+.ms-feature:hover .ms-media img { transform: scale(1.03); }
+ 
+/* ---------- Text panel ---------- */
+.ms-panel {
+  display: flex;
+  align-items: center;
+  padding: clamp(2.5rem, 5vw, 6rem) clamp(1.5rem, 6vw, 7rem);
+}
+.ms-content { width: 100%; max-width: 38rem; }
+ 
+/* children fade up one after another */
+.ms-content > * { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+.ms-feature.is-visible .ms-content > * { opacity: 1; transform: none; }
+.ms-feature.is-visible .ms-content > *:nth-child(2) { transition-delay: .08s; }
+.ms-feature.is-visible .ms-content > *:nth-child(3) { transition-delay: .16s; }
+.ms-feature.is-visible .ms-content > *:nth-child(4) { transition-delay: .24s; }
+.ms-feature.is-visible .ms-content > *:nth-child(5) { transition-delay: .32s; }
+.ms-feature.is-visible .ms-content > *:nth-child(6) { transition-delay: .40s; }
+ 
+.ms-eyebrow {
+  margin: 0 0 .9rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: .82rem;
+  font-weight: 400;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--peninsula-gold, #867050);
+}
+.ms-title {
+  margin: 0;
+  font-family: "EB Garamond", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 1.05;
+  color: #111;
+}
+.ms-rule {
+  display: block;
+  width: 3.5rem;
+  height: 1px;
+  margin: 1.6rem 0;
+  background: var(--peninsula-gold-light, #b99d6b);
+}
+.ms-text {
+  margin: 0 0 2rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: clamp(1rem, 1.1vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.75;
+  color: #444;
+}
+ 
+/* ---------- Facts row ---------- */
+.ms-facts {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 1.2rem 2.8rem;
+  margin: 0 0 2.4rem;
+  padding: 1.4rem 0;
+  border-top: 1px solid #e6e2d9;
+  border-bottom: 1px solid #e6e2d9;
+}
+.ms-facts dt {
+  margin-bottom: .25rem;
+  font-family: "Jost", sans-serif;
+  font-size: .7rem;
+  font-weight: 400;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #8a8377;
+}
+.ms-facts dd {
+  margin: 0;
+  font-family: "Jost", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #222;
+}
+ 
+/* ---------- Explore link ---------- */
+.ms-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .9rem;
+  padding-bottom: .4rem;
+  font-family: "Jost", "Futura", sans-serif;
+  font-size: .95rem;
+  font-weight: 400;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--peninsula-gold, #867050);
+}
+.ms-link svg { width: 1.9rem; height: .75rem; color: #1c1c1c; transition: transform .3s ease; }
+.ms-link::after {                                   /* underline that draws in on hover */
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s ease;
+}
+.ms-link:hover::after, .ms-link:focus-visible::after { transform: scaleX(1); }
+.ms-link:hover svg, .ms-link:focus-visible svg { transform: translateX(6px); }
+.ms-link:focus-visible { outline: 2px solid var(--peninsula-gold-light, #b99d6b); outline-offset: 4px; }
+ 
+/* ---------- Tablet / mobile: photo on top, text below ---------- */
+@media (max-width: 991.98px) {
+  .ms-feature { grid-template-columns: 1fr; min-height: 0; }
+  .ms-feature--reverse .ms-media { order: 0; }
+  .ms-media { aspect-ratio: 4 / 3; }
+  .ms-panel { padding: 2.5rem 1.5rem 3.2rem; }
+  .ms-facts { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+}
+@media (max-width: 575.98px) {
+  .ms-facts { grid-template-columns: 1fr 1fr; }
+}
+ 
+/* no animation if the visitor asked for less motion (or JS is off) */
+@media (prefers-reduced-motion: reduce) {
+  .ms-media img, .ms-content > * { opacity: 1; transform: none; transition: none; }
+}
+.no-js .ms-media img, .no-js .ms-content > * { opacity: 1; transform: none; }
